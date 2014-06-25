@@ -100,8 +100,7 @@ extension LTMorphingLabel {
         let framesForCharacterDelay = Int(ceilf(totalDelay))
         
         if displayLink.duration > 0.0 {
-            let displayLinkDuration = Float(displayLink.duration)
-            _totalFrames = Int(roundf((morphingDuration + totalDelay) / displayLinkDuration))
+            _totalFrames = Int(roundf((morphingDuration + totalDelay) / Float(displayLink.duration)))
         }
         
         if _currentFrame++ < _totalFrames {
@@ -114,15 +113,16 @@ extension LTMorphingLabel {
     
     // http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
     func easeOutQuint(currentTime:Float, beginning:Float, change:Float, duration:Float) -> Float {
-        var t = currentTime / duration - 1.0
-        return change*(t*t*t*t*t + 1.0) + beginning;
+        return {
+            return change * ($0 * $0 * $0 * $0 * $0 + 1.0) + beginning
+            }(currentTime / duration - 1.0)
     }
     
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
     func rectsOfEachCharacter(textToDraw:String) -> Array<CGRect> {
         var charRects = Array<CGRect>()
-        var leftOffset:CGFloat = 0.0
+        var leftOffset: CGFloat = 0.0
         
         for (i, char) in enumerate(textToDraw) {
             let charSize = String(char).bridgeToObjectiveC().sizeWithFont(self.font)
@@ -154,12 +154,11 @@ extension LTMorphingLabel {
     
     func limboOfCharacters() -> Array<LTCharacterLimbo> {
         let fontSize = font.pointSize
-        let s = self.text as String
         var limbo = Array<LTCharacterLimbo>()
         
         let originRects = rectsOfEachCharacter(_originText)
-        var newRects = rectsOfEachCharacter(s)
-        var targetLeftOffSet:CGFloat = 0.0
+        var newRects = rectsOfEachCharacter(self.text!)
+        var targetLeftOffSet: CGFloat = 0.0
         
         for (i, character) in enumerate(_originText) {
             var currentRect = originRects[i]
@@ -206,7 +205,7 @@ extension LTMorphingLabel {
                 ))
         }
         
-        for (i, character) in enumerate(s) {
+        for (i, character) in enumerate(self.text!) {
             if i >= countElements(_diffResults) {
                 break
             }
@@ -215,7 +214,6 @@ extension LTMorphingLabel {
             var currentRect = newRects[i]
             var currentAlpha: CGFloat = 1.0
             var currentFontSize: CGFloat = font.pointSize
-            
             
             let diffResult = _diffResults[i]
             if diffResult.skip {

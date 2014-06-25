@@ -33,6 +33,13 @@
 			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
 			remoteInfo = LTMorphingLabelDemo;
 		};
+		D78925C6195A7BFE001AF955 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
 		D7AE4C3B1952E4D000171EA2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
@@ -181,6 +188,7 @@
 				D7AE4C3C1952E4D000171EA2 /* PBXTargetDependency */,
 				D7AE4C3E1952E4D000171EA2 /* PBXTargetDependency */,
 				D78925C5195A7BFE001AF955 /* PBXTargetDependency */,
+				D78925C7195A7BFE001AF955 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelDemoTests;
 			productName = LTMorphingLabelDemoTests;
@@ -277,6 +285,11 @@
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
 			targetProxy = D78925C4195A7BFE001AF955 /* PBXContainerItemProxy */;
 		};
+		D78925C7195A7BFE001AF955 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D78925C6195A7BFE001AF955 /* PBXContainerItemProxy */;
+		};
 		D7AE4C3C1952E4D000171EA2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
@@ -324,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -360,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
