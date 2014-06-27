@@ -1,7 +1,7 @@
 # LTMorphingLabel
 Yet another learning-by-doing Swift project cloning the original Morphing Label of iOS 8 introduced in WWDC 2014.
 
-<img src="https://cloud.githubusercontent.com/assets/219689/3381641/5cc10aae-fc24-11e3-9611-2ea8a6fc5d66.gif" width="314" height="175" alt="LTMorphingLabel"/>
+<img src="https://cloud.githubusercontent.com/assets/219689/3410248/641caad0-fde4-11e3-8cdf-7caf14d41cf5.gif" width="313" height="230" alt="LTMorphingLabel"/>
 
 ## TODOs & Known issues
 - [ ] Improve diff performance
@@ -9,6 +9,7 @@ Yet another learning-by-doing Swift project cloning the original Morphing Label 
 - [ ] Align to pixel
 - [ ] Text shadow
 - [ ] Multiline
+- [ ] Fade in/out Emoji
 
 ## Usage
 1. Copy LTMorphingLabel folder to your iOS 8 project;
