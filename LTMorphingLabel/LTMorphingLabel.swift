@@ -201,12 +201,12 @@ extension LTMorphingLabel {
                 switch morphingMethod {
                 case .EvaporateAndFade:
                     let newProgress = easeInQuint(progress, 0.0, 1.0)
-                    var yOffset = font.pointSize * Double(newProgress) * -1.0
+                    var yOffset: CGFloat = -1.0 * CGFloat(font.pointSize) * CGFloat(newProgress)
                     currentRect = CGRectOffset(currentRect, 0, yOffset)
                 default:
                     currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentRect = CGRectOffset(currentRect, 0,
-                        (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+                        CGFloat(font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio))
                 }
                 
                 currentAlpha = CGFloat(1.0 - progress)
@@ -230,21 +230,20 @@ extension LTMorphingLabel {
             var newX = Float(currentRect.origin.x)
             var currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
             var currentAlpha:CGFloat = CGFloat(morphingProgress)
+            var yOffset: CGFloat = 0.0
             
             switch morphingMethod {
             case .EvaporateAndFade:
                 let newProgress = 1.0 - easeInQuint(progress, 0.0, 1.0)
-                var yOffset = font.pointSize * Double(newProgress) * 0.6
-                currentRect = CGRectOffset(currentRect, 0, yOffset)
+                yOffset = CGFloat(font.pointSize) * CGFloat(newProgress) * 0.6
             default:
-                currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
-                currentRect = CGRectOffset(currentRect, 0,
-                    (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+                currentFontSize = CGFloat(easeOutQuint(progress, 0.0, Float(font.pointSize)))
+                yOffset = CGFloat(font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio)
             }
             
             return LTCharacterLimbo(
                 char: char,
-                rect: currentRect,
+                rect: CGRectOffset(currentRect, 0.0, yOffset),
                 alpha: currentAlpha,
                 size: currentFontSize)
     }
