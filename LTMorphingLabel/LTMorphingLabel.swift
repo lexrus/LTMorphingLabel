@@ -201,12 +201,12 @@ extension LTMorphingLabel {
                 switch morphingMethod {
                 case .EvaporateAndFade:
                     let newProgress = easeInQuint(progress, 0.0, 1.0)
-                    var yOffset = font.pointSize * Double(newProgress) * -1.0
+                    var yOffset = font.pointSize * Float(newProgress) * -1.0
                     currentRect = CGRectOffset(currentRect, 0, yOffset)
                 default:
                     currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentRect = CGRectOffset(currentRect, 0,
-                        (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+                        (font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio))
                 }
                 
                 currentAlpha = CGFloat(1.0 - progress)
@@ -234,12 +234,12 @@ extension LTMorphingLabel {
             switch morphingMethod {
             case .EvaporateAndFade:
                 let newProgress = 1.0 - easeInQuint(progress, 0.0, 1.0)
-                var yOffset = font.pointSize * Double(newProgress) * 0.6
+                var yOffset = font.pointSize * Float(newProgress) * 0.6
                 currentRect = CGRectOffset(currentRect, 0, yOffset)
             default:
                 currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
                 currentRect = CGRectOffset(currentRect, 0,
-                    (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+                    (font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio))
             }
             
             return LTCharacterLimbo(
