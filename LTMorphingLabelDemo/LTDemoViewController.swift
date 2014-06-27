@@ -28,11 +28,20 @@ class LTDemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
-    @IBOutlet var label: UILabel
+    @IBOutlet var label: LTMorphingLabel
     @IBAction func changeText(sender: AnyObject) {
         label.text = text
+    }
+    
+    @IBAction func segmentChanged(sender: AnyObject) {
+        let seg = sender as UISegmentedControl
+        switch seg.selectedSegmentIndex {
+        case 1:
+            self.label.morphingMethod = .EvaporateAndFade
+        default:
+            self.label.morphingMethod = .ScaleAndFade
+        }
     }
 }

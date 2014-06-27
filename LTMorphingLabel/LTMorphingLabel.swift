@@ -31,6 +31,13 @@ import UIKit
 import QuartzCore
 
 
+enum LTMorphingMethod: Int {
+    case ScaleAndFade = 0
+    case EvaporateAndFade
+//    case FallDownAndFade
+}
+
+
 struct LTCharacterLimbo: DebugPrintable {
     
     var char: Character
@@ -54,8 +61,9 @@ struct LTCharacterLimbo: DebugPrintable {
 class LTMorphingLabel: UILabel {
     
     var morphingProgress:Float = 0.0
-    var morphingDuration:Float = 0.36
-    var morphingCharacterDelay:Float = 0.03
+    var morphingDuration:Float = 0.3
+    var morphingCharacterDelay:Float = 0.026
+    var morphingMethod: LTMorphingMethod = .ScaleAndFade
     
     var _diffResults = Array<LTCharacterDiffResult>()
     var _originText = ""
@@ -63,6 +71,8 @@ class LTMorphingLabel: UILabel {
     var _totalFrames = 0
     var _totalWidth: Float = 0.0
     let _characterOffsetYRatio = 1.1
+    var _originRects = Array<CGRect>()
+    var _newRects = Array<CGRect>()
     
     override var text:String! {
     get {
@@ -70,8 +80,10 @@ class LTMorphingLabel: UILabel {
     }
     set {
         _originText = self.text
+        _originRects = rectsOfEachCharacter(_originText)
         _diffResults = _originText >> newValue
         super.text = newValue
+        _newRects = rectsOfEachCharacter(self.text!)
         
         morphingProgress = 0.0
         _currentFrame = 0
@@ -99,11 +111,11 @@ extension LTMorphingLabel {
         let totalDelay = Float(countElements(s) + countElements(_originText)) * morphingCharacterDelay
         let framesForCharacterDelay = Int(ceilf(totalDelay))
         
-        if displayLink.duration > 0.0 {
+        if displayLink.duration > 0.0 && _totalFrames == 0 {
             _totalFrames = Int(roundf((morphingDuration + totalDelay) / Float(displayLink.duration)))
         }
         
-        if _currentFrame++ < _totalFrames {
+        if _currentFrame++ < _totalFrames + 20 {
             morphingProgress += 1.0 / Float(_totalFrames)
             self.setNeedsDisplay()
         } else {
@@ -116,6 +128,20 @@ extension LTMorphingLabel {
         return {
             return change * ($0 * $0 * $0 * $0 * $0 + 1.0) + beginning
             }(currentTime / duration - 1.0)
+    }
+    
+    func easeOutQuint(t:Float, _ b: Float, _ c: Float) -> Float {
+        return easeOutQuint(t, beginning:b, change:c, duration:1.0)
+    }
+    
+    func easeInQuint(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
+        return {
+            return change * $0 * $0 * $0 * $0 * $0 + beginning
+        }(currentTime / duration)
+    }
+    
+    func easeInQuint(t: Float, _ b: Float, _ c: Float) -> Float {
+        return easeInQuint(t, beginning:b, change:c, duration:1.0)
     }
     
     // Could be enhanced by kerning text:
@@ -152,69 +178,114 @@ extension LTMorphingLabel {
         return offsetedCharRects
     }
     
+    func limboOfOriginalCharacter(
+        char: Character,
+        index: Int,
+        progress: Float) -> LTCharacterLimbo {
+            
+            let oriX = Float(_originRects[index].origin.x)
+            var currentRect = _originRects[index]
+            var newX = Float(currentRect.origin.x)
+            var currentFontSize = font.pointSize
+            var currentAlpha:CGFloat = 1.0
+            var diffResult = _diffResults[index]
+            
+            switch diffResult.diffType {
+            // Move the character that exists in the new text to current position
+            case .Move, .MoveAndAdd, .Same:
+                newX = Float(_newRects[index + diffResult.moveOffset].origin.x)
+                currentRect.origin.x = CGFloat(easeOutQuint(progress, oriX, newX - oriX))
+            default:
+                // Otherwise, remove it
+                
+                switch morphingMethod {
+                case .EvaporateAndFade:
+                    let newProgress = easeInQuint(progress, 0.0, 1.0)
+                    var yOffset = font.pointSize * Double(newProgress) * -1.0
+                    currentRect = CGRectOffset(currentRect, 0, yOffset)
+                default:
+                    currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
+                    currentRect = CGRectOffset(currentRect, 0,
+                        (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+                }
+                
+                currentAlpha = CGFloat(1.0 - progress)
+            }
+            
+            let limbo = LTCharacterLimbo(
+                char: char,
+                rect: currentRect,
+                alpha: currentAlpha,
+                size: currentFontSize
+            )
+            return limbo
+    }
+    
+    func limboOfNewCharacter(
+        char: Character,
+        index: Int,
+        progress: Float) -> LTCharacterLimbo {
+            
+            var currentRect = _newRects[index]
+            var newX = Float(currentRect.origin.x)
+            var currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
+            var currentAlpha:CGFloat = CGFloat(morphingProgress)
+            
+            switch morphingMethod {
+            case .EvaporateAndFade:
+                let newProgress = 1.0 - easeInQuint(progress, 0.0, 1.0)
+                var yOffset = font.pointSize * Double(newProgress) * 0.6
+                currentRect = CGRectOffset(currentRect, 0, yOffset)
+            default:
+                currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
+                currentRect = CGRectOffset(currentRect, 0,
+                    (font.pointSize - currentFontSize) / _characterOffsetYRatio)
+            }
+            
+            return LTCharacterLimbo(
+                char: char,
+                rect: currentRect,
+                alpha: currentAlpha,
+                size: currentFontSize)
+    }
+    
     func limboOfCharacters() -> Array<LTCharacterLimbo> {
         let fontSize = font.pointSize
         var limbo = Array<LTCharacterLimbo>()
         
-        let originRects = rectsOfEachCharacter(_originText)
-        var newRects = rectsOfEachCharacter(self.text!)
-        var targetLeftOffSet: CGFloat = 0.0
-        
+        // Iterate original characters
         for (i, character) in enumerate(_originText) {
-            var currentRect = originRects[i]
-            var currentAlpha: CGFloat = 1.0
-            var currentFontSize: CGFloat = font.pointSize
-            let progress:Float = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(i)))
+            var progress: Float = 0.0
             
-            let diffResult = _diffResults[i]
-            
-            switch diffResult.diffType {
-            case .Move, .MoveAndAdd:
-                var originRect = originRects[i]
-                var charOffset = diffResult.moveOffset
-                let oriX = Float(originRect.origin.x)
-                let newX = Float(newRects[i + charOffset].origin.x)
-                var currentX = easeOutQuint(progress,
-                    beginning: oriX,
-                    change: newX - oriX,
-                    duration: 1.0)
-                currentRect.origin.x = CGFloat(currentX)
-            case .Same:
-                let oriX = Float(currentRect.origin.x)
-                let newX = Float(newRects[i].origin.x)
-                var currentX = easeOutQuint(progress,
-                    beginning: oriX,
-                    change: newX - oriX,
-                    duration: 1.0)
-                currentRect.origin.x = CGFloat(currentX)
+            switch morphingMethod {
+            case .EvaporateAndFade:
+                let j: Int = Int(round(cos(Double(i)) * 2.0))
+                progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(j)))
             default:
-                currentFontSize = CGFloat(fontSize - CGFloat(easeOutQuint(progress,
-                    beginning: 0,
-                    change: Float(fontSize),
-                    duration: 1.0)))
-                var currentRect = originRects[i]
-                currentAlpha = CGFloat(1.0 - progress)
+                progress = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(i)))
             }
-            
-            currentRect.origin.y += (fontSize - currentFontSize) / _characterOffsetYRatio
-            limbo.append(LTCharacterLimbo(
-                char: character,
-                rect: currentRect,
-                alpha: currentAlpha,
-                size: currentFontSize
-                ))
+
+            let limboOfCharacter = limboOfOriginalCharacter(character, index: i, progress: progress)
+            limbo.append(limboOfCharacter)
         }
         
+        // Add new characters
         for (i, character) in enumerate(self.text!) {
             if i >= countElements(_diffResults) {
                 break
             }
             
-            var progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(i)))
-            var currentRect = newRects[i]
-            var currentAlpha: CGFloat = 1.0
-            var currentFontSize: CGFloat = font.pointSize
+            var progress: Float = 0.0
             
+            switch morphingMethod {
+            case .EvaporateAndFade:
+                let j: Int = Int(round(cos(Double(i)) * 2.0))
+                progress = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(j)))
+            default:
+                progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(i)))
+            }
+            
+            // Don't draw character that already exists
             let diffResult = _diffResults[i]
             if diffResult.skip {
                 continue
@@ -222,17 +293,8 @@ extension LTMorphingLabel {
             
             switch diffResult.diffType {
             case .MoveAndAdd, .Replace, .Add, .Delete:
-                currentFontSize = CGFloat(easeOutQuint(progress,
-                    beginning: 0,
-                    change: Float(fontSize),
-                    duration: 1.0))
-                currentRect.origin.y += (fontSize - currentFontSize) / _characterOffsetYRatio
-                currentAlpha = CGFloat(morphingProgress)
-                limbo.append(LTCharacterLimbo(
-                    char: character,
-                    rect: currentRect,
-                    alpha: currentAlpha,
-                    size: currentFontSize))
+                let limboOfCharacter = limboOfNewCharacter(character, index: i, progress: progress)
+                limbo.append(limboOfCharacter)
             default:
                 NSNotFound
             }
@@ -250,7 +312,12 @@ extension LTMorphingLabel {
     }
     
     override func drawTextInRect(rect: CGRect) {
+        let context = UIGraphicsGetCurrentContext();
+        
+//        CGContextSaveGState(context);
+        
         for charLimbo in limboOfCharacters() {
+//            CGContextRotateCTM(context, -(M_PI/2.0) * Double(morphingProgress));
             self.textColor.colorWithAlphaComponent(charLimbo.alpha).setFill()
             
             String(charLimbo.char).bridgeToObjectiveC().drawInRect(
@@ -258,6 +325,9 @@ extension LTMorphingLabel {
                 withFont: self.font.fontWithSize(charLimbo.size),
                 lineBreakMode: NSLineBreakMode.ByWordWrapping,
                 alignment: NSTextAlignment.Center)
+            
         }
+        
+//        CGContextRestoreGState(context);
     }
 }
