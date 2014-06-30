@@ -1,7 +1,8 @@
 # LTMorphingLabel
-Yet another learning-by-doing Swift project cloning the original Morphing Label of iOS 8 introduced in WWDC 2014.
+Yet another learning-by-doing Swift project cloning the original Morphing Label of iOS 8 introduced in WWDC 2014. It's easy to customize new morphing effects(see ```.EvaporateAndFade``` and ```.FallDownAndFade```).
 
-<img src="https://cloud.githubusercontent.com/assets/219689/3410248/641caad0-fde4-11e3-8cdf-7caf14d41cf5.gif" width="313" height="230" alt="LTMorphingLabel"/>
+## Demo:
+<img src="https://cloud.githubusercontent.com/assets/219689/3426548/cdacb1b6-0023-11e4-9827-15901055c8d0.gif" width="313" height="230" alt="LTMorphingLabel"/>
 
 ## TODOs & Known issues
 - [ ] Improve diff performance
@@ -9,7 +10,8 @@ Yet another learning-by-doing Swift project cloning the original Morphing Label 
 - [ ] Align to pixel
 - [ ] Text shadow
 - [ ] Multiline
-- [ ] Fade in/out Emoji
+- [ ] How to fade in/out Emoji?
+- [ ] ```.FallDownAndFade``` is buggy while morphing unicode
 
 ## Usage
 1. Copy LTMorphingLabel folder to your iOS 8 project;
