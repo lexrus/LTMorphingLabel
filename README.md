@@ -11,7 +11,7 @@ Yet another learning-by-doing Swift project cloning the original Morphing Label 
 - [ ] Text shadow
 - [ ] Multiline
 - [ ] How to fade in/out Emoji?
-- [ ] ```.FallDownAndFade``` is buggy while morphing unicode
+- [ ] ```.FallDownAndFade``` is buggy
 
 ## Usage
 1. Copy LTMorphingLabel folder to your iOS 8 project;

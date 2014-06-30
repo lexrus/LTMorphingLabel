@@ -198,7 +198,7 @@ extension LTMorphingLabel {
             var currentFontSize = font.pointSize
             var currentAlpha:CGFloat = 1.0
             var diffResult = _diffResults[index]
-            var currentFallingProgress = 0.0
+            var currentFallingProgress: Float = 0.0
             
             switch diffResult.diffType {
             // Move the character that exists in the new text to current position
@@ -215,7 +215,7 @@ extension LTMorphingLabel {
                     currentRect = CGRectOffset(currentRect, 0, yOffset)
                     currentAlpha = CGFloat(1.0 - progress)
                 case .FallDownAndFade:
-                    currentFallingProgress = CGFloat(progress)
+                    currentFallingProgress = progress
                     currentAlpha = CGFloat(1.0 - progress)
                 default:
                     currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
@@ -231,7 +231,7 @@ extension LTMorphingLabel {
                 rect: currentRect,
                 alpha: currentAlpha,
                 size: currentFontSize,
-                fallingProgress: currentFallingProgress
+                fallingProgress: CGFloat(currentFallingProgress)
             )
             return limbo
     }
@@ -355,9 +355,9 @@ extension LTMorphingLabel {
                     charRect.size.height)
                 CGContextTranslateCTM(context, charCenterX, charBottomY)
                 
-                let angle = Float(sin(charLimbo.rect.origin.x) > 0.5 ? 168 : -168)
+                let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)
                 let rotation = CGFloat(easeOutBack(min(1.0, Float(charLimbo.fallingProgress)), 0.0, 1.0) * angle)
-                CGContextRotateCTM(context, rotation * M_PI / 180.0)
+                CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
                 String(charLimbo.char).bridgeToObjectiveC().drawInRect(
                     charRect,
                     withFont: self.font.fontWithSize(charLimbo.size),
