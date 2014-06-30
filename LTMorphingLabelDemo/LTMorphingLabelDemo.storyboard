@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I will always" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-dc-WVn" customClass="LTMorphingLabel" customModule="LTMorphingLabelDemo" customModuleProvider="target">
-                                <rect key="frame" x="74" y="95" width="172" height="41"/>
+                                <rect key="frame" x="20" y="95" width="280.5" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -41,10 +41,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-Va-JH8">
-                                <rect key="frame" x="20" y="190" width="280" height="29"/>
+                                <rect key="frame" x="20" y="190" width="280.5" height="29"/>
                                 <segments>
-                                    <segment title="ScaleAndFade"/>
-                                    <segment title="EvaporateAndFade"/>
+                                    <segment title="Scale"/>
+                                    <segment title="Evaporate"/>
+                                    <segment title="Fall"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="3ei-2r-m0A" eventType="valueChanged" id="rRV-iJ-mWz"/>

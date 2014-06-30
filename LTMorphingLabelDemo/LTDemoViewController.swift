@@ -11,7 +11,7 @@ import UIKit
 class LTDemoViewController: UIViewController {
     
     var i = 0
-    var textArray = ["Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro", "老婆", "老婆+女儿", "老婆+女儿+💰🏡🚘"]
+    var textArray = ["Design", "Design is not just", "what it looks like", "and feels like.", "Design", "is how it works.", "- Steve Jobs", "Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro", "老婆", "老婆+女儿", "老婆+女儿+💰🏡🚘"]
     var text:String {
     get {
         if i >= countElements(textArray) {
@@ -40,6 +40,8 @@ class LTDemoViewController: UIViewController {
         switch seg.selectedSegmentIndex {
         case 1:
             self.label.morphingMethod = .EvaporateAndFade
+        case 2:
+            self.label.morphingMethod = .FallDownAndFade
         default:
             self.label.morphingMethod = .ScaleAndFade
         }

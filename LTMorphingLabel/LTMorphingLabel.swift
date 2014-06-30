@@ -2,11 +2,8 @@
 //  LTMorphingLabel.swift
 //  https://github.com/lexrus/LTMorphingLabel
 //
-//  Created by Lex on 6/24/14.
-//  Copyright (c) 2014 LexTang.com. All rights reserved.
-//
 //  The MIT License (MIT)
-//  Copyright © 2014 Lex Tang, http://LexTang.com
+//  Copyright (c) 2014 Lex Tang, http://LexTang.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the “Software”), to deal
@@ -34,16 +31,17 @@ import QuartzCore
 enum LTMorphingMethod: Int {
     case ScaleAndFade = 0
     case EvaporateAndFade
-//    case FallDownAndFade
+    case FallDownAndFade
 }
 
 
 struct LTCharacterLimbo: DebugPrintable {
     
-    var char: Character
+    let char: Character
     var rect: CGRect
     var alpha: CGFloat
     var size: CGFloat
+    var fallingProgress: CGFloat = 0.0
     
     var debugDescription: String {
     get {
@@ -60,9 +58,9 @@ struct LTCharacterLimbo: DebugPrintable {
 
 class LTMorphingLabel: UILabel {
     
-    var morphingProgress:Float = 0.0
-    var morphingDuration:Float = 0.3
-    var morphingCharacterDelay:Float = 0.026
+    var morphingProgress: Float = 0.0
+    var morphingDuration: Float = 0.3
+    var morphingCharacterDelay: Float = 0.026
     var morphingMethod: LTMorphingMethod = .ScaleAndFade
     
     var _diffResults = Array<LTCharacterDiffResult>()
@@ -73,6 +71,7 @@ class LTMorphingLabel: UILabel {
     let _characterOffsetYRatio = 1.1
     var _originRects = Array<CGRect>()
     var _newRects = Array<CGRect>()
+    var _morphingFallingProgress: Float = 0.0
     
     override var text:String! {
     get {
@@ -124,13 +123,13 @@ extension LTMorphingLabel {
     }
     
     // http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
-    func easeOutQuint(currentTime:Float, beginning:Float, change:Float, duration:Float) -> Float {
+    func easeOutQuint(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
         return {
             return change * ($0 * $0 * $0 * $0 * $0 + 1.0) + beginning
             }(currentTime / duration - 1.0)
     }
     
-    func easeOutQuint(t:Float, _ b: Float, _ c: Float) -> Float {
+    func easeOutQuint(t: Float, _ b: Float, _ c: Float) -> Float {
         return easeOutQuint(t, beginning:b, change:c, duration:1.0)
     }
     
@@ -142,6 +141,16 @@ extension LTMorphingLabel {
     
     func easeInQuint(t: Float, _ b: Float, _ c: Float) -> Float {
         return easeInQuint(t, beginning:b, change:c, duration:1.0)
+    }
+    
+    func easeOutBack(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
+        let s: Float = 2.70158
+        let t2: Float = currentTime / duration - 1.0
+        return Float(change * (t2 * t2 * ((s + 1.0) * t2 + s) + 1.0)) + beginning
+    }
+    
+    func easeOutBack(t: Float, _ b: Float, _ c: Float) -> Float {
+        return easeOutBack(t, beginning: b, change: c, duration: 1.0)
     }
     
     // Could be enhanced by kerning text:
@@ -189,6 +198,7 @@ extension LTMorphingLabel {
             var currentFontSize = font.pointSize
             var currentAlpha:CGFloat = 1.0
             var diffResult = _diffResults[index]
+            var currentFallingProgress = 0.0
             
             switch diffResult.diffType {
             // Move the character that exists in the new text to current position
@@ -203,20 +213,25 @@ extension LTMorphingLabel {
                     let newProgress = easeInQuint(progress, 0.0, 1.0)
                     var yOffset: CGFloat = -1.0 * CGFloat(font.pointSize) * CGFloat(newProgress)
                     currentRect = CGRectOffset(currentRect, 0, yOffset)
+                    currentAlpha = CGFloat(1.0 - progress)
+                case .FallDownAndFade:
+                    currentFallingProgress = CGFloat(progress)
+                    currentAlpha = CGFloat(1.0 - progress)
                 default:
                     currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentRect = CGRectOffset(currentRect, 0,
                         CGFloat(font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio))
+                    currentAlpha = CGFloat(1.0 - progress)
                 }
                 
-                currentAlpha = CGFloat(1.0 - progress)
             }
             
             let limbo = LTCharacterLimbo(
                 char: char,
                 rect: currentRect,
                 alpha: currentAlpha,
-                size: currentFontSize
+                size: currentFontSize,
+                fallingProgress: currentFallingProgress
             )
             return limbo
     }
@@ -245,7 +260,9 @@ extension LTMorphingLabel {
                 char: char,
                 rect: CGRectOffset(currentRect, 0.0, yOffset),
                 alpha: currentAlpha,
-                size: currentFontSize)
+                size: currentFontSize,
+                fallingProgress: 0.0
+            )
     }
     
     func limboOfCharacters() -> Array<LTCharacterLimbo> {
@@ -257,8 +274,8 @@ extension LTMorphingLabel {
             var progress: Float = 0.0
             
             switch morphingMethod {
-            case .EvaporateAndFade:
-                let j: Int = Int(round(cos(Double(i)) * 2.0))
+            case .EvaporateAndFade, .FallDownAndFade:
+                let j: Int = Int(round(cos(Double(i)) * 1.9))
                 progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(j)))
             default:
                 progress = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(i)))
@@ -303,6 +320,7 @@ extension LTMorphingLabel {
     }
 }
 
+
 // Overrides
 extension LTMorphingLabel {
     override func didMoveToSuperview() {
@@ -313,20 +331,48 @@ extension LTMorphingLabel {
     override func drawTextInRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext();
         
-//        CGContextSaveGState(context);
         
         for charLimbo in limboOfCharacters() {
-//            CGContextRotateCTM(context, -(M_PI/2.0) * Double(morphingProgress));
-            self.textColor.colorWithAlphaComponent(charLimbo.alpha).setFill()
+            var charRect:CGRect = charLimbo.rect
             
-            String(charLimbo.char).bridgeToObjectiveC().drawInRect(
-                charLimbo.rect,
-                withFont: self.font.fontWithSize(charLimbo.size),
-                lineBreakMode: NSLineBreakMode.ByWordWrapping,
-                alignment: NSTextAlignment.Center)
-            
+            if morphingMethod == .FallDownAndFade && charLimbo.fallingProgress > 0.0 {
+                CGContextSaveGState(context);
+                let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
+                var charBottomY = charRect.origin.y + charRect.size.height - font.pointSize / 6
+                
+                // Fall down if fallingProgress is more than 60%
+                if charLimbo.fallingProgress > 0.5 {
+                    let ease = CGFloat(easeInQuint(Float(charLimbo.fallingProgress - 0.4), beginning: 0.0, change: 1.0, duration: 0.5))
+                    charBottomY = charBottomY + ease * 10.0
+                    let fadeOutAlpha = min(1.0, max(0.0, charLimbo.fallingProgress * -2.0 + 2.0 + 0.01))
+                    self.textColor.colorWithAlphaComponent(fadeOutAlpha).setFill()
+                }
+                
+                charRect = CGRectMake(
+                    charRect.size.width / -2.0,
+                    charRect.size.height * -1.0 + font.pointSize / 6,
+                    charRect.size.width,
+                    charRect.size.height)
+                CGContextTranslateCTM(context, charCenterX, charBottomY)
+                
+                let angle = Float(sin(charLimbo.rect.origin.x) > 0.5 ? 168 : -168)
+                let rotation = CGFloat(easeOutBack(min(1.0, Float(charLimbo.fallingProgress)), 0.0, 1.0) * angle)
+                CGContextRotateCTM(context, rotation * M_PI / 180.0)
+                String(charLimbo.char).bridgeToObjectiveC().drawInRect(
+                    charRect,
+                    withFont: self.font.fontWithSize(charLimbo.size),
+                    lineBreakMode: NSLineBreakMode.ByWordWrapping,
+                    alignment: NSTextAlignment.Center)
+                CGContextRestoreGState(context);
+            } else {
+                self.textColor.colorWithAlphaComponent(charLimbo.alpha).setFill()
+                String(charLimbo.char).bridgeToObjectiveC().drawInRect(
+                    charRect,
+                    withFont: self.font.fontWithSize(charLimbo.size),
+                    lineBreakMode: NSLineBreakMode.ByWordWrapping,
+                    alignment: NSTextAlignment.Center)
+            }
         }
         
-//        CGContextRestoreGState(context);
     }
 }

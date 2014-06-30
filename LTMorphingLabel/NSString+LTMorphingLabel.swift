@@ -3,11 +3,8 @@
 //  LTMorphingLabel
 //  https://github.com/lexrus/LTMorphingLabel
 //
-//  Created by Lex on 6/24/14.
-//  Copyright (c) 2014 LexTang.com. All rights reserved.
-//
 //  The MIT License (MIT)
-//  Copyright © 2014 Lex Tang, http://LexTang.com
+//  Copyright (c) 2014 Lex Tang, http://LexTang.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the “Software”), to deal
