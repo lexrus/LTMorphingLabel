@@ -175,7 +175,7 @@ extension LTMorphingLabel {
         case .Right:
             stringLeftOffSet = CGFloat(Float(bounds.size.width) - _totalWidth)
         default:
-            NSNotFound
+            Foundation.NSNotFound
         }
         
         var offsetedCharRects = Array<CGRect>()
@@ -312,7 +312,7 @@ extension LTMorphingLabel {
                 let limboOfCharacter = limboOfNewCharacter(character, index: i, progress: progress)
                 limbo.append(limboOfCharacter)
             default:
-                NSNotFound
+                Foundation.NSNotFound
             }
         }
         
