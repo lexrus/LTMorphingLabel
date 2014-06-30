@@ -170,7 +170,7 @@ struct LTCharacterDiffResult: DebugPrintable {
         case .Move, .MoveAndAdd:
             diffResults[i + result.moveOffset].skip = true
         default:
-            NSNotFound
+            Foundation.NSNotFound
         }
         i++
     }
