@@ -17,6 +17,8 @@
 		D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
 		D7AE4C3F1952E4D700171EA2 /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
 		D7AFEC921962511C0006FA88 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
+		D7AFEC94196256720006FA88 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
+		D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,13 @@
 			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
 			remoteInfo = LTMorphingLabelDemo;
 		};
+		D7AFEC9919628ECF0006FA88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +79,8 @@
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
 		D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
+		D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
+		D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */,
+				D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */,
+				D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */,
 				D7AFEC911962511C0006FA88 /* LTEasing.swift */,
 				D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */,
 			);
@@ -192,6 +205,7 @@
 				D7AE4C3E1952E4D000171EA2 /* PBXTargetDependency */,
 				D78925C5195A7BFE001AF955 /* PBXTargetDependency */,
 				D78925C7195A7BFE001AF955 /* PBXTargetDependency */,
+				D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelDemoTests;
 			productName = LTMorphingLabelDemoTests;
@@ -261,7 +275,9 @@
 				D7633A2D195965A00009D084 /* NSString+LTMorphingLabel.swift in Sources */,
 				D7AFEC921962511C0006FA88 /* LTEasing.swift in Sources */,
 				D74AD98F19517430009A2ACD /* LTMorphingLabel.swift in Sources */,
+				D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */,
 				D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */,
+				D7AFEC94196256720006FA88 /* LTMorphingLabel+Evaporate.swift in Sources */,
 				D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +319,11 @@
 			isa = PBXTargetDependency;
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
 			targetProxy = D7AE4C3D1952E4D000171EA2 /* PBXContainerItemProxy */;
+		};
+		D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D7AFEC9919628ECF0006FA88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

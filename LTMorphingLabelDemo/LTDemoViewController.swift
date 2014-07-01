@@ -39,11 +39,11 @@ class LTDemoViewController: UIViewController {
         let seg = sender as UISegmentedControl
         switch seg.selectedSegmentIndex {
         case 1:
-            self.label.morphingMethod = .EvaporateAndFade
+            self.label.morphingEffect = .Evaporate
         case 2:
-            self.label.morphingMethod = .FallDownAndFade
+            self.label.morphingEffect = .Fall
         default:
-            self.label.morphingMethod = .ScaleAndFade
+            self.label.morphingEffect = .Scale
         }
     }
 }

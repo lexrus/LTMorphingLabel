@@ -1,0 +1,109 @@
+//
+//  LTMorphingLabel+Fall.swift
+//  https://github.com/lexrus/LTMorphingLabel
+//
+//  The MIT License (MIT)
+//  Copyright (c) 2014 Lex Tang, http://LexTang.com
+//
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the “Software”), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
+
+import UIKit
+
+extension LTMorphingLabel {
+    
+    func FallLoad() {
+        
+        _progressClosures["Fall\(LTMorphingPhaseManipulateProgress)"] = {
+            (index: Int, progress: Float, isNewChar: Bool) in
+            let j: Int = Int(round(cos(Double(index)) * 2.3))
+            let delay = isNewChar ? self.morphingCharacterDelay * -1.0 : self.morphingCharacterDelay
+            return min(1.0, max(0.0, self.morphingProgress + delay * Float(j)))
+        }
+        
+        _effectClosures["Fall\(LTMorphingPhaseDisappear)"] = {
+            (char:Character, index: Int, progress: Float) in
+            
+            return LTCharacterLimbo(
+                char: char,
+                rect: self._originRects[index],
+                alpha: CGFloat(1.0 - progress),
+                size: self.font.pointSize,
+                drawingProgress: CGFloat(progress))
+        }
+        
+        _effectClosures["Fall\(LTMorphingPhaseAppear)"] = {
+            (char:Character, index: Int, progress: Float) in
+            
+            let currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(self.font.pointSize)))
+            let yOffset = CGFloat(self.font.pointSize - currentFontSize) / CGFloat(self._characterOffsetYRatio)
+            
+            return LTCharacterLimbo(
+                char: char,
+                rect: CGRectOffset(self._newRects[index], 0.0, yOffset),
+                alpha: CGFloat(self.morphingProgress),
+                size: currentFontSize,
+                drawingProgress: 0.0
+            )
+        }
+        
+        
+        _drawingClosures["Fall\(LTMorphingPhaseDraw)"] = {
+            (charLimbo: LTCharacterLimbo) in
+            
+            if charLimbo.drawingProgress > 0.0 {
+                let context = UIGraphicsGetCurrentContext()
+                var charRect = charLimbo.rect
+                CGContextSaveGState(context);
+                let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
+                var charBottomY = charRect.origin.y + charRect.size.height - self.font.pointSize / 6
+                
+                // Fall down if drawingProgress is more than 50%
+                if charLimbo.drawingProgress > 0.5 {
+                    let ease = CGFloat(LTEasing.easeInQuint(Float(charLimbo.drawingProgress - 0.4), 0.0, 1.0, 0.5))
+                    charBottomY = charBottomY + ease * 10.0
+                    let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))
+                    self.textColor.colorWithAlphaComponent(fadeOutAlpha).setFill()
+                }
+                
+                charRect = CGRectMake(
+                    charRect.size.width / -2.0,
+                    charRect.size.height * -1.0 + self.font.pointSize / 6,
+                    charRect.size.width,
+                    charRect.size.height)
+                CGContextTranslateCTM(context, charCenterX, charBottomY)
+                
+                let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)
+                let rotation = CGFloat(LTEasing.easeOutBack(min(1.0, Float(charLimbo.drawingProgress)), 0.0, 1.0) * angle)
+                CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
+                String(charLimbo.char).bridgeToObjectiveC().drawInRect(
+                    charRect,
+                    withFont: self.font.fontWithSize(charLimbo.size),
+                    lineBreakMode: NSLineBreakMode.ByWordWrapping,
+                    alignment: NSTextAlignment.Center)
+                CGContextRestoreGState(context);
+                
+                return true
+            }
+            
+            return false
+        }
+    }
+    
+}

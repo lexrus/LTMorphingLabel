@@ -1,5 +1,6 @@
 # LTMorphingLabel
-Yet another learning-by-doing Swift project cloning the original Morphing Label of iOS 8 introduced in WWDC 2014. It's easy to customize new morphing effects(see ```.EvaporateAndFade``` and ```.FallDownAndFade```).
+A morphing UILabel subclass written in Swift.
+The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions. 
 
 ## Demo:
 <img src="https://cloud.githubusercontent.com/assets/219689/3426548/cdacb1b6-0023-11e4-9827-15901055c8d0.gif" width="313" height="230" alt="LTMorphingLabel"/>
@@ -7,6 +8,12 @@ Yet another learning-by-doing Swift project cloning the original Morphing Label 
 <a href="https://dribbble.com/shots/1621547-LTMorphingLabel">And this is the ad on Dribbble</a>
 
 <img src="https://d13yacurqjgara.cloudfront.net/users/67541/screenshots/1621547/ltmorphinglabeldribbble.gif" width="400" height="300" alt="Dribbble shot"/>
+
+## Morphing effects
+1. ```.Scale``` - default
+2. ```.Evaporate``` - [LTMorphingLabel+Evaporate.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BEvaporate.swift)
+3. ```.Fall``` - [LTMorphingLabel+Fall.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BFall.swift)
+4. {Yours}
 
 ## TODOs & Known issues
 - [ ] Improve diff performance
