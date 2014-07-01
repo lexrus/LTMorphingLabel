@@ -261,7 +261,7 @@ extension LTMorphingLabel {
             var progress: Float = 0.0
             
             if let closure = _progressClosures["\(morphingEffect.description)\(LTMorphingPhaseManipulateProgress)"] {
-                progress = closure(index: i, progress: progress, isNewChar: false)
+                progress = closure(index: i, progress: morphingProgress, isNewChar: false)
             } else {
                 progress = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(i)))
             }
@@ -279,7 +279,7 @@ extension LTMorphingLabel {
             var progress: Float = 0.0
             
             if let closure = _progressClosures["\(morphingEffect.description)\(LTMorphingPhaseManipulateProgress)"] {
-                progress = closure(index: i, progress: progress, isNewChar: true)
+                progress = closure(index: i, progress: morphingProgress, isNewChar: true)
             } else {
                 progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(i)))
             }
