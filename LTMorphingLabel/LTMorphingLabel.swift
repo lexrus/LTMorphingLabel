@@ -122,37 +122,6 @@ extension LTMorphingLabel {
         }
     }
     
-    // http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
-    func easeOutQuint(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
-        return {
-            return change * ($0 * $0 * $0 * $0 * $0 + 1.0) + beginning
-            }(currentTime / duration - 1.0)
-    }
-    
-    func easeOutQuint(t: Float, _ b: Float, _ c: Float) -> Float {
-        return easeOutQuint(t, beginning:b, change:c, duration:1.0)
-    }
-    
-    func easeInQuint(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
-        return {
-            return change * $0 * $0 * $0 * $0 * $0 + beginning
-        }(currentTime / duration)
-    }
-    
-    func easeInQuint(t: Float, _ b: Float, _ c: Float) -> Float {
-        return easeInQuint(t, beginning:b, change:c, duration:1.0)
-    }
-    
-    func easeOutBack(currentTime: Float, beginning: Float, change: Float, duration: Float) -> Float {
-        let s: Float = 2.70158
-        let t2: Float = currentTime / duration - 1.0
-        return Float(change * (t2 * t2 * ((s + 1.0) * t2 + s) + 1.0)) + beginning
-    }
-    
-    func easeOutBack(t: Float, _ b: Float, _ c: Float) -> Float {
-        return easeOutBack(t, beginning: b, change: c, duration: 1.0)
-    }
-    
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
     func rectsOfEachCharacter(textToDraw:String) -> Array<CGRect> {
@@ -204,13 +173,13 @@ extension LTMorphingLabel {
             // Move the character that exists in the new text to current position
             case .Move, .MoveAndAdd, .Same:
                 newX = Float(_newRects[index + diffResult.moveOffset].origin.x)
-                currentRect.origin.x = CGFloat(easeOutQuint(progress, oriX, newX - oriX))
+                currentRect.origin.x = CGFloat(LTEasing.easeOutQuint(progress, oriX, newX - oriX))
             default:
                 // Otherwise, remove it
                 
                 switch morphingMethod {
                 case .EvaporateAndFade:
-                    let newProgress = easeInQuint(progress, 0.0, 1.0)
+                    let newProgress = LTEasing.easeInQuint(progress, 0.0, 1.0, 1.0)
                     var yOffset: CGFloat = -1.0 * CGFloat(font.pointSize) * CGFloat(newProgress)
                     currentRect = CGRectOffset(currentRect, 0, yOffset)
                     currentAlpha = CGFloat(1.0 - progress)
@@ -218,7 +187,7 @@ extension LTMorphingLabel {
                     currentFallingProgress = progress
                     currentAlpha = CGFloat(1.0 - progress)
                 default:
-                    currentFontSize = font.pointSize - CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
+                    currentFontSize = font.pointSize - CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentRect = CGRectOffset(currentRect, 0,
                         CGFloat(font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio))
                     currentAlpha = CGFloat(1.0 - progress)
@@ -243,16 +212,16 @@ extension LTMorphingLabel {
             
             var currentRect = _newRects[index]
             var newX = Float(currentRect.origin.x)
-            var currentFontSize = CGFloat(easeOutQuint(progress, 0, Float(font.pointSize)))
+            var currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
             var currentAlpha:CGFloat = CGFloat(morphingProgress)
             var yOffset: CGFloat = 0.0
             
             switch morphingMethod {
             case .EvaporateAndFade:
-                let newProgress = 1.0 - easeInQuint(progress, 0.0, 1.0)
+                let newProgress = 1.0 - LTEasing.easeInQuint(progress, 0.0, 1.0)
                 yOffset = CGFloat(font.pointSize) * CGFloat(newProgress) * 0.6
             default:
-                currentFontSize = CGFloat(easeOutQuint(progress, 0.0, Float(font.pointSize)))
+                currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(font.pointSize)))
                 yOffset = CGFloat(font.pointSize - currentFontSize) / CGFloat(_characterOffsetYRatio)
             }
             
@@ -342,7 +311,7 @@ extension LTMorphingLabel {
                 
                 // Fall down if fallingProgress is more than 60%
                 if charLimbo.fallingProgress > 0.5 {
-                    let ease = CGFloat(easeInQuint(Float(charLimbo.fallingProgress - 0.4), beginning: 0.0, change: 1.0, duration: 0.5))
+                    let ease = CGFloat(LTEasing.easeInQuint(Float(charLimbo.fallingProgress - 0.4), 0.0, 1.0, 0.5))
                     charBottomY = charBottomY + ease * 10.0
                     let fadeOutAlpha = min(1.0, max(0.0, charLimbo.fallingProgress * -2.0 + 2.0 + 0.01))
                     self.textColor.colorWithAlphaComponent(fadeOutAlpha).setFill()
@@ -356,7 +325,7 @@ extension LTMorphingLabel {
                 CGContextTranslateCTM(context, charCenterX, charBottomY)
                 
                 let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)
-                let rotation = CGFloat(easeOutBack(min(1.0, Float(charLimbo.fallingProgress)), 0.0, 1.0) * angle)
+                let rotation = CGFloat(LTEasing.easeOutBack(min(1.0, Float(charLimbo.fallingProgress)), 0.0, 1.0) * angle)
                 CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
                 String(charLimbo.char).bridgeToObjectiveC().drawInRect(
                     charRect,
