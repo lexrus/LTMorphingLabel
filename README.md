@@ -3,17 +3,16 @@ A morphing UILabel subclass written in Swift.
 The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions. 
 
 ## Demo:
-<img src="https://cloud.githubusercontent.com/assets/219689/3426548/cdacb1b6-0023-11e4-9827-15901055c8d0.gif" width="313" height="230" alt="LTMorphingLabel"/>
+<img src="https://cloud.githubusercontent.com/assets/219689/3466547/9828c2f8-0282-11e4-9bcf-04592a0aa1c5.gif" width="315" height="265" alt="LTMorphingLabel"/>
 
-<a href="https://dribbble.com/shots/1621547-LTMorphingLabel">And this is the ad on Dribbble</a>
-
-<img src="https://d13yacurqjgara.cloudfront.net/users/67541/screenshots/1621547/ltmorphinglabeldribbble.gif" width="400" height="300" alt="Dribbble shot"/>
+<a href="https://dribbble.com/shots/1621547-LTMorphingLabel">And an ad on Dribbble</a>
 
 ## Morphing effects
 1. ```.Scale``` - default
 2. ```.Evaporate``` - [LTMorphingLabel+Evaporate.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BEvaporate.swift)
 3. ```.Fall``` - [LTMorphingLabel+Fall.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BFall.swift)
-4. {Yours}
+4. ```.Pixelate``` - [LTMorphingLabel+Pixelate.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BPixelate.swift)
+5. {Yours}
 
 ## TODOs & Known issues
 - [ ] Improve diff performance

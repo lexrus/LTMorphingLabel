@@ -12,6 +12,7 @@
 		D74AD982195171E7009A2ACD /* LTMorphingLabelDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D74AD98F19517430009A2ACD /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
+		D7558D3A1962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
 		D7633A2D195965A00009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
 		D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
@@ -76,6 +77,7 @@
 		D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelDemoTests.swift; sourceTree = "<group>"; };
 		D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LTMorphingLabelDemo.storyboard; sourceTree = "<group>"; };
 		D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabel.swift; sourceTree = "<group>"; };
+		D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
 		D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */,
 				D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */,
 				D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */,
+				D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */,
 				D7AFEC911962511C0006FA88 /* LTEasing.swift */,
 				D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */,
 			);
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7633A2D195965A00009D084 /* NSString+LTMorphingLabel.swift in Sources */,
+				D7558D3A1962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift in Sources */,
 				D7AFEC921962511C0006FA88 /* LTEasing.swift in Sources */,
 				D74AD98F19517430009A2ACD /* LTMorphingLabel.swift in Sources */,
 				D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */,
@@ -410,10 +414,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -423,10 +430,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
