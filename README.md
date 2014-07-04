@@ -22,7 +22,6 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 - [ ] Multiline
 - [ ] How to fade in/out Emoji?
 - [ ] ```.FallDownAndFade``` is buggy
-- [ ] Delegates or callback closures
 
 ## Usage
 1. Copy LTMorphingLabel folder to your iOS 8 project;

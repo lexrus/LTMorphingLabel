@@ -85,12 +85,20 @@ typealias LTMorphingDrawingClosure = LTCharacterLimbo -> Bool
 typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, isNewChar: Bool) -> Float
 
 
+@objc protocol LTMorphingLabelDelegate {
+    @optional func morphingDidStart(label: LTMorphingLabel)
+    @optional func morphingDidComplete(label: LTMorphingLabel)
+    @optional func morphingOnProgress(label: LTMorphingLabel, _ progress: Float)
+}
+
+
 class LTMorphingLabel: UILabel {
     
     var morphingProgress: Float = 0.0
     var morphingDuration: Float = 0.3
     var morphingCharacterDelay: Float = 0.026
     var morphingEffect: LTMorphingEffect = .Scale
+    var delegate: LTMorphingLabelDelegate?
     
     var _effectClosures = Dictionary<String, LTMorphingEffectClosure>()
     var _drawingClosures = Dictionary<String, LTMorphingDrawingClosure>()
@@ -109,7 +117,7 @@ class LTMorphingLabel: UILabel {
         return super.text
     }
     set {
-        _originText = self.text
+        _originText = text
         _originRects = rectsOfEachCharacter(_originText)
         _diffResults = _originText >> newValue
         super.text = newValue
@@ -117,7 +125,14 @@ class LTMorphingLabel: UILabel {
         
         morphingProgress = 0.0
         _currentFrame = 0
-        self.displayLink.paused = false
+        
+        if _originText != text {
+            displayLink.paused = false
+            
+            if let didStart = delegate?.morphingDidStart {
+                didStart(self)
+            }
+        }
     }
     }
     
@@ -145,11 +160,19 @@ extension LTMorphingLabel {
             _totalFrames = Int(roundf((morphingDuration + totalDelay) / Float(displayLink.duration)))
         }
         
-        if _currentFrame++ < _totalFrames + 20 {
+        if _originText != text && _currentFrame++ < _totalFrames + 20 {
             morphingProgress += 1.0 / Float(_totalFrames)
             self.setNeedsDisplay()
+            
+            if let onProgress = delegate?.morphingOnProgress {
+                onProgress(self, morphingProgress)
+            }
         } else {
             displayLink.paused = true
+            
+            if let complete = delegate?.morphingDidComplete {
+                complete(self)
+            }
         }
     }
     

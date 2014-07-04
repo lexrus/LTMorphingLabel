@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LTDemoViewController: UIViewController {
+class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
     
     var i = 0
     var textArray = ["Design", "Design is not just", "what it looks like", "and feels like.", "Design", "is how it works.", "- Steve Jobs", "Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro", "老婆 & 女儿"]
@@ -27,6 +27,8 @@ class LTDemoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.label.delegate = self
 
     }
 
@@ -48,4 +50,20 @@ class LTDemoViewController: UIViewController {
             self.label.morphingEffect = .Scale
         }
     }
+}
+
+extension LTDemoViewController {
+    
+    func morphingDidStart(label: LTMorphingLabel) {
+//        println("\(label) did start morphing.")
+    }
+    
+    func morphingDidComplete(label: LTMorphingLabel) {
+//        println("\(label) did complete morphing.")
+    }
+    
+    func morphingOnProgress(label: LTMorphingLabel, _ progress: Float) {
+//        println("\(label) is morphing on progress: \(progress)")
+    }
+    
 }
