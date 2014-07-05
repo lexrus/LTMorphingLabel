@@ -21,7 +21,7 @@
                                 <size key="shadowOffset" width="0.0" height="3"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@lexrus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pLC-4W-eKc">
-                                <rect key="frame" x="78" y="360" width="164" height="20.5"/>
+                                <rect key="frame" x="78" y="360" width="164" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.26741803278688525" green="0.0" blue="0.2448394713074295" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,6 +35,7 @@
                                     <segment title="Evaporate"/>
                                     <segment title="Fall"/>
                                     <segment title="Pixelate"/>
+                                    <segment title="Dots"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="3ei-2r-m0A" eventType="valueChanged" id="rRV-iJ-mWz"/>

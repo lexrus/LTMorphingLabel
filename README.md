@@ -12,7 +12,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 2. ```.Evaporate``` - [LTMorphingLabel+Evaporate.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BEvaporate.swift)
 3. ```.Fall``` - [LTMorphingLabel+Fall.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BFall.swift)
 4. ```.Pixelate``` - [LTMorphingLabel+Pixelate.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BPixelate.swift)
-5. {Yours}
+5. ```.Dots``` - [LTMorphingLabel+Dots.swift](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BDots.swift)
 
 ## TODOs & Known issues
 - [ ] Improve diff performance
@@ -22,6 +22,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 - [ ] Multiline
 - [ ] How to fade in/out Emoji?
 - [ ] ```.FallDownAndFade``` is buggy
+- [ ] Docs
 
 ## Usage
 1. Copy LTMorphingLabel folder to your iOS 8 project;

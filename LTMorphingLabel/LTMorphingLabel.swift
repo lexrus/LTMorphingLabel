@@ -29,6 +29,7 @@ import UIKit
 import QuartzCore
 
 
+let LTMorphingPhaseStart = "Start"
 let LTMorphingPhaseAppear = "Appear"
 let LTMorphingPhaseDisappear = "Disappear"
 let LTMorphingPhaseDraw = "Draw"
@@ -40,8 +41,9 @@ enum LTMorphingEffect: Int, Printable {
     case Evaporate
     case Fall
     case Pixelate
+    case Dots
     
-    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate"]
+    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Dots"]
     
     var description: String {
     get {
@@ -52,6 +54,8 @@ enum LTMorphingEffect: Int, Printable {
             return "Fall"
         case .Pixelate:
             return "Pixelate"
+        case .Dots:
+            return "Dots"
         default:
             return "Scale"
         }
@@ -80,6 +84,7 @@ struct LTCharacterLimbo: DebugPrintable {
     
 }
 
+typealias LTMorphingStartClosure = (Void) -> Void
 typealias LTMorphingEffectClosure = (Character, index: Int, progress: Float) -> LTCharacterLimbo
 typealias LTMorphingDrawingClosure = LTCharacterLimbo -> Bool
 typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, isNewChar: Bool) -> Float
@@ -100,6 +105,7 @@ class LTMorphingLabel: UILabel {
     var morphingEffect: LTMorphingEffect = .Scale
     var delegate: LTMorphingLabelDelegate?
     
+    var _startClosures = Dictionary<String, LTMorphingStartClosure>()
     var _effectClosures = Dictionary<String, LTMorphingEffectClosure>()
     var _drawingClosures = Dictionary<String, LTMorphingDrawingClosure>()
     var _progressClosures = Dictionary<String, LTMorphingManipulateProgressClosure>()
@@ -128,6 +134,9 @@ class LTMorphingLabel: UILabel {
         
         if _originText != text {
             displayLink.paused = false
+            if let closure = _startClosures["\(morphingEffect.description)\(LTMorphingPhaseStart)"] {
+                return closure()
+            }
             
             if let didStart = delegate?.morphingDidStart {
                 didStart(self)
