@@ -79,8 +79,10 @@ extension LTMorphingLabel {
         }
         let myParticlePath = NSBundle.mainBundle().pathForResource("Sparkle", ofType:"sks")
         if let node: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(myParticlePath) as? SKEmitterNode {
-            node.numParticlesToEmit = 80
+            node.numParticlesToEmit = Int(self.font.pointSize * 2.5)
+            node.particleColorSequence = SKKeyframeSequence(keyframeValues: [self.textColor], times: [0.0])
             node.name = name
+            node.particleScale = self.font.pointSize / 230.0
             self.scene!.addChild(node)
             return node
         }
@@ -149,8 +151,8 @@ extension LTMorphingLabel {
                 
                 node.position = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(1.0 - progress) * rect.size.height + rect.origin.y + self.font.pointSize / 1.5)
-                node.particlePositionRange = CGVector(rect.size.width, 5)
+                    self.bounds.size.height - CGFloat(progress) * rect.size.height - rect.origin.y)
+                node.particlePositionRange = CGVector(rect.size.width, self.font.pointSize / 5)
             }
             
             return LTCharacterLimbo(

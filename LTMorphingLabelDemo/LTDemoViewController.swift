@@ -11,7 +11,7 @@ import UIKit
 class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
     
     var i = 0
-    var textArray = ["Design", "Design is not just", "what it looks like", "and feels like.", "Design", "is how it works.", "- Steve Jobs", "Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro", "老婆 & 女儿"]
+    var textArray = ["Design", "", "Design is not just", "what it looks like", "and feels like.", "Design", "is how it works.", "- Steve Jobs", "Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro", "老婆 & 女儿"]
     var text:String {
     get {
         if i >= countElements(textArray) {
@@ -51,6 +51,18 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
         default:
             self.label.morphingEffect = .Scale
         }
+    }
+
+    @IBAction func toggleLight(sender: UISegmentedControl) {
+        let isNight = Bool(sender.selectedSegmentIndex == 0)
+        self.view.backgroundColor = isNight ? UIColor.blackColor() : UIColor.whiteColor()
+        self.label.textColor = isNight ? UIColor.whiteColor() : UIColor.blackColor()
+    }
+    
+    @IBAction func changeFontSize(sender: UISlider) {
+        self.label.font = self.label.font.fontWithSize(CGFloat(sender.value))
+        self.label.text = self.label.text
+        self.label.setNeedsDisplay()
     }
 }
 

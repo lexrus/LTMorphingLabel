@@ -117,6 +117,7 @@ class LTMorphingLabel: UILabel {
     let _characterOffsetYRatio = 1.1
     var _originRects = Array<CGRect>()
     var _newRects = Array<CGRect>()
+    var _charHeight = 0.0
     
     override var text:String! {
     get {
@@ -124,10 +125,10 @@ class LTMorphingLabel: UILabel {
     }
     set {
         _originText = text
-        _originRects = rectsOfEachCharacter(_originText)
         _diffResults = _originText >> newValue
         super.text = newValue
-        _newRects = rectsOfEachCharacter(self.text!)
+        _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
+        _newRects = rectsOfEachCharacter(newValue, withFont: self.font)
         
         morphingProgress = 0.0
         _currentFrame = 0
@@ -154,7 +155,6 @@ class LTMorphingLabel: UILabel {
             forMode: NSRunLoopCommonModes)
         return _displayLink
         }()
-    
 }
 
 // Animation
@@ -187,13 +187,18 @@ extension LTMorphingLabel {
     
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
-    func rectsOfEachCharacter(textToDraw:String) -> Array<CGRect> {
+    func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> Array<CGRect> {
         var charRects = Array<CGRect>()
         var leftOffset: CGFloat = 0.0
         
+        if _charHeight == 0.0 {
+            _charHeight = "LEX".bridgeToObjectiveC().sizeWithFont(font).height
+        }
+        var topOffset = (self.bounds.size.height - _charHeight) / 2.0
+        
         for (i, char) in enumerate(textToDraw) {
-            let charSize = String(char).bridgeToObjectiveC().sizeWithFont(self.font)
-            charRects.append(CGRect(origin: CGPointMake(leftOffset, 0), size: charSize))
+            let charSize = String(char).bridgeToObjectiveC().sizeWithFont(font)
+            charRects.append(CGRect(origin: CGPointMake(leftOffset, topOffset), size: charSize))
             leftOffset += charSize.width
         }
         
