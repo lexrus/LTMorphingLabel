@@ -35,7 +35,7 @@
                                     <segment title="Evaporate"/>
                                     <segment title="Fall"/>
                                     <segment title="Pixelate"/>
-                                    <segment title="Dots"/>
+                                    <segment title="Sparkle"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentChanged:" destination="3ei-2r-m0A" eventType="valueChanged" id="rRV-iJ-mWz"/>

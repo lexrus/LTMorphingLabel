@@ -1,5 +1,5 @@
 //
-//  LTMorphingLabel+Dots.swift
+//  LTMorphingLabel+Sparkle.swift
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
@@ -77,7 +77,7 @@ extension LTMorphingLabel {
         if let node = self.scene!.childNodeWithName(name) as? SKEmitterNode {
             return node
         }
-        let myParticlePath = NSBundle.mainBundle().pathForResource("Dots", ofType:"sks")
+        let myParticlePath = NSBundle.mainBundle().pathForResource("Sparkle", ofType:"sks")
         if let node: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(myParticlePath) as? SKEmitterNode {
             node.numParticlesToEmit = 80
             node.name = name
@@ -105,9 +105,9 @@ extension LTMorphingLabel {
         return (newImage, newRect)
     }
     
-    func DotsLoad() {
+    func SparkleLoad() {
         
-        _startClosures["Dots\(LTMorphingPhaseStart)"] = {
+        _startClosures["Sparkle\(LTMorphingPhaseStart)"] = {
             self.particleView!.paused = false
             
             for node: AnyObject in self.scene!.children {
@@ -117,7 +117,7 @@ extension LTMorphingLabel {
             }
         }
         
-        _progressClosures["Dots\(LTMorphingPhaseManipulateProgress)"] = {
+        _progressClosures["Sparkle\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -129,7 +129,7 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Dots\(LTMorphingPhaseDisappear)"] = {
+        _effectClosures["Sparkle\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
@@ -140,7 +140,7 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        _effectClosures["Dots\(LTMorphingPhaseAppear)"] = {
+        _effectClosures["Sparkle\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
@@ -162,7 +162,7 @@ extension LTMorphingLabel {
             )
         }
         
-        _drawingClosures["Dots\(LTMorphingPhaseDraw)"] = {
+        _drawingClosures["Sparkle\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {

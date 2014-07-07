@@ -41,9 +41,9 @@ enum LTMorphingEffect: Int, Printable {
     case Evaporate
     case Fall
     case Pixelate
-    case Dots
+    case Sparkle
     
-    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Dots"]
+    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Sparkle"]
     
     var description: String {
     get {
@@ -54,8 +54,8 @@ enum LTMorphingEffect: Int, Printable {
             return "Fall"
         case .Pixelate:
             return "Pixelate"
-        case .Dots:
-            return "Dots"
+        case .Sparkle:
+            return "Sparkle"
         default:
             return "Scale"
         }

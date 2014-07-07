@@ -47,7 +47,7 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
         case 3:
             self.label.morphingEffect = .Pixelate
         case 4:
-            self.label.morphingEffect = .Dots
+            self.label.morphingEffect = .Sparkle
         default:
             self.label.morphingEffect = .Scale
         }
