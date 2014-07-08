@@ -25,70 +25,28 @@
 //
 
 import UIKit
-import SpriteKit
 
 
-var kSceneKey = "kSceneKey"
-let kScenePointer = ConstUnsafePointer<String>(COpaquePointer(&kSceneKey))
-var kParticleViewKey = "kParticleViewKey"
-let kParticleViewPointer = ConstUnsafePointer<String>(COpaquePointer(&kParticleViewKey))
+var kEmitterViewKey = "kEmitterViewKey"
+let kEmitterViewPointer = ConstUnsafePointer<String>(COpaquePointer(&kEmitterViewKey))
 
 
 extension LTMorphingLabel {
     
-    var scene: SKScene? {
+    var emitterView: LTEmitterView {
     get {
-        var _sceneObject : AnyObject? = objc_getAssociatedObject(self, kScenePointer)
-        if let _scene : AnyObject = _sceneObject? {
-            return _scene as? SKScene
+        if let _emitterView: LTEmitterView = objc_getAssociatedObject(self, kEmitterViewPointer) as? LTEmitterView {
+            return _emitterView
         }
-        let _scene = SKScene(size: self.bounds.size)
-        _scene.scaleMode = .AspectFit
-        _scene.backgroundColor = UIColor.clearColor()!
-        self.scene = _scene
-        return _scene
+        let _emitterView = LTEmitterView(frame: self.bounds)
+        self.addSubview(_emitterView)
+        self.emitterView = _emitterView
+        return _emitterView
     }
     set {
-        objc_setAssociatedObject(self, kScenePointer, newValue,
+        objc_setAssociatedObject(self, kEmitterViewPointer, newValue,
             objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
     }
-    }
-    
-    var particleView: SKView? {
-    get {
-        var _viewObject : AnyObject? = objc_getAssociatedObject(self, kParticleViewPointer)
-        if let _view : AnyObject = _viewObject? {
-            return _view as? SKView
-        }
-        let _view = SKView()
-        _view.allowsTransparency = true
-        _view.backgroundColor = UIColor.clearColor()!
-        _view.frame = self.bounds
-        self.addSubview(_view)
-        _view.presentScene(self.scene)
-        self.particleView = _view
-        return _view
-    }
-    set {
-        objc_setAssociatedObject(self, kParticleViewPointer, newValue,
-            objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
-    }
-    }
-    
-    func emitterNodeOfName(name: String) -> SKEmitterNode {
-        if let node = self.scene!.childNodeWithName(name) as? SKEmitterNode {
-            return node
-        }
-        let myParticlePath = NSBundle.mainBundle().pathForResource("Sparkle", ofType:"sks")
-        if let node: SKEmitterNode = NSKeyedUnarchiver.unarchiveObjectWithFile(myParticlePath) as? SKEmitterNode {
-            node.numParticlesToEmit = Int(self.font.pointSize * 2.5)
-            node.particleColorSequence = SKKeyframeSequence(keyframeValues: [self.textColor], times: [0.0])
-            node.name = name
-            node.particleScale = self.font.pointSize / 230.0
-            self.scene!.addChild(node)
-            return node
-        }
-        return SKEmitterNode()
     }
     
     func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
@@ -113,13 +71,7 @@ extension LTMorphingLabel {
     func SparkleLoad() {
         
         _startClosures["Sparkle\(LTMorphingPhaseStart)"] = {
-            self.particleView!.paused = false
-            
-            for node: AnyObject in self.scene!.children {
-                if node.respondsToSelector(Selector("resetSimulation")) {
-                    node.removeFromParent()
-                }
-            }
+            self.emitterView.removeAllEmit()
         }
         
         _progressClosures["Sparkle\(LTMorphingPhaseManipulateProgress)"] = {
@@ -149,13 +101,23 @@ extension LTMorphingLabel {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
-                let node = self.emitterNodeOfName("c\(index)")
                 let rect = self._newRects[index]
-                
-                node.position = CGPointMake(
+                let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    self.bounds.size.height - CGFloat(progress) * rect.size.height - rect.origin.y)
-                node.particlePositionRange = CGVector(rect.size.width, self.font.pointSize / 5)
+                    CGFloat(progress) * rect.size.height + rect.origin.y)
+                
+                self.emitterView.createEmitter("c\(index)", duration: 0.6) {
+                    (layer, cell) in
+                    layer.emitterSize = CGSizeMake(rect.size.width , 1)
+                    cell.emissionLongitude = M_PI / 2.0
+                    cell.scale = self.font.pointSize / 300.0
+                    cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
+                    cell.color = self.textColor.CGColor
+                    cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(7) + 3))
+                }.update {
+                    (layer, cell) in
+                    layer.emitterPosition = emitterPosition
+                }.play()
             }
             
             return LTCharacterLimbo(
