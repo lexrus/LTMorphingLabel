@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D70FB1FF19685C3300EF9B84 /* Sparkle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D70FB1FD19685C3300EF9B84 /* Sparkle.sks */; };
 		D723B2CC196A3FD100B1BBE8 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
@@ -72,7 +71,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D70FB1FD19685C3300EF9B84 /* Sparkle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Sparkle.sks; sourceTree = "<group>"; };
 		D723B2CB196A3FD100B1BBE8 /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
 		D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTMorphingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74AD972195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				D723B2CB196A3FD100B1BBE8 /* Sparkle.png */,
-				D70FB1FD19685C3300EF9B84 /* Sparkle.sks */,
 			);
 			path = Particles;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 				D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */,
 				D723B2CC196A3FD100B1BBE8 /* Sparkle.png in Resources */,
 				D74AD976195171E7009A2ACD /* Images.xcassets in Resources */,
-				D70FB1FF19685C3300EF9B84 /* Sparkle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
