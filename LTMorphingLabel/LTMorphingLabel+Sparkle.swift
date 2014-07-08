@@ -27,10 +27,12 @@
 import UIKit
 import SpriteKit
 
+
 var kSceneKey = "kSceneKey"
-let kScenePointer: CConstVoidPointer = &kSceneKey
+let kScenePointer = ConstUnsafePointer<String>(COpaquePointer(&kSceneKey))
 var kParticleViewKey = "kParticleViewKey"
-let kParticleViewPointer: CConstVoidPointer = &kParticleViewKey
+let kParticleViewPointer = ConstUnsafePointer<String>(COpaquePointer(&kParticleViewKey))
+
 
 extension LTMorphingLabel {
     
@@ -89,14 +91,15 @@ extension LTMorphingLabel {
         return SKEmitterNode()
     }
     
-    func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat)
-        -> (UIImage, CGRect) {
+    func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
         let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
         let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
         UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
-        self.textColor.setFill()
         let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
-        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withFont: self.font)
+        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withAttributes: [
+            NSFontAttributeName: self.font,
+            NSForegroundColorAttributeName: self.textColor
+            ])
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         let newRect = CGRectMake(

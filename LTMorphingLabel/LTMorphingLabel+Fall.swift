@@ -78,13 +78,14 @@ extension LTMorphingLabel {
                 CGContextSaveGState(context);
                 let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
                 var charBottomY = charRect.origin.y + charRect.size.height - self.font.pointSize / 6
+                var charColor = self.textColor
                 
                 // Fall down if drawingProgress is more than 50%
                 if charLimbo.drawingProgress > 0.5 {
                     let ease = CGFloat(LTEasing.easeInQuint(Float(charLimbo.drawingProgress - 0.4), 0.0, 1.0, 0.5))
                     charBottomY = charBottomY + ease * 10.0
                     let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))
-                    self.textColor.colorWithAlphaComponent(fadeOutAlpha).setFill()
+                    charColor = self.textColor.colorWithAlphaComponent(fadeOutAlpha)
                 }
                 
                 charRect = CGRectMake(
@@ -97,11 +98,11 @@ extension LTMorphingLabel {
                 let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)
                 let rotation = CGFloat(LTEasing.easeOutBack(min(1.0, Float(charLimbo.drawingProgress)), 0.0, 1.0) * angle)
                 CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
-                String(charLimbo.char).bridgeToObjectiveC().drawInRect(
-                    charRect,
-                    withFont: self.font.fontWithSize(charLimbo.size),
-                    lineBreakMode: NSLineBreakMode.ByWordWrapping,
-                    alignment: NSTextAlignment.Center)
+                let s = String(charLimbo.char).bridgeToObjectiveC()
+                s.drawInRect(charRect, withAttributes: [
+                    NSFontAttributeName: self.font.fontWithSize(charLimbo.size),
+                    NSForegroundColorAttributeName: charColor
+                    ])
                 CGContextRestoreGState(context);
                 
                 return true

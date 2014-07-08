@@ -75,11 +75,13 @@ extension LTMorphingLabel {
         let scale = min(UIScreen.mainScreen().scale, 1.0 / blurRadius)
         UIGraphicsBeginImageContextWithOptions(charLimbo.rect.size, false, scale)
         let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))
-        self.textColor.colorWithAlphaComponent(fadeOutAlpha).setFill()
         let rect = CGRectMake(0, 0, charLimbo.rect.size.width, charLimbo.rect.size.height)
 //        let context = UIGraphicsGetCurrentContext()
 //        CGContextSetShouldAntialias(context, false)
-        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withFont: self.font)
+        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withAttributes: [
+            NSFontAttributeName: self.font,
+            NSForegroundColorAttributeName: self.textColor.colorWithAlphaComponent(fadeOutAlpha)
+            ])
 //        CGContextSetShouldAntialias(context, true)
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();

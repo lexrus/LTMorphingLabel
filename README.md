@@ -19,6 +19,10 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 #### [.Sparkle](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BSparkle.swift)
 <img src="https://cloud.githubusercontent.com/assets/219689/3491850/391cd320-059e-11e4-9804-698d4854c0c7.gif" width="300" height="70" alt="LTMorphingLabel"/>
 
+## Requirements
+1. Xcode 6.0 beta 3
+2. iOS 7.0
+
 ## TODOs & Known issues
 - [ ] Improve diff performance
 - [ ] Text kerning
