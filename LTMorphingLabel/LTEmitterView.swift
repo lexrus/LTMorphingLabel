@@ -48,8 +48,8 @@ struct LTEmitter {
         _cell.velocityRange = -80.0
         _cell.lifetime = 0.16
         _cell.lifetimeRange = 0.1
-        _cell.emissionLongitude = M_PI_2 * 2.0
-        _cell.emissionRange = M_PI_2 * 2.0
+        _cell.emissionLongitude = CGFloat(M_PI_2 * 2.0)
+        _cell.emissionRange = CGFloat(M_PI_2 * 2.0)
         _cell.contents = image
         _cell.scale = 0.1
         _cell.yAcceleration = 100

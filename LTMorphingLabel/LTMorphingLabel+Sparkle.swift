@@ -109,7 +109,7 @@ extension LTMorphingLabel {
                 self.emitterView.createEmitter("c\(index)", duration: 0.6) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 1)
-                    cell.emissionLongitude = M_PI / 2.0
+                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 300.0
                     cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
                     cell.color = self.textColor.CGColor

@@ -117,7 +117,7 @@ class LTMorphingLabel: UILabel {
     let _characterOffsetYRatio = 1.1
     var _originRects = Array<CGRect>()
     var _newRects = Array<CGRect>()
-    var _charHeight = 0.0
+    var _charHeight: CGFloat = 0.0
     
     override var text:String! {
     get {
