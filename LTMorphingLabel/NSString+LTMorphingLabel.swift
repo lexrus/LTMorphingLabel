@@ -104,15 +104,7 @@ struct LTCharacterDiffResult: DebugPrintable {
             continue
         }
         
-        // There must be another way to get a Character in String by index
-        let leftChar = { (s:String) -> Character in
-            for (j, char) in enumerate(s) {
-                if i == j {
-                    return char
-                }
-            }
-            return Character("")
-            }(lhs)
+        let leftChar = Array(lhs)[i]
         
         // Search left character in the new string
         var foundCharacterInRhs = false
