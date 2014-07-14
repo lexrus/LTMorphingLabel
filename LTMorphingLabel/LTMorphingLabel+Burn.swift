@@ -1,5 +1,5 @@
 //
-//  LTMorphingLabel+Sparkle.swift
+//  LTMorphingLabel+Burn.swift
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
@@ -30,7 +30,7 @@ import QuartzCore
 
 extension LTMorphingLabel {
     
-    func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
+    func _burningImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
         let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
         let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
         UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
@@ -49,13 +49,13 @@ extension LTMorphingLabel {
         return (newImage, newRect)
     }
     
-    func SparkleLoad() {
+    func BurnLoad() {
         
-        _startClosures["Sparkle\(LTMorphingPhaseStart)"] = {
+        _startClosures["Burn\(LTMorphingPhaseStart)"] = {
             self.emitterView.removeAllEmit()
         }
         
-        _progressClosures["Sparkle\(LTMorphingPhaseManipulateProgress)"] = {
+        _progressClosures["Burn\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -67,7 +67,7 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Sparkle\(LTMorphingPhaseDisappear)"] = {
+        _effectClosures["Burn\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
@@ -75,10 +75,11 @@ extension LTMorphingLabel {
                 rect: self._originRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
-                drawingProgress: 0.0)
+                drawingProgress: 0.0
+            )
         }
         
-        _effectClosures["Sparkle\(LTMorphingPhaseAppear)"] = {
+        _effectClosures["Burn\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
@@ -90,33 +91,42 @@ extension LTMorphingLabel {
                 self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 1)
-                    layer.renderMode = kCAEmitterLayerOutline
+                    layer.renderMode = kCAEmitterLayerAdditive
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 300.0
-                    cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
-                    cell.color = self.textColor.CGColor
-                    cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(7) + 3))
-                }.update {
-                    (layer, cell) in
-                    layer.emitterPosition = emitterPosition
-                }.play()
+                    cell.scale = self.font.pointSize / 200.0
+                    cell.scaleSpeed = self.font.pointSize / 100.0
+                    cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(2) + 3))
+                    cell.contents = UIImage(named: "Fire").CGImage
+                    cell.emissionLongitude = 0
+                    cell.emissionRange = M_PI_4
+                    cell.alphaSpeed = -1.8
+                    cell.yAcceleration = 10
+                    cell.velocity = 10 + CGFloat(arc4random_uniform(3))
+                    cell.velocityRange = 10
+                    cell.spin = 5
+                    cell.spinRange = 10
+                    cell.lifetime = self.morphingDuration / 2
+                    }.update {
+                        (layer, cell) in
+                        layer.emitterPosition = emitterPosition
+                    }.play()
             }
             
             return LTCharacterLimbo(
                 char: char,
                 rect: self._newRects[index],
-                alpha: CGFloat(self.morphingProgress),
+                alpha: 1.0,
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(progress)
             )
         }
         
-        _drawingClosures["Sparkle\(LTMorphingPhaseDraw)"] = {
+        _drawingClosures["Burn\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
                 
-                let (charImage, rect) = self._maskedImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
+                let (charImage, rect) = self._burningImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
                 charImage.drawInRect(rect)
                 
                 return true

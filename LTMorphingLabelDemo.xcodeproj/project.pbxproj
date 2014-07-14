@@ -15,6 +15,8 @@
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D74AD98F19517430009A2ACD /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
 		D7558D3A1962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */; };
+		D757C30D1974243400A34565 /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */; };
+		D757C31719742B1D00A34565 /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
 		D7633A2D195965A00009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
 		D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
@@ -104,6 +106,8 @@
 		D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LTMorphingLabelDemo.storyboard; sourceTree = "<group>"; };
 		D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabel.swift; sourceTree = "<group>"; };
 		D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
+		D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
+		D757C31619742B1D00A34565 /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.png; sourceTree = "<group>"; };
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
 		D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		D70FB1FB19685C3300EF9B84 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
+				D757C31619742B1D00A34565 /* Fire.png */,
 				D723B2CB196A3FD100B1BBE8 /* Sparkle.png */,
 			);
 			path = Particles;
@@ -203,6 +208,7 @@
 				D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */,
 				D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */,
 				D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */,
+				D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */,
 				D7AFEC911962511C0006FA88 /* LTEasing.swift */,
 				D7CCE5C5196B9AF500532C44 /* LTEmitterView.swift */,
 				D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */,
@@ -300,6 +306,7 @@
 			files = (
 				D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */,
 				D723B2CC196A3FD100B1BBE8 /* Sparkle.png in Resources */,
+				D757C31719742B1D00A34565 /* Fire.png in Resources */,
 				D74AD976195171E7009A2ACD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +327,7 @@
 			files = (
 				D7633A2D195965A00009D084 /* NSString+LTMorphingLabel.swift in Sources */,
 				D7558D3A1962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift in Sources */,
+				D757C30D1974243400A34565 /* LTMorphingLabel+Burn.swift in Sources */,
 				D7AFEC921962511C0006FA88 /* LTEasing.swift in Sources */,
 				D74AD98F19517430009A2ACD /* LTMorphingLabel.swift in Sources */,
 				D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */,
