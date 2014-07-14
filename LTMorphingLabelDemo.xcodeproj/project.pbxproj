@@ -26,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D73C166A1973941C00380335 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
 		D74AD97C195171E7009A2ACD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
@@ -226,6 +233,7 @@
 				D78925C5195A7BFE001AF955 /* PBXTargetDependency */,
 				D78925C7195A7BFE001AF955 /* PBXTargetDependency */,
 				D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */,
+				D73C166B1973941C00380335 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelDemoTests;
 			productName = LTMorphingLabelDemoTests;
@@ -319,6 +327,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D73C166B1973941C00380335 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D73C166A1973941C00380335 /* PBXContainerItemProxy */;
+		};
 		D74AD97D195171E7009A2ACD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
