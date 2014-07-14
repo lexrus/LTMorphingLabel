@@ -22,7 +22,6 @@
 		D7AFEC921962511C0006FA88 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
 		D7AFEC94196256720006FA88 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
 		D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
-		D7C98F2B1973A58D00902C5C /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98F2A1973A58D00902C5C /* LTMorphingLabel+Anvil.swift */; };
 		D7CCE5C6196B9AF500532C44 /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CCE5C5196B9AF500532C44 /* LTEmitterView.swift */; };
 		D7EC5FD6196692E8004E7076 /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */; };
 /* End PBXBuildFile section */
@@ -110,7 +109,6 @@
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
 		D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
 		D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
-		D7C98F2A1973A58D00902C5C /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
 		D7CCE5C5196B9AF500532C44 /* LTEmitterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEmitterView.swift; sourceTree = "<group>"; };
 		D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Sparkle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,7 +203,6 @@
 				D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */,
 				D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */,
 				D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */,
-				D7C98F2A1973A58D00902C5C /* LTMorphingLabel+Anvil.swift */,
 				D7AFEC911962511C0006FA88 /* LTEasing.swift */,
 				D7CCE5C5196B9AF500532C44 /* LTEmitterView.swift */,
 				D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */,
@@ -328,7 +325,6 @@
 				D7AFEC98196280860006FA88 /* LTMorphingLabel+Fall.swift in Sources */,
 				D7CCE5C6196B9AF500532C44 /* LTEmitterView.swift in Sources */,
 				D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */,
-				D7C98F2B1973A58D00902C5C /* LTMorphingLabel+Anvil.swift in Sources */,
 				D7AFEC94196256720006FA88 /* LTMorphingLabel+Evaporate.swift in Sources */,
 				D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */,
 				D7EC5FD6196692E8004E7076 /* LTMorphingLabel+Sparkle.swift in Sources */,
