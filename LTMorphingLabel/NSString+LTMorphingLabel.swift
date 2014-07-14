@@ -94,7 +94,7 @@ struct LTCharacterDiffResult: DebugPrintable {
     let rhsLength = countElements(rhs)
     var skipIndexes = Array<Int>()
     
-    for i in 0..<(max(lhsLength, rhsLength) + 1) {
+    for i in 0..(max(lhsLength, rhsLength) + 1) {
         var result = LTCharacterDiffResult(diffType: .Add, moveOffset: 0, skip: false)
         
         // If new string is longer than the original one
