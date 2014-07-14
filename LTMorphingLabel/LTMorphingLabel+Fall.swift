@@ -34,10 +34,10 @@ extension LTMorphingLabel {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if isNewChar {
-                return min(1.0, max(0.0, progress - self.morphingCharacterDelay * Float(index)))
+                return min(1.0, max(0.0, progress - self.morphingCharacterDelay * Float(index) / 1.7))
             }
             
-            let j: Float = Float(sin(Double(index))) * 2.1
+            let j: Float = Float(sin(Double(index))) * 1.7
             return min(1.0, max(0.0001, progress + self.morphingCharacterDelay * Float(j)))
             
         }

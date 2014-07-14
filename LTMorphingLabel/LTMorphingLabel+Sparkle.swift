@@ -58,10 +58,10 @@ extension LTMorphingLabel {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
-                return min(1.0, max(0.0, progress - self.morphingCharacterDelay * Float(index)))
+                return min(1.0, max(0.0, progress))
             }
             
-            let j = Float(sin(Double(index))) * 1.6
+            let j = Float(sin(Float(index))) * 1.5
             return min(1.0, max(0.0001, progress + self.morphingCharacterDelay * j))
             
         }
@@ -84,9 +84,9 @@ extension LTMorphingLabel {
                 let rect = self._newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height + rect.origin.y)
+                    CGFloat(progress) * rect.size.height * 0.85 + rect.origin.y)
                 
-                self.emitterView.createEmitter("c\(index)", duration: 0.6) {
+                self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 1)
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
