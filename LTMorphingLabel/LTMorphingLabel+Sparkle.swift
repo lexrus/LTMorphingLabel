@@ -27,27 +27,7 @@
 import UIKit
 
 
-var kEmitterViewKey = "kEmitterViewKey"
-let kEmitterViewPointer = ConstUnsafePointer<String>(COpaquePointer(&kEmitterViewKey))
-
-
 extension LTMorphingLabel {
-    
-    var emitterView: LTEmitterView {
-    get {
-        if let _emitterView: LTEmitterView = objc_getAssociatedObject(self, kEmitterViewPointer) as? LTEmitterView {
-            return _emitterView
-        }
-        let _emitterView = LTEmitterView(frame: self.bounds)
-        self.addSubview(_emitterView)
-        self.emitterView = _emitterView
-        return _emitterView
-    }
-    set {
-        objc_setAssociatedObject(self, kEmitterViewPointer, newValue,
-            objc_AssociationPolicy(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
-    }
-    }
     
     func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
         let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D723B2CC196A3FD100B1BBE8 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
+		D73C166E1973942300380335 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
 		D74AD982195171E7009A2ACD /* LTMorphingLabelDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */; };
@@ -27,6 +28,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		D73C166A1973941C00380335 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
+		D73C166C1973941C00380335 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
 			proxyType = 1;
@@ -234,6 +242,7 @@
 				D78925C7195A7BFE001AF955 /* PBXTargetDependency */,
 				D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */,
 				D73C166B1973941C00380335 /* PBXTargetDependency */,
+				D73C166D1973941C00380335 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelDemoTests;
 			productName = LTMorphingLabelDemoTests;
@@ -318,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73C166E1973942300380335 /* LTEasing.swift in Sources */,
 				D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */,
 				D7AE4C3F1952E4D700171EA2 /* LTMorphingLabel.swift in Sources */,
 				D74AD982195171E7009A2ACD /* LTMorphingLabelDemoTests.swift in Sources */,
@@ -331,6 +341,11 @@
 			isa = PBXTargetDependency;
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
 			targetProxy = D73C166A1973941C00380335 /* PBXContainerItemProxy */;
+		};
+		D73C166D1973941C00380335 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D73C166C1973941C00380335 /* PBXContainerItemProxy */;
 		};
 		D74AD97D195171E7009A2ACD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

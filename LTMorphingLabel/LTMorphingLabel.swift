@@ -155,6 +155,12 @@ class LTMorphingLabel: UILabel {
             forMode: NSRunLoopCommonModes)
         return _displayLink
         }()
+    
+    @lazy var emitterView: LTEmitterView = {
+        let _emitterView = LTEmitterView(frame: self.bounds)
+        self.addSubview(_emitterView)
+        return _emitterView
+        }()
 }
 
 // Animation
