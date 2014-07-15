@@ -86,7 +86,7 @@ extension LTMorphingLabel {
                 let rect = self._newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height * 0.85 + rect.origin.y)
+                    CGFloat(progress) * rect.size.height + rect.origin.y)
                 
                 self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
@@ -99,13 +99,36 @@ extension LTMorphingLabel {
                     cell.contents = UIImage(named: "Fire").CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = M_PI_4
-                    cell.alphaSpeed = -1.8
+                    cell.alphaSpeed = -2.5
                     cell.yAcceleration = 10
                     cell.velocity = 10 + CGFloat(arc4random_uniform(3))
                     cell.velocityRange = 10
                     cell.spin = 5
                     cell.spinRange = 10
-                    cell.lifetime = self.morphingDuration / 2
+                    cell.lifetime = self.morphingDuration
+                    }.update {
+                        (layer, cell) in
+                        layer.emitterPosition = emitterPosition
+                    }.play()
+                
+                self.emitterView.createEmitter("s\(index)", duration: self.morphingDuration) {
+                    (layer, cell) in
+                    layer.emitterSize = CGSizeMake(rect.size.width , 10)
+                    layer.renderMode = kCAEmitterLayerUnordered
+                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
+                    cell.scale = self.font.pointSize / 300.0
+                    cell.scaleSpeed = self.font.pointSize / 100.0
+                    cell.birthRate = Float(self.font.pointSize / CGFloat(arc4random_uniform(2) + 3))
+                    cell.contents = UIImage(named: "Smoke").CGImage
+                    cell.emissionLongitude = 0
+                    cell.emissionRange = M_PI_4
+                    cell.alphaSpeed = -0.5
+                    cell.yAcceleration = 10
+                    cell.velocity = 20 + CGFloat(arc4random_uniform(20))
+                    cell.velocityRange = 20
+                    cell.spin = CGFloat(arc4random_uniform(30)) / 10.0
+                    cell.spinRange = 3
+                    cell.lifetime = self.morphingDuration
                     }.update {
                         (layer, cell) in
                         layer.emitterPosition = emitterPosition

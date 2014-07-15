@@ -125,7 +125,10 @@ class LTMorphingLabel: UILabel {
     
     override var text:String! {
     get {
-        return super.text
+        if let t = super.text {
+            return t
+        }
+        return ""
     }
     set {
         _originText = text
