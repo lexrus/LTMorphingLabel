@@ -43,8 +43,9 @@ enum LTMorphingEffect: Int, Printable {
     case Pixelate
     case Sparkle
     case Burn
+    case Anvil
     
-    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Sparkle", "Burn"]
+    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Sparkle", "Burn", "Anvil"]
     
     var description: String {
     get {
@@ -59,6 +60,8 @@ enum LTMorphingEffect: Int, Printable {
             return "Sparkle"
         case .Burn:
             return "Burn"
+        case .Anvil:
+            return "Anvil"
         default:
             return "Scale"
         }
@@ -125,10 +128,7 @@ class LTMorphingLabel: UILabel {
     
     override var text:String! {
     get {
-        if let t = super.text {
-            return t
-        }
-        return ""
+        return super.text
     }
     set {
         _originText = text
@@ -361,8 +361,8 @@ extension LTMorphingLabel {
 // Overrides
 extension LTMorphingLabel {
     override func didMoveToSuperview() {
-        if let s = text {
-            text = s
+        if let s = self.text {
+            self.text = s
         }
         
         // Load all morphing effects

@@ -98,7 +98,7 @@ extension LTMorphingLabel {
                     cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(2) + 3))
                     cell.contents = UIImage(named: "Fire").CGImage
                     cell.emissionLongitude = 0
-                    cell.emissionRange = M_PI_4
+                    cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = -2.5
                     cell.yAcceleration = 10
                     cell.velocity = 10 + CGFloat(arc4random_uniform(3))
@@ -121,7 +121,7 @@ extension LTMorphingLabel {
                     cell.birthRate = Float(self.font.pointSize / CGFloat(arc4random_uniform(2) + 3))
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = 0
-                    cell.emissionRange = M_PI_4
+                    cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = -0.5
                     cell.yAcceleration = 10
                     cell.velocity = 20 + CGFloat(arc4random_uniform(20))
