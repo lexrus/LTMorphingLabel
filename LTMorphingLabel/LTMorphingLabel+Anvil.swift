@@ -36,49 +36,112 @@ extension LTMorphingLabel {
             self.emitterView.removeAllEmit()
             
             if countElements(self._newRects) > 0 {
+                let centerRect = self._newRects[Int(self._newRects.count / 2)]
+                
                 self.emitterView.createEmitter("leftSmoke", duration: 0.6) {
                     (layer, cell) in
-                    let x = self._newRects[0].origin.x
-                    layer.emitterSize = CGSizeMake(self.font.pointSize , 1)
-                    layer.emitterPosition = CGPointMake(x, self.bounds.size.height - self._newRects[0].size.height)
+                    layer.emitterSize = CGSizeMake(1 , 1)
+                    layer.emitterPosition = CGPointMake(
+                        centerRect.origin.x,
+                        centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 600.0
-                    cell.scaleSpeed = self.font.pointSize / 50
-                    cell.color = self.textColor.CGColor
-                    cell.velocity = 80
+                    cell.scale = self.font.pointSize / 300.0
+                    cell.scaleSpeed = self.font.pointSize / 130
+                    cell.birthRate = 60
+                    cell.velocity = 80 + CGFloat(arc4random_uniform(60))
                     cell.velocityRange = 100
-                    cell.yAcceleration = -20
-                    cell.xAcceleration = 100
+                    cell.yAcceleration = -40
+                    cell.xAcceleration = 70
                     cell.emissionLongitude = CGFloat(-M_PI_2)
                     cell.emissionRange = CGFloat(M_PI_4) / 5.0
-                    cell.lifetime = self.morphingDuration
-                    cell.spin = 5
-                    cell.alphaSpeed = -1.0 / self.morphingDuration
+                    cell.lifetime = self.morphingDuration * 2.0
+                    cell.spin = 10
+                    cell.alphaSpeed = -0.5 / self.morphingDuration
                 }
                 
                 self.emitterView.createEmitter("rightSmoke", duration: 0.6) {
                     (layer, cell) in
-                    let lastRect = self._newRects[self._newRects.count - 1]
-                    let x = lastRect.origin.x + lastRect.size.width
-                    layer.emitterSize = CGSizeMake(self.font.pointSize , 1)
-                    layer.emitterPosition = CGPointMake(x, self.bounds.size.height - self._newRects[0].size.height)
+                    layer.emitterSize = CGSizeMake(1 , 1)
+                    layer.emitterPosition = CGPointMake(
+                        centerRect.origin.x,
+                        centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 600.0
-                    cell.scaleSpeed = self.font.pointSize / 50
-                    cell.color = self.textColor.CGColor
-                    cell.velocity = 80
+                    cell.scale = self.font.pointSize / 300.0
+                    cell.scaleSpeed = self.font.pointSize / 130
+                    cell.birthRate = 60
+                    cell.velocity = 80 + CGFloat(arc4random_uniform(60))
                     cell.velocityRange = 100
-                    cell.yAcceleration = -20
-                    cell.xAcceleration = -100
+                    cell.yAcceleration = -40
+                    cell.xAcceleration = -70
                     cell.emissionLongitude = CGFloat(M_PI_2)
+                    cell.emissionRange = CGFloat(-M_PI_4) / 5.0
+                    cell.lifetime = self.morphingDuration * 2.0
+                    cell.spin = -10
+                    cell.alphaSpeed = -0.5 / self.morphingDuration
+                }
+                
+                self.emitterView.createEmitter("leftFragments", duration: 0.6) {
+                    (layer, cell) in
+                    layer.emitterSize = CGSizeMake(self.font.pointSize , 1)
+                    layer.emitterPosition = CGPointMake(
+                        centerRect.origin.x,
+                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.scale = self.font.pointSize / 90.0
+                    cell.scaleSpeed = self.font.pointSize / 40.0
+                    cell.color = self.textColor.CGColor
+                    cell.birthRate = 60
+                    cell.velocity = 350
+                    cell.yAcceleration = 0
+                    cell.xAcceleration = 10 * CGFloat(arc4random_uniform(10))
+                    cell.emissionLongitude = CGFloat(-M_PI_2)
                     cell.emissionRange = CGFloat(M_PI_4) / 5.0
+                    cell.alphaSpeed = -2
                     cell.lifetime = self.morphingDuration
-                    cell.spin = -5
-                    cell.alphaSpeed = -1.0 / self.morphingDuration
+                }
+                
+                self.emitterView.createEmitter("rightFragments", duration: 0.6) {
+                    (layer, cell) in
+                    layer.emitterSize = CGSizeMake(self.font.pointSize , 1)
+                    layer.emitterPosition = CGPointMake(
+                        centerRect.origin.x,
+                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.scale = self.font.pointSize / 90.0
+                    cell.scaleSpeed = self.font.pointSize / 40.0
+                    cell.color = self.textColor.CGColor
+                    cell.birthRate = 60
+                    cell.velocity = 350
+                    cell.yAcceleration = 0
+                    cell.xAcceleration = -10 * CGFloat(arc4random_uniform(10))
+                    cell.emissionLongitude = CGFloat(M_PI_2)
+                    cell.emissionRange = CGFloat(-M_PI_4) / 5.0
+                    cell.alphaSpeed = -2
+                    cell.lifetime = self.morphingDuration
+                }
+                
+                self.emitterView.createEmitter("fragments", duration: 0.6) {
+                    (layer, cell) in
+                    layer.emitterSize = CGSizeMake(self.font.pointSize , 1)
+                    layer.emitterPosition = CGPointMake(
+                        centerRect.origin.x,
+                        centerRect.origin.y + centerRect.size.height / 1.3)
+                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.scale = self.font.pointSize / 90.0
+                    cell.scaleSpeed = self.font.pointSize / 40.0
+                    cell.color = self.textColor.CGColor
+                    cell.birthRate = 60
+                    cell.velocity = 250
+                    cell.velocityRange = CGFloat(arc4random_uniform(20) + 30)
+                    cell.yAcceleration = 500
+                    cell.emissionLongitude = 0
+                    cell.emissionRange = CGFloat(M_PI_2)
+                    cell.alphaSpeed = -1
+                    cell.lifetime = self.morphingDuration
                 }
             }
         }
@@ -116,39 +179,41 @@ extension LTMorphingLabel {
                 rect.origin.y = CGFloat(Float(rect.origin.y) * easingValue)
             }
             
-            if char != " " && progress > 0.2 {
-                let emitterPosition = CGPointMake(
-                    rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height + rect.origin.y)
-                
-                self.emitterView.createEmitter("c\(index)", duration: 0.6) {
+            if progress > self.morphingDuration * 0.5 {
+                let end = self.morphingDuration * 0.55
+                self.emitterView.createEmitter("fragments", duration: 0.6) {_ in}.update {
                     (layer, cell) in
-                    layer.emitterSize = CGSizeMake(rect.size.width , 1)
-                    layer.emitterPosition = CGPointMake(
-                        rect.origin.x + rect.size.width / 2.0, rect.size.height + rect.origin.y)
-                    cell.contents = UIImage(named: "Fragment").CGImage
-                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 50.0
-                    cell.scaleSpeed = self.font.pointSize / 50.0 * -1.5
-                    cell.color = self.textColor.CGColor
-                    cell.birthRate = Float(arc4random_uniform(5) + 1)
-                    cell.velocity = 150
-                    cell.velocityRange = CGFloat(arc4random_uniform(200) + 50)
-                    cell.yAcceleration = 800
-                    cell.emissionLongitude = 0
-                    cell.emissionRange = CGFloat(M_PI_4)
-                    cell.lifetime = self.morphingDuration / 2.0
-                }.play()
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
+                    }.play()
+                self.emitterView.createEmitter("leftFragments", duration: 0.6) {_ in}.update {
+                    (layer, cell) in
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
+                    }.play()
+                self.emitterView.createEmitter("rightFragments", duration: 0.6) {_ in}.update {
+                    (layer, cell) in
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
+                    }.play()
             }
             
-            if progress > 0.5 {
+            if progress > self.morphingDuration * 0.63 {
+                let end = self.morphingDuration * 0.7
                 self.emitterView.createEmitter("leftSmoke", duration: 0.6) {_ in}.update {
                     (layer, cell) in
-                    cell.birthRate = progress / 0.6 * 30
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
                     }.play()
                 self.emitterView.createEmitter("rightSmoke", duration: 0.6) {_ in}.update {
                     (layer, cell) in
-                    cell.birthRate = progress / 0.6 * 30
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
                     }.play()
             }
                 

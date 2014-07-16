@@ -25,7 +25,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 <img src="https://cloud.githubusercontent.com/assets/219689/3582586/4fb8c52e-0bfe-11e4-9b6f-f070f7f3ab55.gif" width="300" height="70" alt="LTMorphingLabel-Burn"/>
 
 #### [.Anvil](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BAnvil.swift)
-<img src="https://cloud.githubusercontent.com/assets/219689/3583118/1b8ab95e-0c05-11e4-8ecd-fa03459ab6eb.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
+<img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
 
 ## Requirements
 1. Xcode 6.0 beta 3
