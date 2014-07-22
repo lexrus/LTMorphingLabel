@@ -95,13 +95,13 @@ extension LTMorphingLabel {
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 200.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
-                    cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(2) + 3))
+                    cell.birthRate = Float(self.font.pointSize) * Float(arc4random_uniform(2) + 3)
                     cell.contents = UIImage(named: "Fire").CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = -2.5
                     cell.yAcceleration = 10
-                    cell.velocity = 10 + CGFloat(arc4random_uniform(3))
+                    cell.velocity = CGFloat(10 + Int(arc4random_uniform(3)))
                     cell.velocityRange = 10
                     cell.spin = 5
                     cell.spinRange = 10
@@ -118,15 +118,15 @@ extension LTMorphingLabel {
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 300.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
-                    cell.birthRate = Float(self.font.pointSize / CGFloat(arc4random_uniform(2) + 3))
+                    cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(2) + 3)
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = -0.5
                     cell.yAcceleration = 10
-                    cell.velocity = 20 + CGFloat(arc4random_uniform(20))
+                    cell.velocity = CGFloat(20 + Int(arc4random_uniform(20)))
                     cell.velocityRange = 20
-                    cell.spin = CGFloat(arc4random_uniform(30)) / 10.0
+                    cell.spin = CGFloat(Float(arc4random_uniform(30)) / 10.0)
                     cell.spinRange = 3
                     cell.lifetime = self.morphingDuration
                     }.update {

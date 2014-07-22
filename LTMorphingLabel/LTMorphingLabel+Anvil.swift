@@ -50,7 +50,7 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 300.0
                     cell.scaleSpeed = self.font.pointSize / 130
                     cell.birthRate = 60
-                    cell.velocity = 80 + CGFloat(arc4random_uniform(60))
+                    cell.velocity = CGFloat(80 + Int(arc4random_uniform(60)))
                     cell.velocityRange = 100
                     cell.yAcceleration = -40
                     cell.xAcceleration = 70
@@ -73,7 +73,7 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 300.0
                     cell.scaleSpeed = self.font.pointSize / 130
                     cell.birthRate = 60
-                    cell.velocity = 80 + CGFloat(arc4random_uniform(60))
+                    cell.velocity = CGFloat(80 + Int(arc4random_uniform(60)))
                     cell.velocityRange = 100
                     cell.yAcceleration = -40
                     cell.xAcceleration = -70
@@ -97,7 +97,7 @@ extension LTMorphingLabel {
                     cell.birthRate = 60
                     cell.velocity = 350
                     cell.yAcceleration = 0
-                    cell.xAcceleration = 10 * CGFloat(arc4random_uniform(10))
+                    cell.xAcceleration = CGFloat(10 * Int(arc4random_uniform(10)))
                     cell.emissionLongitude = CGFloat(-M_PI_2)
                     cell.emissionRange = CGFloat(M_PI_4) / 5.0
                     cell.alphaSpeed = -2
@@ -117,7 +117,7 @@ extension LTMorphingLabel {
                     cell.birthRate = 60
                     cell.velocity = 350
                     cell.yAcceleration = 0
-                    cell.xAcceleration = -10 * CGFloat(arc4random_uniform(10))
+                    cell.xAcceleration = CGFloat(-10 * Int(arc4random_uniform(10)))
                     cell.emissionLongitude = CGFloat(M_PI_2)
                     cell.emissionRange = CGFloat(-M_PI_4) / 5.0
                     cell.alphaSpeed = -2
@@ -136,7 +136,7 @@ extension LTMorphingLabel {
                     cell.color = self.textColor.CGColor
                     cell.birthRate = 60
                     cell.velocity = 250
-                    cell.velocityRange = CGFloat(arc4random_uniform(20) + 30)
+                    cell.velocityRange = CGFloat(Int(arc4random_uniform(20)) + 30)
                     cell.yAcceleration = 500
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_2)

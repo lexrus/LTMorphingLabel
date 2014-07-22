@@ -95,7 +95,7 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 300.0
                     cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
                     cell.color = self.textColor.CGColor
-                    cell.birthRate = Float(self.font.pointSize * CGFloat(arc4random_uniform(7) + 3))
+                    cell.birthRate = Float(self.font.pointSize) * Float(arc4random_uniform(7) + 3)
                 }.update {
                     (layer, cell) in
                     layer.emitterPosition = emitterPosition

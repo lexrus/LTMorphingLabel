@@ -97,9 +97,9 @@ typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, is
 
 
 @objc protocol LTMorphingLabelDelegate {
-    @optional func morphingDidStart(label: LTMorphingLabel)
-    @optional func morphingDidComplete(label: LTMorphingLabel)
-    @optional func morphingOnProgress(label: LTMorphingLabel, _ progress: Float)
+    optional func morphingDidStart(label: LTMorphingLabel)
+    optional func morphingDidComplete(label: LTMorphingLabel)
+    optional func morphingOnProgress(label: LTMorphingLabel, _ progress: Float)
 }
 
 
@@ -154,7 +154,7 @@ class LTMorphingLabel: UILabel {
     }
     }
     
-    @lazy var displayLink: CADisplayLink = {
+    lazy var displayLink: CADisplayLink = {
         let _displayLink = CADisplayLink(
             target: self,
             selector: Selector.convertFromStringLiteral("_displayFrameTick"))
@@ -164,7 +164,7 @@ class LTMorphingLabel: UILabel {
         return _displayLink
         }()
     
-    @lazy var emitterView: LTEmitterView = {
+    lazy var emitterView: LTEmitterView = {
         let _emitterView = LTEmitterView(frame: self.bounds)
         self.addSubview(_emitterView)
         return _emitterView

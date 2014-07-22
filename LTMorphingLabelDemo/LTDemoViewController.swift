@@ -32,7 +32,7 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
 
     }
 
-    @IBOutlet var label: LTMorphingLabel
+    @IBOutlet var label: LTMorphingLabel!
     @IBAction func changeText(sender: AnyObject) {
         label.text = text
     }
