@@ -34,6 +34,7 @@ let LTMorphingPhaseAppear = "Appear"
 let LTMorphingPhaseDisappear = "Disappear"
 let LTMorphingPhaseDraw = "Draw"
 let LTMorphingPhaseManipulateProgress = "ManipulateProgress"
+let LTMorphingPhaseSkipFrames = "SkipFrames"
 
 
 public enum LTMorphingEffect: Int, Printable {
@@ -94,6 +95,7 @@ typealias LTMorphingStartClosure = (Void) -> Void
 typealias LTMorphingEffectClosure = (Character, index: Int, progress: Float) -> LTCharacterLimbo
 typealias LTMorphingDrawingClosure = LTCharacterLimbo -> Bool
 typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, isNewChar: Bool) -> Float
+typealias LTMorphingSkipFramesClosure = (Void) -> Int
 
 
 @objc public protocol LTMorphingLabelDelegate {
@@ -115,6 +117,7 @@ public class LTMorphingLabel: UILabel {
     var _effectClosures = Dictionary<String, LTMorphingEffectClosure>()
     var _drawingClosures = Dictionary<String, LTMorphingDrawingClosure>()
     var _progressClosures = Dictionary<String, LTMorphingManipulateProgressClosure>()
+    var _skipFramesClosures = Dictionary<String, LTMorphingSkipFramesClosure>()
     var _diffResults = Array<LTCharacterDiffResult>()
     var _originText = ""
     var _currentFrame = 0
@@ -125,6 +128,7 @@ public class LTMorphingLabel: UILabel {
     var _originRects = Array<CGRect>()
     var _newRects = Array<CGRect>()
     var _charHeight: CGFloat = 0.0
+    var _skipFramesCount: Int = 0
     
     override public var text:String! {
     get {
@@ -185,7 +189,15 @@ extension LTMorphingLabel {
         
         if _originText != text && _currentFrame++ < _totalFrames + _totalDelayFrames + 5 {
             morphingProgress += 1.0 / Float(_totalFrames)
-            self.setNeedsDisplay()
+            
+            if let closure = self._skipFramesClosures["\(self.morphingEffect.description)\(LTMorphingPhaseSkipFrames)"] {
+                if ++_skipFramesCount > closure() {
+                    _skipFramesCount = 0
+                    setNeedsDisplay()
+                }
+            } else {
+                setNeedsDisplay()
+            }
             
             if let onProgress = delegate?.morphingOnProgress {
                 onProgress(self, morphingProgress)

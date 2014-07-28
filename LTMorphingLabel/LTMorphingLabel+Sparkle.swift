@@ -85,7 +85,7 @@ extension LTMorphingLabel {
                 let rect = self._newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height * 0.85 + rect.origin.y)
+                    CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y)
                 
                 self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
@@ -123,6 +123,10 @@ extension LTMorphingLabel {
             }
             
             return false
+        }
+        
+        _skipFramesClosures["Sparkle\(LTMorphingPhaseSkipFrames)"] = {
+            return 1
         }
     }
     

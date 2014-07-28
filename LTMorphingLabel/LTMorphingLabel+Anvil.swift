@@ -47,7 +47,7 @@ extension LTMorphingLabel {
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 300.0
+                    cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
                     cell.birthRate = 60
                     cell.velocity = CGFloat(80 + Int(arc4random_uniform(60)))
@@ -70,7 +70,7 @@ extension LTMorphingLabel {
                     layer.renderMode = kCAEmitterLayerSurface
                     cell.contents = UIImage(named: "Smoke").CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 300.0
+                    cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
                     cell.birthRate = 60
                     cell.velocity = CGFloat(80 + Int(arc4random_uniform(60)))
