@@ -36,7 +36,7 @@ let LTMorphingPhaseDraw = "Draw"
 let LTMorphingPhaseManipulateProgress = "ManipulateProgress"
 
 
-enum LTMorphingEffect: Int, Printable {
+public enum LTMorphingEffect: Int, Printable {
     case Scale = 0
     case Evaporate
     case Fall
@@ -47,7 +47,7 @@ enum LTMorphingEffect: Int, Printable {
     
     static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Sparkle", "Burn", "Anvil"]
     
-    var description: String {
+    public var description: String {
     get {
         switch self {
         case .Evaporate:
@@ -96,20 +96,20 @@ typealias LTMorphingDrawingClosure = LTCharacterLimbo -> Bool
 typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, isNewChar: Bool) -> Float
 
 
-@objc protocol LTMorphingLabelDelegate {
+@objc public protocol LTMorphingLabelDelegate {
     optional func morphingDidStart(label: LTMorphingLabel)
     optional func morphingDidComplete(label: LTMorphingLabel)
     optional func morphingOnProgress(label: LTMorphingLabel, _ progress: Float)
 }
 
 
-class LTMorphingLabel: UILabel {
+public class LTMorphingLabel: UILabel {
     
-    var morphingProgress: Float = 0.0
-    var morphingDuration: Float = 0.6
-    var morphingCharacterDelay: Float = 0.026
-    var morphingEffect: LTMorphingEffect = .Scale
-    var delegate: LTMorphingLabelDelegate?
+    public var morphingProgress: Float = 0.0
+    public var morphingDuration: Float = 0.6
+    public var morphingCharacterDelay: Float = 0.026
+    public var morphingEffect: LTMorphingEffect = .Scale
+    public var delegate: LTMorphingLabelDelegate?
     
     var _startClosures = Dictionary<String, LTMorphingStartClosure>()
     var _effectClosures = Dictionary<String, LTMorphingEffectClosure>()
@@ -126,7 +126,7 @@ class LTMorphingLabel: UILabel {
     var _newRects = Array<CGRect>()
     var _charHeight: CGFloat = 0.0
     
-    override var text:String! {
+    override public var text:String! {
     get {
         return super.text
     }
@@ -154,7 +154,7 @@ class LTMorphingLabel: UILabel {
     }
     }
     
-    lazy var displayLink: CADisplayLink = {
+    private lazy var displayLink: CADisplayLink = {
         let _displayLink = CADisplayLink(
             target: self,
             selector: Selector.convertFromStringLiteral("_displayFrameTick"))
@@ -360,7 +360,7 @@ extension LTMorphingLabel {
 
 // Overrides
 extension LTMorphingLabel {
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         if let s = self.text {
             self.text = s
         }
@@ -374,7 +374,7 @@ extension LTMorphingLabel {
         }
     }
     
-    override func drawTextInRect(rect: CGRect) {
+    override public func drawTextInRect(rect: CGRect) {
         for charLimbo in limboOfCharacters() {
             var charRect:CGRect = charLimbo.rect
             
