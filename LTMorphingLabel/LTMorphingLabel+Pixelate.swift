@@ -78,7 +78,7 @@ extension LTMorphingLabel {
         let rect = CGRectMake(0, 0, charLimbo.rect.size.width, charLimbo.rect.size.height)
 //        let context = UIGraphicsGetCurrentContext()
 //        CGContextSetShouldAntialias(context, false)
-        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withAttributes: [
+        String(charLimbo.char).drawInRect(rect, withAttributes: [
             NSFontAttributeName: self.font,
             NSForegroundColorAttributeName: self.textColor.colorWithAlphaComponent(fadeOutAlpha)
             ])

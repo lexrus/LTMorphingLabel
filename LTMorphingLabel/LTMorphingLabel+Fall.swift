@@ -98,7 +98,7 @@ extension LTMorphingLabel {
                 let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)
                 let rotation = CGFloat(LTEasing.easeOutBack(min(1.0, Float(charLimbo.drawingProgress)), 0.0, 1.0) * angle)
                 CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
-                let s = String(charLimbo.char).bridgeToObjectiveC()
+                let s = String(charLimbo.char)
                 s.drawInRect(charRect, withAttributes: [
                     NSFontAttributeName: self.font.fontWithSize(charLimbo.size),
                     NSForegroundColorAttributeName: charColor

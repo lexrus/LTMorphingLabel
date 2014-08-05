@@ -21,7 +21,7 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
     }
     }
 
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder!) {
         super.init(coder: aDecoder)
     }
 

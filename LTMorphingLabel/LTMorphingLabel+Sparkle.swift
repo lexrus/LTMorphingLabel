@@ -35,7 +35,7 @@ extension LTMorphingLabel {
         let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
         UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
         let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
-        String(charLimbo.char).bridgeToObjectiveC().drawInRect(rect, withAttributes: [
+        String(charLimbo.char).drawInRect(rect, withAttributes: [
             NSFontAttributeName: self.font,
             NSForegroundColorAttributeName: self.textColor
             ])

@@ -86,7 +86,7 @@ struct LTCharacterDiffResult: DebugPrintable {
 }
 
 
-@infix func >>(lhs: String, rhs: String) -> Array<LTCharacterDiffResult> {
+func >>(lhs: String, rhs: String) -> Array<LTCharacterDiffResult> {
     
     var diffResults = Array<LTCharacterDiffResult>()
     let newChars = enumerate(rhs)
