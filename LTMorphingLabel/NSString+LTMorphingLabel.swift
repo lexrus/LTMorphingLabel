@@ -162,7 +162,7 @@ func >>(lhs: String, rhs: String) -> Array<LTCharacterDiffResult> {
         case .Move, .MoveAndAdd:
             diffResults[i + result.moveOffset].skip = true
         default:
-            Foundation.NSNotFound
+            ()
         }
         i++
     }
