@@ -465,7 +465,7 @@ struct LTEmitter {
     }
     
     func stop() {
-        if layer.superlayer {
+        if (nil != layer.superlayer) {
             layer.removeFromSuperlayer()
         }
     }
