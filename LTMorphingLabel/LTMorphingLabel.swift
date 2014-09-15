@@ -137,7 +137,7 @@ public class LTMorphingLabel: UILabel {
         return super.text
     }
     set {
-        _originText = text
+        _originText = text ?? ""
         _diffResults = _originText >> newValue
         super.text = newValue
         _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
