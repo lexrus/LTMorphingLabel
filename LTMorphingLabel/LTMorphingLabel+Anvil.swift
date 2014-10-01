@@ -45,7 +45,7 @@ extension LTMorphingLabel {
                         centerRect.origin.x,
                         centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
-                    cell.contents = UIImage(named: "Smoke").CGImage
+                    cell.contents = UIImage(named: "Smoke")!.CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
@@ -68,7 +68,7 @@ extension LTMorphingLabel {
                         centerRect.origin.x,
                         centerRect.origin.y + centerRect.size.height / 1.3)
                     layer.renderMode = kCAEmitterLayerSurface
-                    cell.contents = UIImage(named: "Smoke").CGImage
+                    cell.contents = UIImage(named: "Smoke")!.CGImage
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
@@ -90,7 +90,7 @@ extension LTMorphingLabel {
                     layer.emitterPosition = CGPointMake(
                         centerRect.origin.x,
                         centerRect.origin.y + centerRect.size.height / 1.3)
-                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.contents = UIImage(named: "Fragment")!.CGImage
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor
@@ -110,7 +110,7 @@ extension LTMorphingLabel {
                     layer.emitterPosition = CGPointMake(
                         centerRect.origin.x,
                         centerRect.origin.y + centerRect.size.height / 1.3)
-                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.contents = UIImage(named: "Fragment")!.CGImage
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor
@@ -130,7 +130,7 @@ extension LTMorphingLabel {
                     layer.emitterPosition = CGPointMake(
                         centerRect.origin.x,
                         centerRect.origin.y + centerRect.size.height / 1.3)
-                    cell.contents = UIImage(named: "Fragment").CGImage
+                    cell.contents = UIImage(named: "Fragment")!.CGImage
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
                     cell.color = self.textColor.CGColor

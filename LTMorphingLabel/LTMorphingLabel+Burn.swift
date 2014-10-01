@@ -97,7 +97,7 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 200.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
                     cell.birthRate = Float(self.font.pointSize)
-                    cell.contents = UIImage(named: "Fire").CGImage
+                    cell.contents = UIImage(named: "Fire")!.CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = -1.0
@@ -121,7 +121,7 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 40.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
                     cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(10) + 20)
-                    cell.contents = UIImage(named: "Smoke").CGImage
+                    cell.contents = UIImage(named: "Smoke")!.CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = self.morphingDuration / -3.0
