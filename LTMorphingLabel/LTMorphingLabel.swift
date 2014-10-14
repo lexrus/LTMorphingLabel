@@ -425,7 +425,7 @@ struct LTEmitter {
         }()
     
     let cell: CAEmitterCell = {
-        let image = UIImage(named:"Sparkle")!.CGImage
+        let image = UIImage(named:"Sparkle").CGImage
         let _cell = CAEmitterCell()
         _cell.name = "sparkle"
         _cell.birthRate = 150.0
