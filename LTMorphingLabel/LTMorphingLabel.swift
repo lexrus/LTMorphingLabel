@@ -139,13 +139,13 @@ public class LTMorphingLabel: UILabel {
     set {
         _originText = text ?? ""
         _diffResults = _originText >> newValue
-        super.text = newValue
-        _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
-        _newRects = rectsOfEachCharacter(newValue, withFont: self.font)
+        super.text = newValue ?? ""
         
         morphingProgress = 0.0
         _currentFrame = 0
         _totalFrames = 0
+        
+        self.setNeedsLayout()
         
         if _originText != text {
             displayLink.paused = false
@@ -157,6 +157,32 @@ public class LTMorphingLabel: UILabel {
                 didStart(self)
             }
         }
+    }
+    }
+    
+    public override func setNeedsLayout() {
+        super.setNeedsLayout()
+        _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
+        _newRects = rectsOfEachCharacter(self.text ?? "", withFont: self.font)
+    }
+    
+    override public var bounds:CGRect {
+    get {
+        return super.bounds
+    }
+    set {
+        super.bounds = newValue
+        self.setNeedsLayout()
+    }
+    }
+    
+    override public var frame:CGRect {
+    get {
+        return super.frame
+    }
+    set {
+        super.frame = newValue
+        self.setNeedsLayout()
     }
     }
     
@@ -218,7 +244,7 @@ extension LTMorphingLabel {
     func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> Array<CGRect> {
         var charRects = Array<CGRect>()
         var leftOffset: CGFloat = 0.0
-        
+
         if _charHeight == 0.0 {
             _charHeight = "LEX".sizeWithAttributes([NSFontAttributeName: self.font]).height
         }
