@@ -107,7 +107,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
 
 
 // MARK: - LTMorphingLabel
-public class LTMorphingLabel: UILabel {
+@IBDesignable public class LTMorphingLabel: UILabel {
     
     public var morphingProgress: Float = 0.0
     public var morphingDuration: Float = 0.6
@@ -137,7 +137,11 @@ public class LTMorphingLabel: UILabel {
         return super.text
     }
     set {
+#if TARGET_INTERFACE_BUILDER
+        _originText = newValue ?? ""
+#else
         _originText = text ?? ""
+#endif
         _diffResults = _originText >> newValue
         super.text = newValue ?? ""
         
@@ -146,7 +150,8 @@ public class LTMorphingLabel: UILabel {
         _totalFrames = 0
         
         self.setNeedsLayout()
-        
+ 
+#if !TARGET_INTERFACE_BUILDER
         if _originText != text {
             displayLink.paused = false
             if let closure = _startClosures["\(morphingEffect.description)\(LTMorphingPhaseStart)"] {
@@ -157,6 +162,7 @@ public class LTMorphingLabel: UILabel {
                 didStart(self)
             }
         }
+#endif
     }
     }
     
