@@ -55,6 +55,8 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
         default:
             self.label.morphingEffect = .Scale
         }
+        
+        self.changeText(sender);
     }
 
     @IBAction func toggleLight(sender: UISegmentedControl) {
