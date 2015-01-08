@@ -45,11 +45,13 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 
 1. Add this line to your Cartfile: `github "lexrus/LTMorphingLabel"`
 2. Run `carthage update` to fetch and build the `LTMorphingLabel.framework`
-3. Drag `LTMorphingLabel.framework` into your iOS 8 project.
+3. Drag `LTMorphingLabel.framework` into your iOS 8 project
 
 ### [CocoaPods](http://cocoapods.org)
 
-{{ i_am_working_hard_placeholder }}
+1. Install the latest preview release of CocoaPods: `gem install cocoapods --pre`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.3'`
+3. Install the pod: `pod install`
 
 ## Usage
 
