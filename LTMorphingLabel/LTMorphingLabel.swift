@@ -131,17 +131,14 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
     var _newRects = Array<CGRect>()
     var _charHeight: CGFloat = 0.0
     var _skipFramesCount: Int = 0
-    
+        
+#if !TARGET_INTERFACE_BUILDER
     override public var text:String! {
     get {
         return super.text
     }
     set {
-#if TARGET_INTERFACE_BUILDER
-        _originText = newValue ?? ""
-#else
         _originText = text ?? ""
-#endif
         _diffResults = _originText >> newValue
         super.text = newValue ?? ""
         
@@ -151,7 +148,6 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
         
         self.setNeedsLayout()
  
-#if !TARGET_INTERFACE_BUILDER
         if _originText != text {
             displayLink.paused = false
             if let closure = _startClosures["\(morphingEffect.description)\(LTMorphingPhaseStart)"] {
@@ -162,10 +158,9 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
                 didStart(self)
             }
         }
-#endif
     }
     }
-    
+
     public override func setNeedsLayout() {
         super.setNeedsLayout()
         _originRects = rectsOfEachCharacter(_originText, withFont: self.font)
@@ -191,6 +186,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
         self.setNeedsLayout()
     }
     }
+#endif
     
     private lazy var displayLink: CADisplayLink = {
         let _displayLink = CADisplayLink(
