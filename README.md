@@ -39,10 +39,22 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 - [ ] Particles of `.Burn` is weired
 - [ ] Docs
 
+## Installation
+
+### [Carthage](https://github.com/Carthage/Carthage)
+
+1. Add this line to your Cartfile: `github "lexrus/LTMorphingLabel"`
+2. Run `carthage update` to fetch and build the `LTMorphingLabel.framework`
+3. Drag `LTMorphingLabel.framework` into your iOS 8 project.
+
+### [CocoaPods](http://cocoapods.org)
+
+{{ i_am_working_hard_placeholder }}
+
 ## Usage
-1. Copy LTMorphingLabel folder to your iOS 8 project;
-2. Change the class of a label from UILabel to LTMorphingLabel;
-3. Programatically set a new String to its text property.
+
+1. Change the class of a label from UILabel to LTMorphingLabel;
+2. Programatically set a new String to its text property.
 
 ## Unit tests
 Open the project with Xcode 6 then press command + u.
