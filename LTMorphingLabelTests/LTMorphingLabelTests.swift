@@ -61,6 +61,11 @@ class LTMorphingLabelTests: XCTestCase {
         XCTAssert(diffResults[2].diffType == .MoveAndAdd, "2nd. w is moved.")
     }
     
+    func testEmojiDiff1() {
+        let diffResults = "1️⃣2️⃣3️⃣" >> "3️⃣1️⃣2️⃣"
+        XCTAssert(diffResults[0].diffType == .MoveAndAdd, "1st. 1 is moved.")
+    }
+    
     func testLongDiffPerformance() {
         self.measureBlock() {
             let lhs = "Design is not just what it looks like and feels like. Design is how it works."
