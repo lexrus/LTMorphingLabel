@@ -2,4 +2,4 @@ language: objective-c
 before_script:
     - brew update && brew upgrade xctool
 script:
-    - xctool test -project VPNOn.xcodeproj -scheme VPNOn -sdk iphonesimulator
+    - xctool test -project LTMorphingLabelDemo.xcodeproj -scheme LTMorphingLabel -sdk iphonesimulator
