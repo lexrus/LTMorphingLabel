@@ -28,7 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7934DC51A63AF1100AE04CE"
+               BuildableName = "LTMorphingLabelTests.xctest"
+               BlueprintName = "LTMorphingLabelTests"
+               ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D7D4B01E1A5E87D50087F83D"
+            BuildableName = "LTMorphingLabel.framework"
+            BlueprintName = "LTMorphingLabel"
+            ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"

@@ -29,20 +29,12 @@
 		D720D07E1A5E923800747465 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D720D07F1A5E923800747465 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D720D0801A5E923800747465 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
-		D720D0811A5E93AD00747465 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
-		D720D0821A5E93AD00747465 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
-		D720D0831A5E93AD00747465 /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */; };
-		D720D0841A5E93AD00747465 /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */; };
-		D720D0851A5E93AD00747465 /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */; };
-		D720D0861A5E93AD00747465 /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98F381975265C00902C5C /* LTMorphingLabel+Anvil.swift */; };
-		D73C166E1973942300380335 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
-		D74AD982195171E7009A2ACD /* LTMorphingLabelDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
-		D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
-		D7AE4C3F1952E4D700171EA2 /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
+		D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */; };
+		D7934DD31A63B01600AE04CE /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
 		D7D4B0241A5E87D50087F83D /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7D4B0381A5E87D50087F83D /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4B03F1A5E8F6E0087F83D /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
@@ -52,63 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D73C166A1973941C00380335 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D73C166C1973941C00380335 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D74AD97C195171E7009A2ACD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D78925C4195A7BFE001AF955 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D78925C6195A7BFE001AF955 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D7AE4C3B1952E4D000171EA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D7AE4C3D1952E4D000171EA2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D7AFEC9919628ECF0006FA88 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
-		};
-		D7C98F2C1973A96700902C5C /* PBXContainerItemProxy */ = {
+		D7FEBF351A63B0C200090203 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
 			proxyType = 1;
@@ -137,9 +73,6 @@
 		D74AD972195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74AD973195171E7009A2ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74AD975195171E7009A2ACD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D74AD97B195171E7009A2ACD /* LTMorphingLabelDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D74AD980195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelDemoTests.swift; sourceTree = "<group>"; };
 		D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LTMorphingLabelDemo.storyboard; sourceTree = "<group>"; };
 		D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTMorphingLabel.swift; sourceTree = "<group>"; };
 		D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Pixelate.swift"; sourceTree = "<group>"; };
@@ -147,6 +80,9 @@
 		D757C31619742B1D00A34565 /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.png; sourceTree = "<group>"; };
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
 		D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
+		D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7934DC91A63AF1100AE04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelTests.swift; sourceTree = "<group>"; };
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
 		D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
 		D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
@@ -167,7 +103,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D74AD978195171E7009A2ACD /* Frameworks */ = {
+		D7934DC31A63AF1100AE04CE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -200,8 +136,8 @@
 			children = (
 				D74AD98B19517201009A2ACD /* LTMorphingLabel */,
 				D74AD970195171E7009A2ACD /* LTMorphingLabelDemo */,
-				D74AD97E195171E7009A2ACD /* LTMorphingLabelDemoTests */,
 				D7D4B0201A5E87D50087F83D /* LTMorphingLabel */,
+				D7934DC71A63AF1100AE04CE /* LTMorphingLabelTests */,
 				D74AD96F195171E7009A2ACD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -210,8 +146,8 @@
 			isa = PBXGroup;
 			children = (
 				D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */,
-				D74AD97B195171E7009A2ACD /* LTMorphingLabelDemoTests.xctest */,
 				D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */,
+				D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,23 +172,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D74AD97E195171E7009A2ACD /* LTMorphingLabelDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				D74AD981195171E7009A2ACD /* LTMorphingLabelDemoTests.swift */,
-				D74AD97F195171E7009A2ACD /* Supporting Files */,
-			);
-			path = LTMorphingLabelDemoTests;
-			sourceTree = "<group>";
-		};
-		D74AD97F195171E7009A2ACD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D74AD980195171E7009A2ACD /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		D74AD98B19517201009A2ACD /* LTMorphingLabel */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +187,23 @@
 				D70FB1FB19685C3300EF9B84 /* Particles */,
 			);
 			path = LTMorphingLabel;
+			sourceTree = "<group>";
+		};
+		D7934DC71A63AF1100AE04CE /* LTMorphingLabelTests */ = {
+			isa = PBXGroup;
+			children = (
+				D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */,
+				D7934DC81A63AF1100AE04CE /* Supporting Files */,
+			);
+			path = LTMorphingLabelTests;
+			sourceTree = "<group>";
+		};
+		D7934DC81A63AF1100AE04CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D7934DC91A63AF1100AE04CE /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		D7D4B0201A5E87D50087F83D /* LTMorphingLabel */ = {
@@ -319,30 +255,22 @@
 			productReference = D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D74AD97A195171E7009A2ACD /* LTMorphingLabelDemoTests */ = {
+		D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D74AD988195171E7009A2ACD /* Build configuration list for PBXNativeTarget "LTMorphingLabelDemoTests" */;
+			buildConfigurationList = D7934DD11A63AF1100AE04CE /* Build configuration list for PBXNativeTarget "LTMorphingLabelTests" */;
 			buildPhases = (
-				D74AD977195171E7009A2ACD /* Sources */,
-				D74AD978195171E7009A2ACD /* Frameworks */,
-				D74AD979195171E7009A2ACD /* Resources */,
+				D7934DC21A63AF1100AE04CE /* Sources */,
+				D7934DC31A63AF1100AE04CE /* Frameworks */,
+				D7934DC41A63AF1100AE04CE /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D74AD97D195171E7009A2ACD /* PBXTargetDependency */,
-				D7AE4C3C1952E4D000171EA2 /* PBXTargetDependency */,
-				D7AE4C3E1952E4D000171EA2 /* PBXTargetDependency */,
-				D78925C5195A7BFE001AF955 /* PBXTargetDependency */,
-				D78925C7195A7BFE001AF955 /* PBXTargetDependency */,
-				D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */,
-				D73C166B1973941C00380335 /* PBXTargetDependency */,
-				D73C166D1973941C00380335 /* PBXTargetDependency */,
-				D7C98F2D1973A96700902C5C /* PBXTargetDependency */,
+				D7FEBF361A63B0C200090203 /* PBXTargetDependency */,
 			);
-			name = LTMorphingLabelDemoTests;
-			productName = LTMorphingLabelDemoTests;
-			productReference = D74AD97B195171E7009A2ACD /* LTMorphingLabelDemoTests.xctest */;
+			name = LTMorphingLabelTests;
+			productName = LTMorphingLabelTests;
+			productReference = D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */ = {
@@ -375,8 +303,9 @@
 					D74AD96D195171E7009A2ACD = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					D74AD97A195171E7009A2ACD = {
-						CreatedOnToolsVersion = 6.0;
+					D7934DC51A63AF1100AE04CE = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = D74AD96D195171E7009A2ACD;
 					};
 					D7D4B01E1A5E87D50087F83D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -396,8 +325,8 @@
 			projectRoot = "";
 			targets = (
 				D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */,
-				D74AD97A195171E7009A2ACD /* LTMorphingLabelDemoTests */,
 				D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */,
+				D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -416,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D74AD979195171E7009A2ACD /* Resources */ = {
+		D7934DC41A63AF1100AE04CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -455,20 +384,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D74AD977195171E7009A2ACD /* Sources */ = {
+		D7934DC21A63AF1100AE04CE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D720D0811A5E93AD00747465 /* LTMorphingLabel+Evaporate.swift in Sources */,
-				D720D0821A5E93AD00747465 /* LTMorphingLabel+Fall.swift in Sources */,
-				D720D0831A5E93AD00747465 /* LTMorphingLabel+Pixelate.swift in Sources */,
-				D720D0841A5E93AD00747465 /* LTMorphingLabel+Sparkle.swift in Sources */,
-				D720D0851A5E93AD00747465 /* LTMorphingLabel+Burn.swift in Sources */,
-				D720D0861A5E93AD00747465 /* LTMorphingLabel+Anvil.swift in Sources */,
-				D73C166E1973942300380335 /* LTEasing.swift in Sources */,
-				D7633A2E195976D30009D084 /* NSString+LTMorphingLabel.swift in Sources */,
-				D7AE4C3F1952E4D700171EA2 /* LTMorphingLabel.swift in Sources */,
-				D74AD982195171E7009A2ACD /* LTMorphingLabelDemoTests.swift in Sources */,
+				D7934DD31A63B01600AE04CE /* NSString+LTMorphingLabel.swift in Sources */,
+				D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,50 +412,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D73C166B1973941C00380335 /* PBXTargetDependency */ = {
+		D7FEBF361A63B0C200090203 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D73C166A1973941C00380335 /* PBXContainerItemProxy */;
-		};
-		D73C166D1973941C00380335 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D73C166C1973941C00380335 /* PBXContainerItemProxy */;
-		};
-		D74AD97D195171E7009A2ACD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D74AD97C195171E7009A2ACD /* PBXContainerItemProxy */;
-		};
-		D78925C5195A7BFE001AF955 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D78925C4195A7BFE001AF955 /* PBXContainerItemProxy */;
-		};
-		D78925C7195A7BFE001AF955 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D78925C6195A7BFE001AF955 /* PBXContainerItemProxy */;
-		};
-		D7AE4C3C1952E4D000171EA2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D7AE4C3B1952E4D000171EA2 /* PBXContainerItemProxy */;
-		};
-		D7AE4C3E1952E4D000171EA2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D7AE4C3D1952E4D000171EA2 /* PBXContainerItemProxy */;
-		};
-		D7AFEC9A19628ECF0006FA88 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D7AFEC9919628ECF0006FA88 /* PBXContainerItemProxy */;
-		};
-		D7C98F2D1973A96700902C5C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D7C98F2C1973A96700902C5C /* PBXContainerItemProxy */;
+			targetProxy = D7FEBF351A63B0C200090203 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -653,7 +534,7 @@
 			};
 			name = Release;
 		};
-		D74AD989195171E7009A2ACD /* Debug */ = {
+		D7934DCF1A63AF1100AE04CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -664,24 +545,28 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = LTMorphingLabelDemoTests/Info.plist;
+				INFOPLIST_FILE = LTMorphingLabelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTMorphingLabelDemo.app/LTMorphingLabelDemo";
 			};
 			name = Debug;
 		};
-		D74AD98A195171E7009A2ACD /* Release */ = {
+		D7934DD01A63AF1100AE04CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = LTMorphingLabelDemoTests/Info.plist;
+				INFOPLIST_FILE = LTMorphingLabelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LTMorphingLabelDemo.app/LTMorphingLabelDemo";
 			};
 			name = Release;
 		};
@@ -752,11 +637,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D74AD988195171E7009A2ACD /* Build configuration list for PBXNativeTarget "LTMorphingLabelDemoTests" */ = {
+		D7934DD11A63AF1100AE04CE /* Build configuration list for PBXNativeTarget "LTMorphingLabelTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D74AD989195171E7009A2ACD /* Debug */,
-				D74AD98A195171E7009A2ACD /* Release */,
+				D7934DCF1A63AF1100AE04CE /* Debug */,
+				D7934DD01A63AF1100AE04CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
