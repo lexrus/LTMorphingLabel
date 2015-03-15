@@ -17,12 +17,12 @@ Pod::Spec.new do |s|
                    "https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Lex Tang" => "lexrus@gmail.com" }
-  s.social_media_url   = "http://twitter.com/lexrus"
+  s.social_media_url   = "https://twitter.com/lexrus"
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/lexrus/LTMorphingLabel.git", :tag => s.version }
-  s.source_files  = "LTMorphingLabel/*.{h,swift}"
-  s.resources = "LTMorphingLabel/Particles/*.png"
-  s.frameworks = "UIKit", "Foundation", "QuartzCore"
+  s.source_files = "LTMorphingLabel/*.{h,swift}"
+  s.resources    = "LTMorphingLabel/Particles/*.png"
+  s.frameworks   = "UIKit", "Foundation", "QuartzCore"
   s.requires_arc = true
 
 end
