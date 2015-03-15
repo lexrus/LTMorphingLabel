@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Lex Tang" => "lexrus@gmail.com" }
   s.social_media_url   = "http://twitter.com/lexrus"
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/lexrus/LTMorphingLabel.git", :tag => s.version }
   s.source_files  = "LTMorphingLabel/*.{h,swift}"
   s.resources = "LTMorphingLabel/Particles/*.png"
