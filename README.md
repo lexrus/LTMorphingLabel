@@ -28,16 +28,8 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 <img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
 
 ## Requirements
-1. Xcode 6.1
+1. Xcode 6.2
 2. iOS 7.0+
-
-## TODOs & Known issues
-- [ ] Improve diff performance
-- [ ] Text kerning
-- [ ] Text shadow
-- [ ] Multiline
-- [ ] Particles of `.Burn` is weired
-- [ ] Docs
 
 ## Installation
 

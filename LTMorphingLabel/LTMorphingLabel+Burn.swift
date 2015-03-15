@@ -86,7 +86,7 @@ extension LTMorphingLabel {
                 let rect = self._newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
-                    CGFloat(progress) * rect.size.height / 1.6 + rect.origin.y * 1.4)
+                    CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y)
                 
                 self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
@@ -94,19 +94,19 @@ extension LTMorphingLabel {
                     layer.renderMode = kCAEmitterLayerAdditive
                     layer.emitterMode = kCAEmitterLayerOutline
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 200.0
+                    cell.scale = self.font.pointSize / 160.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
                     cell.birthRate = Float(self.font.pointSize)
                     cell.contents = UIImage(named: "Fire")!.CGImage
-                    cell.emissionLongitude = 0
+                    cell.emissionLongitude = CGFloat(arc4random_uniform(30))
                     cell.emissionRange = CGFloat(M_PI_4)
-                    cell.alphaSpeed = -1.0
+                    cell.alphaSpeed = self.morphingDuration * -3.0
                     cell.yAcceleration = 10
                     cell.velocity = CGFloat(10 + Int(arc4random_uniform(3)))
                     cell.velocityRange = 10
                     cell.spin = 0
                     cell.spinRange = 0
-                    cell.lifetime = self.morphingDuration
+                    cell.lifetime = self.morphingDuration / 3.0
                     }.update {
                         (layer, cell) in
                         layer.emitterPosition = emitterPosition
@@ -115,21 +115,21 @@ extension LTMorphingLabel {
                 self.emitterView.createEmitter("s\(index)", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 10)
-                    layer.renderMode = kCAEmitterLayerUnordered
-                    layer.emitterMode = kCAEmitterLayerOutline
+                    layer.renderMode = kCAEmitterLayerAdditive
+                    layer.emitterMode = kCAEmitterLayerVolume
                     cell.emissionLongitude = CGFloat(M_PI / 2.0)
                     cell.scale = self.font.pointSize / 40.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
-                    cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(10) + 20)
+                    cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(10) + 10)
                     cell.contents = UIImage(named: "Smoke")!.CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
-                    cell.alphaSpeed = self.morphingDuration / -3.0
-                    cell.yAcceleration = 10
+                    cell.alphaSpeed = self.morphingDuration * -3
+                    cell.yAcceleration = -5
                     cell.velocity = CGFloat(20 + Int(arc4random_uniform(15)))
                     cell.velocityRange = 20
                     cell.spin = CGFloat(Float(arc4random_uniform(30)) / 10.0)
-                    cell.spinRange = 5
+                    cell.spinRange = 3
                     cell.lifetime = self.morphingDuration
                     }.update {
                         (layer, cell) in
