@@ -41,7 +41,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 
 ### [CocoaPods](http://cocoapods.org)
 
-1. Install the latest preview release of CocoaPods: `gem install cocoapods --pre`
+1. Install the latest release of CocoaPods: `gem install cocoapods`
 2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.4'`
 3. Install the pod: `pod install`
 
