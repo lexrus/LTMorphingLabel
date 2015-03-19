@@ -1,0 +1,90 @@
+# Node.js modules
+node_modules/*
+
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Exclude the Podspecs
+Pods/*
+# Podfile.lock should not be ignored.
+# See also https://github.com/thoughtbot/liftoff/issues/30
+# Podfile.lock 
+
+# Exclude any PSD/AI source
+#*.psd
+#*.ai
+
+# Exclude generated files
+VersionX-revision.h
+
+# Exclude the build products
+build/*
+build.output
+pkg/*
+*.o
+ 
+# Exclude temp nibs and swap files
+*~.nib
+*.swp
+*~
+
+# Sparkle distribution Private Key (Don't check me in!)
+dsa_priv.pem
+ 
+# Exclude user-specific XCode 3 and 4 files
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcuserdatad
+*.xccheckout
+xcuserdata
+profile
+DerivedData
+
+# Exclude ReleaseNotes
+RELEASENOTES
+RELEASENOTES.*
+release_notes
+release_notes.*
+
+# Other source repository archive directories (protects when importing)
+.hg
+.svn
+CVS
+
+# idea project files
+.idea
+*.hmap
+
+# twistd pid files
+twistd.pid
+
+# Rails
+# Ignore bundler config.
+.bundle
+
+# Ignore the default SQLite database.
+db/*.sqlite3
+db/*.sqlite3-journal
+
+# Ignore all logfiles and templates.
+log/*.log
+tmp
+
+# Ignore vendor cache
+vendor/cache
