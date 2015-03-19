@@ -1,4 +1,4 @@
-# LTMorphingLabel [![Build Status](https://travis-ci.org/lexrus/LTMorphingLabel.svg?branch=master)](https://travis-ci.org/lexrus/LTMorphingLabel)
+# LTMorphingLabel [![Build Status](https://travis-ci.org/lexrus/LTMorphingLabel.svg?branch=master)](https://travis-ci.org/lexrus/LTMorphingLabel) [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg)](https://github.com/lexrus/LTMorphingLabel) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 A morphing UILabel subclass written in Swift.
 The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions. 
 
