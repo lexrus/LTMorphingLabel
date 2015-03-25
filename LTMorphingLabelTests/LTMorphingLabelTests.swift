@@ -61,9 +61,18 @@ class LTMorphingLabelTests: XCTestCase {
         XCTAssert(diffResults[2].diffType == .MoveAndAdd, "2nd. w is moved.")
     }
     
-    func testEmojiDiff1() {
+    func testEmojiDiff7() {
         let diffResults = "1️⃣2️⃣3️⃣" >> "3️⃣1️⃣2️⃣"
         XCTAssert(diffResults[0].diffType == .MoveAndAdd, "1st. 1 is moved.")
+    }
+    
+    func testEmptyDiff8() {
+        let diffResults0 = "" >> "hello"
+        XCTAssert(diffResults0[0].diffType == .Add, "Every characters must be added.")
+        let diffResults1 = "" >> ""
+        XCTAssert(diffResults1.count == 0, "Must be empty.")
+        let diffResults2 = "Hello" >> ""
+        XCTAssert(diffResults2[0].diffType == .Delete, "Must be empty.")
     }
     
     func testLongDiffPerformance() {

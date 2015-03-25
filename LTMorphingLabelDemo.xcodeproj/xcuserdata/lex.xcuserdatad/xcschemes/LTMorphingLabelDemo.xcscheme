@@ -28,6 +28,16 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D7934DC51A63AF1100AE04CE"
+               BuildableName = "LTMorphingLabelTests.xctest"
+               BlueprintName = "LTMorphingLabelTests"
+               ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

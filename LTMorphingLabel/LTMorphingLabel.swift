@@ -313,7 +313,7 @@ extension LTMorphingLabel {
         
         // Add new characters
         for (i, character) in enumerate(text!) {
-            if i >= countElements(_diffResults) {
+            if i >= _diffResults.count {
                 break
             }
             

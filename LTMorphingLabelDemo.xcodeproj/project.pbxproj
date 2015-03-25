@@ -29,12 +29,12 @@
 		D720D07E1A5E923800747465 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D720D07F1A5E923800747465 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D720D0801A5E923800747465 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
+		D73C19FA1AC2824100C1A824 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
 		D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */; };
-		D7934DD31A63B01600AE04CE /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
 		D7D4B0241A5E87D50087F83D /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7D4B0381A5E87D50087F83D /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4B03F1A5E8F6E0087F83D /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
@@ -50,12 +50,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D7FEBF351A63B0C200090203 /* PBXContainerItemProxy */ = {
+		D73C19F81AC2823900C1A824 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
-			remoteInfo = LTMorphingLabelDemo;
+			remoteGlobalIDString = D7D4B01E1A5E87D50087F83D;
+			remoteInfo = LTMorphingLabel;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -116,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73C19FA1AC2824100C1A824 /* LTMorphingLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +279,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D7FEBF361A63B0C200090203 /* PBXTargetDependency */,
+				D73C19F91AC2823900C1A824 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelTests;
 			productName = LTMorphingLabelTests;
@@ -403,7 +404,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7934DD31A63B01600AE04CE /* NSString+LTMorphingLabel.swift in Sources */,
 				D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,10 +430,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D7FEBF361A63B0C200090203 /* PBXTargetDependency */ = {
+		D73C19F91AC2823900C1A824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
-			targetProxy = D7FEBF351A63B0C200090203 /* PBXContainerItemProxy */;
+			target = D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */;
+			targetProxy = D73C19F81AC2823900C1A824 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

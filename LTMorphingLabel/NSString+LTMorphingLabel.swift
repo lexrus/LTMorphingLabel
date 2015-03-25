@@ -27,7 +27,7 @@
 import Foundation
 
 
-enum LTCharacterDiffType: Int, DebugPrintable {
+public enum LTCharacterDiffType: Int, DebugPrintable {
     
     case Same = 0
     case Add = 1
@@ -36,7 +36,7 @@ enum LTCharacterDiffType: Int, DebugPrintable {
     case MoveAndAdd
     case Replace
     
-    var debugDescription: String {
+    public var debugDescription: String {
     get {
         switch self {
         case .Same:
@@ -58,13 +58,13 @@ enum LTCharacterDiffType: Int, DebugPrintable {
 }
 
 
-struct LTCharacterDiffResult: DebugPrintable {
+public struct LTCharacterDiffResult: DebugPrintable {
     
-    var diffType: LTCharacterDiffType
-    var moveOffset: Int
-    var skip: Bool
+    public var diffType: LTCharacterDiffType
+    public var moveOffset: Int
+    public var skip: Bool
     
-    var debugDescription: String {
+    public var debugDescription: String {
     get {
         switch diffType {
         case .Same:
@@ -86,15 +86,16 @@ struct LTCharacterDiffResult: DebugPrintable {
 }
 
 
-func >>(lhs: String, rhs: String) -> Array<LTCharacterDiffResult> {
+public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
     
-    var diffResults = Array<LTCharacterDiffResult>()
+    var diffResults = [LTCharacterDiffResult]()
     let newChars = enumerate(rhs)
     let lhsLength = countElements(lhs)
     let rhsLength = countElements(rhs)
-    var skipIndexes = Array<Int>()
+    var skipIndexes = [Int]()
+    let leftChars = Array(lhs)
     
-    for i in 0..<(max(lhsLength, rhsLength) + 1) {
+    for i in 0..<(max(lhsLength, rhsLength)) {
         var result = LTCharacterDiffResult(diffType: .Add, moveOffset: 0, skip: false)
         
         // If new string is longer than the original one
@@ -104,7 +105,7 @@ func >>(lhs: String, rhs: String) -> Array<LTCharacterDiffResult> {
             continue
         }
         
-        let leftChar = Array(lhs)[i]
+        let leftChar = leftChars[i]
         
         // Search left character in the new string
         var foundCharacterInRhs = false

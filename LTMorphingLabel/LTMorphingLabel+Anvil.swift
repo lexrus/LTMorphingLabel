@@ -35,7 +35,7 @@ extension LTMorphingLabel {
         _startClosures["Anvil\(LTMorphingPhaseStart)"] = {
             self.emitterView.removeAllEmit()
             
-            if countElements(self._newRects) > 0 {
+            if self._newRects.count > 0 {
                 let centerRect = self._newRects[Int(self._newRects.count / 2)]
                 
                 self.emitterView.createEmitter("leftSmoke", duration: 0.6) {
