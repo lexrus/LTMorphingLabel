@@ -57,6 +57,13 @@
 			remoteGlobalIDString = D7D4B01E1A5E87D50087F83D;
 			remoteInfo = LTMorphingLabel;
 		};
+		D73C19FB1AC28DAA00C1A824 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -280,6 +287,7 @@
 			);
 			dependencies = (
 				D73C19F91AC2823900C1A824 /* PBXTargetDependency */,
+				D73C19FC1AC28DAA00C1A824 /* PBXTargetDependency */,
 			);
 			name = LTMorphingLabelTests;
 			productName = LTMorphingLabelTests;
@@ -434,6 +442,11 @@
 			isa = PBXTargetDependency;
 			target = D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */;
 			targetProxy = D73C19F81AC2823900C1A824 /* PBXContainerItemProxy */;
+		};
+		D73C19FC1AC28DAA00C1A824 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D73C19FB1AC28DAA00C1A824 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
