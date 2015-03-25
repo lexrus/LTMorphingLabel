@@ -25,7 +25,6 @@
 //
 
 import UIKit
-import QuartzCore
 
 
 extension LTMorphingLabel {

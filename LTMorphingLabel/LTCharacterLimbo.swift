@@ -9,15 +9,15 @@
 import UIKit
 
 
-struct LTCharacterLimbo: DebugPrintable {
+public struct LTCharacterLimbo: DebugPrintable {
     
-    let char: Character
-    var rect: CGRect
-    var alpha: CGFloat
-    var size: CGFloat
-    var drawingProgress: CGFloat = 0.0
+    public let char: Character
+    public var rect: CGRect
+    public var alpha: CGFloat
+    public var size: CGFloat
+    public var drawingProgress: CGFloat = 0.0
     
-    var debugDescription: String {
+    public var debugDescription: String {
         get {
             return "Character: '\(char)'"
                 + "drawIn (\(rect.origin.x), \(rect.origin.y), "

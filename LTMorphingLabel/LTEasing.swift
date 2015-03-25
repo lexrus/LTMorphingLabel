@@ -14,27 +14,27 @@ import UIKit
 // c = change
 // d = duration
 
-class LTEasing {
+public class LTEasing {
     
-    class func easeOutQuint(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
+    public class func easeOutQuint(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         return {
             return c * ($0 * $0 * $0 * $0 * $0 + 1.0) + b
             }(t / d - 1.0)
     }
     
-    class func easeInQuint(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
+    public class func easeInQuint(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         return {
             return c * $0 * $0 * $0 * $0 * $0 + b
             }(t / d)
     }
     
-    class func easeOutBack(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
+    public class func easeOutBack(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         let s: Float = 2.70158
         let t2: Float = t / d - 1.0
         return Float(c * (t2 * t2 * ((s + 1.0) * t2 + s) + 1.0)) + b
     }
     
-    class func easeOutBounce(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
+    public class func easeOutBounce(t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         return {
             if $0 < 1 / 2.75 {
                 return c * 7.5625 * $0 * $0 + b

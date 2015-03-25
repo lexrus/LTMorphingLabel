@@ -81,7 +81,7 @@ public typealias LTEmitterConfigureClosure = (CAEmitterLayer, CAEmitterCell) -> 
 
 public class LTEmitterView: UIView {
     
-    lazy var emitters: Dictionary<String, LTEmitter> = {
+    public lazy var emitters: Dictionary<String, LTEmitter> = {
         var _emitters = Dictionary<String, LTEmitter>()
         return _emitters
         }()

@@ -60,20 +60,20 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
     public var morphingEffect: LTMorphingEffect = .Scale
     public var delegate: LTMorphingLabelDelegate?
     
-    var _startClosures = Dictionary<String, LTMorphingStartClosure>()
-    var _effectClosures = Dictionary<String, LTMorphingEffectClosure>()
-    var _drawingClosures = Dictionary<String, LTMorphingDrawingClosure>()
-    var _progressClosures = Dictionary<String, LTMorphingManipulateProgressClosure>()
-    var _skipFramesClosures = Dictionary<String, LTMorphingSkipFramesClosure>()
-    var _diffResults = Array<LTCharacterDiffResult>()
+    var _startClosures = [String: LTMorphingStartClosure]()
+    var _effectClosures = [String: LTMorphingEffectClosure]()
+    var _drawingClosures = [String: LTMorphingDrawingClosure]()
+    var _progressClosures = [String: LTMorphingManipulateProgressClosure]()
+    var _skipFramesClosures = [String: LTMorphingSkipFramesClosure]()
+    var _diffResults = [LTCharacterDiffResult]()
     var _originText = ""
     var _currentFrame = 0
     var _totalFrames = 0
     var _totalDelayFrames = 0
     var _totalWidth: Float = 0.0
     let _characterOffsetYRatio = 1.1
-    var _originRects = Array<CGRect>()
-    var _newRects = Array<CGRect>()
+    var _originRects = [CGRect]()
+    var _newRects = [CGRect]()
     var _charHeight: CGFloat = 0.0
     var _skipFramesCount: Int = 0
         
@@ -188,8 +188,8 @@ extension LTMorphingLabel {
     
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
-    func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> Array<CGRect> {
-        var charRects = Array<CGRect>()
+    func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> [CGRect] {
+        var charRects = [CGRect]()
         var leftOffset: CGFloat = 0.0
 
         if _charHeight == 0.0 {
@@ -216,7 +216,7 @@ extension LTMorphingLabel {
             ()
         }
         
-        var offsetedCharRects = Array<CGRect>()
+        var offsetedCharRects = [CGRect]()
         
         for r in charRects {
             offsetedCharRects.append(CGRectOffset(r, stringLeftOffSet, 0.0))
@@ -293,9 +293,9 @@ extension LTMorphingLabel {
             }
     }
     
-    func limboOfCharacters() -> Array<LTCharacterLimbo> {
+    func limboOfCharacters() -> [LTCharacterLimbo] {
         let fontSize = font.pointSize
-        var limbo = Array<LTCharacterLimbo>()
+        var limbo = [LTCharacterLimbo]()
         
         // Iterate original characters
         for (i, character) in enumerate(_originText) {
