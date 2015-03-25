@@ -84,7 +84,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
     }
     set {
         _originText = text ?? ""
-        _diffResults = _originText >> newValue
+        _diffResults = _originText >> (newValue ?? "")
         super.text = newValue ?? ""
         
         morphingProgress = 0.0
