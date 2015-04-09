@@ -28,8 +28,8 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 <img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
 
 ## Requirements
-1. Xcode 6.2
-2. iOS 7.0+
+1. Xcode 6.3
+2. iOS 8.0+
 
 ## Installation
 
@@ -42,7 +42,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 ### [CocoaPods](http://cocoapods.org)
 
 1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.5'`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.6'`
 3. Install the pod: `pod install`
 
 ## Usage
@@ -51,7 +51,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 2. Programatically set a new String to its text property.
 
 ## Unit tests
-Open the project with Xcode 6 then press command + u.
+Open the project with Xcode then press command + u.
 
 ## Contacts
 Follow [Lex Tang](https://github.com/lexrus/) ([@lexrus on Twitter](https://twitter.com/lexrus/))

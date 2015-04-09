@@ -90,8 +90,8 @@ public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
     
     var diffResults = [LTCharacterDiffResult]()
     let newChars = enumerate(rhs)
-    let lhsLength = countElements(lhs)
-    let rhsLength = countElements(rhs)
+    let lhsLength = count(lhs)
+    let rhsLength = count(rhs)
     var skipIndexes = [Int]()
     let leftChars = Array(lhs)
     
@@ -144,7 +144,7 @@ public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
         }
         
         if !foundCharacterInRhs {
-            if i < countElements(rhs) - 1 {
+            if i < count(rhs) - 1 {
                 result.diffType = .Replace
             } else {
                 result.diffType = .Delete
