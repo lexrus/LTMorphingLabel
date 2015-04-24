@@ -1,6 +1,6 @@
-# LTMorphingLabel [![Build Status](https://travis-ci.org/lexrus/LTMorphingLabel.svg?branch=master)](https://travis-ci.org/lexrus/LTMorphingLabel) [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg)](https://github.com/lexrus/LTMorphingLabel) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
+# LTMorphingLabel [![Build Status](https://travis-ci.org/lexrus/LTMorphingLabel.svg?branch=master)](https://travis-ci.org/lexrus/LTMorphingLabel) [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg)](https://github.com/lexrus/LTMorphingLabel) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 A morphing UILabel subclass written in Swift.
-The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions. 
+The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions.
 
 ## enum LTMorphingEffect: Int, Printable
 
@@ -42,7 +42,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 ### [CocoaPods](http://cocoapods.org)
 
 1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.6'`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.7'`
 3. Install the pod: `pod install`
 
 ## Usage
