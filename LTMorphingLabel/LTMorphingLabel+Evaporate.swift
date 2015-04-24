@@ -31,19 +31,19 @@ extension LTMorphingLabel {
     
     func EvaporateLoad() {
         
-        _progressClosures["Evaporate\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Evaporate\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             let j: Int = Int(round(cos(Double(index)) * 1.2))
             let delay = isNewChar ? self.morphingCharacterDelay * -1.0 : self.morphingCharacterDelay
             return min(1.0, max(0.0, self.morphingProgress + delay * Float(j)))
         }
         
-        _effectClosures["Evaporate\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Evaporate\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             let newProgress = LTEasing.easeOutQuint(progress, 0.0, 1.0, 1.0)
             let yOffset: CGFloat = -0.8 * CGFloat(self.font.pointSize) * CGFloat(newProgress)
-            let currentRect = CGRectOffset(self._originRects[index], 0, yOffset)
+            let currentRect = CGRectOffset(self.previousRects[index], 0, yOffset)
             let currentAlpha = CGFloat(1.0 - newProgress)
             
             return LTCharacterLimbo(
@@ -54,7 +54,7 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        _effectClosures["Evaporate\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Evaporate\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             let newProgress = 1.0 - LTEasing.easeOutQuint(progress, 0.0, 1.0)
@@ -62,7 +62,7 @@ extension LTMorphingLabel {
             
             return LTCharacterLimbo(
                 char: char,
-                rect: CGRectOffset(self._newRects[index], 0.0, yOffset),
+                rect: CGRectOffset(self.newRects[index], 0.0, yOffset),
                 alpha: CGFloat(self.morphingProgress),
                 size: self.font.pointSize,
                 drawingProgress: 0.0

@@ -31,35 +31,35 @@ extension LTMorphingLabel {
     
     func PixelateLoad() {
         
-        _effectClosures["Pixelate\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Pixelate\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._originRects[index],
+                rect: self.previousRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(progress))
         }
         
-        _effectClosures["Pixelate\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Pixelate\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._newRects[index],
+                rect: self.newRects[index],
                 alpha: CGFloat(progress),
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(1.0 - progress)
             )
         }
         
-        _drawingClosures["Pixelate\(LTMorphingPhaseDraw)"] = {
+        drawingClosures["Pixelate\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
                 
-                let charImage = self._pixelateImageForCharLimbo(charLimbo, withBlurRadius: charLimbo.drawingProgress * 6.0)
+                let charImage = self.pixelateImageForCharLimbo(charLimbo, withBlurRadius: charLimbo.drawingProgress * 6.0)
                 
                 let charRect = charLimbo.rect
                 charImage.drawInRect(charLimbo.rect)
@@ -71,7 +71,7 @@ extension LTMorphingLabel {
         }
     }
     
-    func _pixelateImageForCharLimbo(charLimbo: LTCharacterLimbo, withBlurRadius blurRadius: CGFloat) -> UIImage {
+    private func pixelateImageForCharLimbo(charLimbo: LTCharacterLimbo, withBlurRadius blurRadius: CGFloat) -> UIImage {
         let scale = min(UIScreen.mainScreen().scale, 1.0 / blurRadius)
         UIGraphicsBeginImageContextWithOptions(charLimbo.rect.size, false, scale)
         let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))

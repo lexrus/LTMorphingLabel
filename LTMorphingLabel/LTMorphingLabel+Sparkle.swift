@@ -29,7 +29,7 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    func _maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
+    private func maskedImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
         let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
         let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
         UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
@@ -50,11 +50,11 @@ extension LTMorphingLabel {
     
     func SparkleLoad() {
         
-        _startClosures["Sparkle\(LTMorphingPhaseStart)"] = {
+        startClosures["Sparkle\(LTMorphingPhaseStart)"] = {
             self.emitterView.removeAllEmit()
         }
         
-        _progressClosures["Sparkle\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Sparkle\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -66,22 +66,22 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Sparkle\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Sparkle\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._originRects[index],
+                rect: self.previousRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
                 drawingProgress: 0.0)
         }
         
-        _effectClosures["Sparkle\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Sparkle\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
-                let rect = self._newRects[index]
+                let rect = self.newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
                     CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y)
@@ -103,19 +103,19 @@ extension LTMorphingLabel {
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._newRects[index],
+                rect: self.newRects[index],
                 alpha: CGFloat(self.morphingProgress),
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(progress)
             )
         }
         
-        _drawingClosures["Sparkle\(LTMorphingPhaseDraw)"] = {
+        drawingClosures["Sparkle\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
                 
-                let (charImage, rect) = self._maskedImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
+                let (charImage, rect) = self.maskedImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
                 charImage.drawInRect(rect)
                 
                 return true
@@ -124,7 +124,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        _skipFramesClosures["Sparkle\(LTMorphingPhaseSkipFrames)"] = {
+        skipFramesClosures["Sparkle\(LTMorphingPhaseSkipFrames)"] = {
             return 1
         }
     }

@@ -29,7 +29,7 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    func _burningImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
+    private func burningImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
         let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
         let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
         UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
@@ -50,11 +50,11 @@ extension LTMorphingLabel {
     
     func BurnLoad() {
         
-        _startClosures["Burn\(LTMorphingPhaseStart)"] = {
+        startClosures["Burn\(LTMorphingPhaseStart)"] = {
             self.emitterView.removeAllEmit()
         }
         
-        _progressClosures["Burn\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Burn\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -66,23 +66,23 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Burn\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Burn\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._originRects[index],
+                rect: self.previousRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
                 drawingProgress: 0.0
             )
         }
         
-        _effectClosures["Burn\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Burn\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
-                let rect = self._newRects[index]
+                let rect = self.newRects[index]
                 let emitterPosition = CGPointMake(
                     rect.origin.x + rect.size.width / 2.0,
                     CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y)
@@ -138,19 +138,19 @@ extension LTMorphingLabel {
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._newRects[index],
+                rect: self.newRects[index],
                 alpha: 1.0,
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(progress)
             )
         }
         
-        _drawingClosures["Burn\(LTMorphingPhaseDraw)"] = {
+        drawingClosures["Burn\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
                 
-                let (charImage, rect) = self._burningImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
+                let (charImage, rect) = self.burningImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
                 charImage.drawInRect(rect)
                 
                 return true
@@ -159,7 +159,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        _skipFramesClosures["Burn\(LTMorphingPhaseSkipFrames)"] = {
+        skipFramesClosures["Burn\(LTMorphingPhaseSkipFrames)"] = {
             return 1
         }
     }

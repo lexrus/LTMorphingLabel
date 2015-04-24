@@ -31,11 +31,11 @@ extension LTMorphingLabel {
     
     func AnvilLoad() {
         
-        _startClosures["Anvil\(LTMorphingPhaseStart)"] = {
+        startClosures["Anvil\(LTMorphingPhaseStart)"] = {
             self.emitterView.removeAllEmit()
             
-            if self._newRects.count > 0 {
-                let centerRect = self._newRects[Int(self._newRects.count / 2)]
+            if self.newRects.count > 0 {
+                let centerRect = self.newRects[Int(self.newRects.count / 2)]
                 
                 self.emitterView.createEmitter("leftSmoke", duration: 0.6) {
                     (layer, cell) in
@@ -145,7 +145,7 @@ extension LTMorphingLabel {
             }
         }
         
-        _progressClosures["Anvil\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Anvil\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -157,21 +157,21 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Anvil\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Anvil\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._originRects[index],
+                rect: self.previousRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
                 drawingProgress: 0.0)
         }
         
-        _effectClosures["Anvil\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Anvil\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
-            var rect = self._newRects[index]
+            var rect = self.newRects[index]
             
             if progress < 1.0 {
                 let easingValue: Float = LTEasing.easeOutBounce(progress, 0.0, 1.0)

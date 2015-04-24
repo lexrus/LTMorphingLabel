@@ -12,38 +12,38 @@ import UIKit
 public struct LTEmitter {
     
     let layer: CAEmitterLayer = {
-        let _layer = CAEmitterLayer()
-        _layer.emitterPosition = CGPointMake(10, 10)
-        _layer.emitterSize = CGSizeMake(10, 1)
-        _layer.renderMode = kCAEmitterLayerOutline
-        _layer.emitterShape = kCAEmitterLayerLine
-        return _layer
+        let layer = CAEmitterLayer()
+        layer.emitterPosition = CGPointMake(10, 10)
+        layer.emitterSize = CGSizeMake(10, 1)
+        layer.renderMode = kCAEmitterLayerOutline
+        layer.emitterShape = kCAEmitterLayerLine
+        return layer
         }()
     
     let cell: CAEmitterCell = {
         let image = UIImage(named:"Sparkle")!.CGImage
-        let _cell = CAEmitterCell()
-        _cell.name = "sparkle"
-        _cell.birthRate = 150.0
-        _cell.velocity = 50.0
-        _cell.velocityRange = -80.0
-        _cell.lifetime = 0.16
-        _cell.lifetimeRange = 0.1
-        _cell.emissionLongitude = CGFloat(M_PI_2 * 2.0)
-        _cell.emissionRange = CGFloat(M_PI_2 * 2.0)
-        _cell.contents = image
-        _cell.scale = 0.1
-        _cell.yAcceleration = 100
-        _cell.scaleSpeed = -0.06
-        _cell.scaleRange = 0.1
-        return _cell
+        let cell = CAEmitterCell()
+        cell.name = "sparkle"
+        cell.birthRate = 150.0
+        cell.velocity = 50.0
+        cell.velocityRange = -80.0
+        cell.lifetime = 0.16
+        cell.lifetimeRange = 0.1
+        cell.emissionLongitude = CGFloat(M_PI_2 * 2.0)
+        cell.emissionRange = CGFloat(M_PI_2 * 2.0)
+        cell.contents = image
+        cell.scale = 0.1
+        cell.yAcceleration = 100
+        cell.scaleSpeed = -0.06
+        cell.scaleRange = 0.1
+        return cell
         }()
     
-    public var _duration: Float = 0.6
+    public var duration: Float = 0.6
     
     init(name: String, duration: Float) {
-        cell.name = name
-        _duration = duration
+        self.cell.name = name
+        self.duration = duration
     }
     
     public func play() {
@@ -54,7 +54,7 @@ public struct LTEmitter {
         }
         
         layer.emitterCells = [cell]
-        let d: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(_duration * Float(NSEC_PER_SEC)))
+        let d: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(duration * Float(NSEC_PER_SEC)))
         dispatch_after(d, dispatch_get_main_queue()) {
             self.layer.birthRate = 0.0
         }
@@ -66,7 +66,7 @@ public struct LTEmitter {
         }
     }
     
-    func update(configureClosure: LTEmitterConfigureClosure? = Optional.None) -> LTEmitter {
+    func update(configureClosure: LTEmitterConfigureClosure? = .None) -> LTEmitter {
         if let closure = configureClosure {
             configureClosure!(self.layer, self.cell)
         }

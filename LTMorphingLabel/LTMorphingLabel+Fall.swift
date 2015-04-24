@@ -31,7 +31,7 @@ extension LTMorphingLabel {
     
     func FallLoad() {
         
-        _progressClosures["Fall\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Fall\(LTMorphingPhaseManipulateProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if isNewChar {
@@ -43,26 +43,26 @@ extension LTMorphingLabel {
             
         }
         
-        _effectClosures["Fall\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Fall\(LTMorphingPhaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
                 char: char,
-                rect: self._originRects[index],
+                rect: self.previousRects[index],
                 alpha: CGFloat(1.0 - progress),
                 size: self.font.pointSize,
                 drawingProgress: CGFloat(progress))
         }
         
-        _effectClosures["Fall\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Fall\(LTMorphingPhaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             let currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(self.font.pointSize)))
-            let yOffset = CGFloat(self.font.pointSize - currentFontSize) / CGFloat(self._characterOffsetYRatio)
+            let yOffset = CGFloat(self.font.pointSize - currentFontSize) / CGFloat(self.characterOffsetYRatio)
             
             return LTCharacterLimbo(
                 char: char,
-                rect: CGRectOffset(self._newRects[index], 0.0, yOffset),
+                rect: CGRectOffset(self.newRects[index], 0.0, yOffset),
                 alpha: CGFloat(self.morphingProgress),
                 size: currentFontSize,
                 drawingProgress: 0.0
@@ -70,7 +70,7 @@ extension LTMorphingLabel {
         }
         
         
-        _drawingClosures["Fall\(LTMorphingPhaseDraw)"] = {
+        drawingClosures["Fall\(LTMorphingPhaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
