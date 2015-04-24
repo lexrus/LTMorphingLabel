@@ -60,9 +60,9 @@ public enum LTCharacterDiffType: Int, DebugPrintable {
 
 public struct LTCharacterDiffResult: DebugPrintable {
     
-    public var diffType: LTCharacterDiffType
-    public var moveOffset: Int
-    public var skip: Bool
+    public var diffType: LTCharacterDiffType = .Add
+    public var moveOffset: Int = 0
+    public var skip: Bool = false
     
     public var debugDescription: String {
     get {
@@ -88,20 +88,18 @@ public struct LTCharacterDiffResult: DebugPrintable {
 
 public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
     
-    var diffResults = [LTCharacterDiffResult]()
     let newChars = enumerate(rhs)
     let lhsLength = count(lhs)
     let rhsLength = count(rhs)
     var skipIndexes = [Int]()
     let leftChars = Array(lhs)
     
-    for i in 0..<(max(lhsLength, rhsLength)) {
-        var result = LTCharacterDiffResult(diffType: .Add, moveOffset: 0, skip: false)
-        
+    let maxLength = max(lhsLength, rhsLength)
+    var diffResults: [LTCharacterDiffResult] = Array(count: maxLength, repeatedValue: LTCharacterDiffResult())
+    
+    for i in 0..<maxLength {
         // If new string is longer than the original one
         if i > lhsLength - 1 {
-            result.diffType = .Add
-            diffResults.append(result)
             continue
         }
         
@@ -129,15 +127,15 @@ public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
                 foundCharacterInRhs = true
                 if i == j {
                     // Character not changed
-                    result.diffType = .Same
+                    diffResults[i].diffType = .Same
                 } else {
                     // foundCharacterInRhs and move
-                    result.diffType = .Move
+                    diffResults[i].diffType = .Move
                     if i <= rhsLength - 1 {
                         // Move to a new index and add a new character to new original place
-                        result.diffType = .MoveAndAdd
+                        diffResults[i].diffType = .MoveAndAdd
                     }
-                    result.moveOffset = j - i
+                    diffResults[i].moveOffset = j - i
                 }
                 break
             }
@@ -145,16 +143,11 @@ public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
         
         if !foundCharacterInRhs {
             if i < count(rhs) - 1 {
-                result.diffType = .Replace
+                diffResults[i].diffType = .Replace
             } else {
-                result.diffType = .Delete
+                diffResults[i].diffType = .Delete
             }
         }
-        if i > lhsLength - 1 {
-            result.diffType = .Add
-        }
-        
-        diffResults.append(result)
     }
     
     var i = 0

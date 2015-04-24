@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 LexTang.com. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 // http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js
 // t = currentTime
