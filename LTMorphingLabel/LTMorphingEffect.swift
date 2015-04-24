@@ -9,7 +9,7 @@
 import UIKit
 
 
-public enum LTMorphingEffect: Int, Printable {
+@objc public enum LTMorphingEffect: Int, Printable {
     case Scale = 0
     case Evaporate
     case Fall
