@@ -77,10 +77,13 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
     var newRects = [CGRect]()
     var charHeight: CGFloat = 0.0
     var skipFramesCount: Int = 0
+
+#if TARGET_INTERFACE_BUILDER
+    let presentingInIB = true
+#else
+    let presentingInIB = false
+#endif
     
-    let characterOffsetYRatio = 1.1
-        
-#if !TARGET_INTERFACE_BUILDER
     override public var text:String! {
     get {
         return super.text
@@ -96,7 +99,10 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
         
         self.setNeedsLayout()
  
-        if previousText != text {
+        if presentingInIB {
+            morphingDuration = 0.01
+            morphingProgress = 0.5
+        } else if previousText != text {
             displayLink.paused = false
             if let closure = startClosures["\(morphingEffect.description)\(LTMorphingPhaseStart)"] {
                 return closure()
@@ -134,7 +140,6 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
         self.setNeedsLayout()
     }
     }
-#endif
     
     private lazy var displayLink: CADisplayLink = {
         let displayLink = CADisplayLink(
@@ -195,9 +200,8 @@ extension LTMorphingLabel {
         var charRects = [CGRect]()
         var leftOffset: CGFloat = 0.0
 
-        if charHeight == 0.0 {
-            charHeight = "LEX".sizeWithAttributes([NSFontAttributeName: self.font]).height
-        }
+        charHeight = "Leg".sizeWithAttributes([NSFontAttributeName: self.font]).height
+
         var topOffset = (self.bounds.size.height - charHeight) / 2.0
         
         for (i, char) in enumerate(textToDraw) {
@@ -256,7 +260,7 @@ extension LTMorphingLabel {
                     currentFontSize = font.pointSize - CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentAlpha = CGFloat(1.0 - progress)
                     currentRect = CGRectOffset(previousRects[index], 0,
-                        CGFloat(font.pointSize - currentFontSize) / CGFloat(characterOffsetYRatio))
+                        CGFloat(font.pointSize - currentFontSize))
                 }
             }
             
@@ -284,7 +288,7 @@ extension LTMorphingLabel {
                 return closure(char, index: index, progress: progress)
             } else {
                 currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(font.pointSize)))
-                let yOffset = CGFloat(font.pointSize - currentFontSize) / CGFloat(characterOffsetYRatio)
+                let yOffset = CGFloat(font.pointSize - currentFontSize)
                 
                 return LTCharacterLimbo(
                     char: char,

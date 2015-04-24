@@ -58,7 +58,7 @@ extension LTMorphingLabel {
             (char:Character, index: Int, progress: Float) in
             
             let currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(self.font.pointSize)))
-            let yOffset = CGFloat(self.font.pointSize - currentFontSize) / CGFloat(self.characterOffsetYRatio)
+            let yOffset = CGFloat(self.font.pointSize - currentFontSize)
             
             return LTCharacterLimbo(
                 char: char,

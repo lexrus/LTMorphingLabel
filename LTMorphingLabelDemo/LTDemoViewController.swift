@@ -36,8 +36,6 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.label.text = "Tap me please."
-        
         self.label.delegate = self
     }
 
