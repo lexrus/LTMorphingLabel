@@ -1,9 +1,8 @@
 # LTMorphingLabel
 
-[![Circle CI](https://circleci.com/gh/lexrus/LTMorphingLabel.svg?style=shield)](https://circleci.com/gh/lexrus/LTMorphingLabel.swift)
+[![CircleCI](https://img.shields.io/circleci/project/lexrus/LTMorphingLabel.svg)](https://github.com/lexrus/LTMorphingLabel)
 [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/LTMorphingLabel)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![GitHub tag](https://img.shields.io/github/tag/lexrus/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/ios-dev-playbook)
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
 
 [![Git](https://img.shields.io/badge/GitHub-lexrus-blue.svg?style=flat)](https://github.com/lexrus)
