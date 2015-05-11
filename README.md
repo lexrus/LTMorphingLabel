@@ -1,4 +1,16 @@
-# LTMorphingLabel [![Build Status](https://travis-ci.org/lexrus/LTMorphingLabel.svg?branch=master)](https://travis-ci.org/lexrus/LTMorphingLabel) [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg)](https://github.com/lexrus/LTMorphingLabel) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+# LTMorphingLabel [![Circle CI](https://circleci.com/gh/lexrus/LTMorphingLabel.svg?style=shield)](https://circleci.com/gh/lexrus/LTMorphingLabel.swift)
+
+[![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/LTMorphingLabel) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+[![GitHub tag](https://img.shields.io/github/tag/lexrus/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/ios-dev-playbook)
+![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
+![Love](https://img.shields.io/badge/build%20with-%3C3-ff69b4.svg?style=flat)
+
+[![Git](https://img.shields.io/badge/GitHub-lexrus-blue.svg?style=flat)](https://github.com/lexrus)
+[![Twitter](https://img.shields.io/badge/twitter-@lexrus-blue.svg?style=flat)](http://twitter.com/lexrus)
+[![LinkedIn](https://img.shields.io/badge/linkedin-Lex Tang-blue.svg?style=flat)](https://cn.linkedin.com/in/lexrus/en)
+[![eMail](https://img.shields.io/badge/email-lexrus@gmail.com-blue.svg?style=flat)](mailto:lexrus@gmail.com?SUBJECT=About LTMorphingLabel)
+
 A morphing UILabel subclass written in Swift.
 The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions.
 
@@ -52,9 +64,6 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 
 ## Unit tests
 Open the project with Xcode then press command + u.
-
-## Contacts
-Follow [Lex Tang](https://github.com/lexrus/) ([@lexrus on Twitter](https://twitter.com/lexrus/))
 
 ## License
 This code is distributed under the terms and conditions of the MIT license.
