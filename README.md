@@ -39,7 +39,8 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 <img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
 
 ## Requirements
-1. Xcode 6.3
+
+1. Xcode 6.4
 2. iOS 8.0+
 
 ## Installation
@@ -62,7 +63,13 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 2. Programatically set a new String to its text property.
 
 ## Unit tests
+
 Open the project with Xcode then press command + u.
 
+## Alternative
+
+Even though this lib was used in a few products on App Store, it’s still an experimental project. Frankly, there’re some nice competitors out there guarantee both compatibility and stability. And the most outstanding one is [ZCAnimatedLabel](https://github.com/overboming/ZCAnimatedLabel). I’d like to recommend it for production use.
+
 ## License
+
 This code is distributed under the terms and conditions of the MIT license.
