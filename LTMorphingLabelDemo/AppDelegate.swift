@@ -3,7 +3,7 @@
 //  LTMorphingLabelDemo
 //
 //  Created by Lex on 6/18/14.
-//  Copyright (c) 2015 LexTang.com. All rights reserved.
+//  Copyright (c) 2015 lexrus.com. All rights reserved.
 //
 
 import UIKit

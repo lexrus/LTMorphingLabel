@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://LexTang.com
+//  Copyright (c) 2015 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the “Software”), to deal
@@ -32,7 +32,7 @@ extension LTMorphingLabel {
     func AnvilLoad() {
         
         startClosures["Anvil\(LTMorphingPhaseStart)"] = {
-            self.emitterView.removeAllEmit()
+            self.emitterView.removeAllEmitters()
             
             if self.newRects.count > 0 {
                 let centerRect = self.newRects[Int(self.newRects.count / 2)]

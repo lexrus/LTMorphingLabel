@@ -3,7 +3,7 @@
 //  LTMorphingLabelTests
 //
 //  Created by Lex Tang on 1/12/15.
-//  Copyright (c) 2015 LexTang.com. All rights reserved.
+//  Copyright (c) 2015 lexrus.com. All rights reserved.
 //
 
 import XCTest
@@ -79,7 +79,7 @@ class LTMorphingLabelTests: XCTestCase {
         self.measureBlock() {
             let lhs = "Design is not just what it looks like and feels like. Design is how it works."
             let rhs = "Innovation distinguishes between a leader and a follower."
-            let diffResults = lhs >> rhs
+            lhs >> rhs
         }
     }
     

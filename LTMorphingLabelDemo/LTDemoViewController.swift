@@ -3,7 +3,7 @@
 //  LTMorphingLabelDemo
 //
 //  Created by Lex on 6/23/14.
-//  Copyright (c) 2015 LexTang.com. All rights reserved.
+//  Copyright (c) 2015 lexrus.com. All rights reserved.
 //
 
 import UIKit
@@ -29,7 +29,7 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
     }
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 

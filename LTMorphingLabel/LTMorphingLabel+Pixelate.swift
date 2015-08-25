@@ -3,7 +3,7 @@
 //  https://github.com/lexrus/LTMorphingLabel
 //
 //  The MIT License (MIT)
-//  Copyright (c) 2015 Lex Tang, http://LexTang.com
+//  Copyright (c) 2015 Lex Tang, http://lexrus.com
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the “Software”), to deal
@@ -61,7 +61,6 @@ extension LTMorphingLabel {
                 
                 let charImage = self.pixelateImageForCharLimbo(charLimbo, withBlurRadius: charLimbo.drawingProgress * 6.0)
                 
-                let charRect = charLimbo.rect
                 charImage.drawInRect(charLimbo.rect)
                 
                 return true
@@ -76,13 +75,10 @@ extension LTMorphingLabel {
         UIGraphicsBeginImageContextWithOptions(charLimbo.rect.size, false, scale)
         let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))
         let rect = CGRectMake(0, 0, charLimbo.rect.size.width, charLimbo.rect.size.height)
-//        let context = UIGraphicsGetCurrentContext()
-//        CGContextSetShouldAntialias(context, false)
         String(charLimbo.char).drawInRect(rect, withAttributes: [
             NSFontAttributeName: self.font,
             NSForegroundColorAttributeName: self.textColor.colorWithAlphaComponent(fadeOutAlpha)
             ])
-//        CGContextSetShouldAntialias(context, true)
         let newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         return newImage

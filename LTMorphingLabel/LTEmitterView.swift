@@ -3,7 +3,7 @@
 //  LTMorphingLabelDemo
 //
 //  Created by Lex on 3/15/15.
-//  Copyright (c) 2015 LexTang.com. All rights reserved.
+//  Copyright (c) 2015 lexrus.com. All rights reserved.
 //
 
 import UIKit
@@ -68,7 +68,7 @@ public struct LTEmitter {
     
     func update(configureClosure: LTEmitterConfigureClosure? = .None) -> LTEmitter {
         if let closure = configureClosure {
-            configureClosure!(self.layer, self.cell)
+            closure(self.layer, self.cell)
         }
         return self
     }
@@ -94,7 +94,7 @@ public class LTEmitterView: UIView {
             emitter = LTEmitter(name: name, duration: duration)
             
             if let closure = configureClosure {
-                configureClosure!(emitter.layer, emitter.cell)
+                closure(emitter.layer, emitter.cell)
             }
             
             layer.addSublayer(emitter.layer)
@@ -110,8 +110,8 @@ public class LTEmitterView: UIView {
         return Optional.None
     }
     
-    public func removeAllEmit() {
-        for (name, emitter) in emitters {
+    public func removeAllEmitters() {
+        for (_, emitter) in emitters {
             emitter.layer.removeFromSuperlayer()
         }
         emitters.removeAll(keepCapacity: false)
