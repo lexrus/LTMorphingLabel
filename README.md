@@ -40,7 +40,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 
 ## Requirements
 
-1. Xcode 6.4
+1. Xcode 7
 2. iOS 8.0+
 
 ## Installation
@@ -54,7 +54,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 ### [CocoaPods](http://cocoapods.org)
 
 1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.7'`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.8'`
 3. Install the pod: `pod install`
 
 ## Usage
