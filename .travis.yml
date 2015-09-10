@@ -1,4 +1,4 @@
 osx_image: xcode7
 language: objective-c
 script:
-    - xctool test -project LTMorphingLabelDemo.xcodeproj -scheme LTMorphingLabel -sdk iphonesimulator
+    - xcodebuild test -project LTMorphingLabelDemo.xcodeproj -scheme LTMorphingLabel -sdk iphonesimulator | xcpretty
