@@ -8,10 +8,10 @@
 
 import UIKit
 
-class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
+class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     
-    var i = 0
-    var textArray = [
+    private var i = 0
+    private var textArray = [
         "What is design?",
         "Design", "Design is not just", "what it looks like", "and feels like.",
         "Design", "is how it works.", "- Steve Jobs",
@@ -20,26 +20,24 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
         "", "Swift", "Objective-C", "iPhone", "iPad", "Mac Mini", "MacBook Pro", "Mac Pro",
         "爱老婆",
         "老婆和女儿"]
-    var text:String {
-    get {
+    private var text: String {
         if i >= textArray.count {
             i = 0
         }
         return textArray[i++]
     }
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.label.delegate = self
+        label.delegate = self
+    }
+    
+    deinit {
+        label.delegate = nil
     }
 
-    @IBOutlet var label: LTMorphingLabel!
+    @IBOutlet private var label: LTMorphingLabel!
     @IBAction func changeText(sender: AnyObject) {
         label.text = text
     }
@@ -48,49 +46,49 @@ class LTDemoViewController: UIViewController, LTMorphingLabelDelegate {
         let seg = sender
         switch seg.selectedSegmentIndex {
         case 1:
-            self.label.morphingEffect = .Evaporate
+            label.morphingEffect = .Evaporate
         case 2:
-            self.label.morphingEffect = .Fall
+            label.morphingEffect = .Fall
         case 3:
-            self.label.morphingEffect = .Pixelate
+            label.morphingEffect = .Pixelate
         case 4:
-            self.label.morphingEffect = .Sparkle
+            label.morphingEffect = .Sparkle
         case 5:
-            self.label.morphingEffect = .Burn
+            label.morphingEffect = .Burn
         case 6:
-            self.label.morphingEffect = .Anvil
+            label.morphingEffect = .Anvil
         default:
-            self.label.morphingEffect = .Scale
+            label.morphingEffect = .Scale
         }
         
-        self.changeText(sender);
+        changeText(sender);
     }
 
     @IBAction func toggleLight(sender: UISegmentedControl) {
         let isNight = Bool(sender.selectedSegmentIndex == 0)
-        self.view.backgroundColor = isNight ? UIColor.blackColor() : UIColor.whiteColor()
-        self.label.textColor = isNight ? UIColor.whiteColor() : UIColor.blackColor()
+        view.backgroundColor = isNight ? UIColor.blackColor() : UIColor.whiteColor()
+        label.textColor = isNight ? UIColor.whiteColor() : UIColor.blackColor()
     }
     
     @IBAction func changeFontSize(sender: UISlider) {
-        self.label.font = self.label.font.fontWithSize(CGFloat(sender.value))
-        self.label.text = self.label.text
-        self.label.setNeedsDisplay()
+        label.font = label.font.fontWithSize(CGFloat(sender.value))
+        label.text = label.text
+        label.setNeedsDisplay()
     }
 }
 
 extension LTDemoViewController {
     
     func morphingDidStart(label: LTMorphingLabel) {
-//        println("\(label) did start morphing.")
+        
     }
     
     func morphingDidComplete(label: LTMorphingLabel) {
-//        println("\(label) did complete morphing.")
+        
     }
     
     func morphingOnProgress(label: LTMorphingLabel, _ progress: Float) {
-//        println("\(label) is morphing on progress: \(progress)")
+        
     }
     
 }

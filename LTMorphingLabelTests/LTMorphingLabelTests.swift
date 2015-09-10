@@ -9,7 +9,7 @@
 import XCTest
 import LTMorphingLabel
 
-class LTMorphingLabelTests: XCTestCase {
+class LTMorphingLabelTests : XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -76,7 +76,7 @@ class LTMorphingLabelTests: XCTestCase {
     }
     
     func testLongDiffPerformance() {
-        self.measureBlock() {
+        measureBlock() {
             let lhs = "Design is not just what it looks like and feels like. Design is how it works."
             let rhs = "Innovation distinguishes between a leader and a follower."
             lhs >> rhs

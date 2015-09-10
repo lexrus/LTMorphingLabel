@@ -42,7 +42,7 @@ public struct LTEmitter {
     public var duration: Float = 0.6
     
     init(name: String, duration: Float) {
-        self.cell.name = name
+        cell.name = name
         self.duration = duration
     }
     
@@ -68,7 +68,7 @@ public struct LTEmitter {
     
     func update(configureClosure: LTEmitterConfigureClosure? = .None) -> LTEmitter {
         if let closure = configureClosure {
-            closure(self.layer, self.cell)
+            closure(layer, cell)
         }
         return self
     }

@@ -27,7 +27,7 @@
 import Foundation
 
 
-public enum LTCharacterDiffType: Int, CustomDebugStringConvertible {
+public enum LTCharacterDiffType : Int, CustomDebugStringConvertible {
     
     case Same = 0
     case Add = 1
@@ -56,14 +56,13 @@ public enum LTCharacterDiffType: Int, CustomDebugStringConvertible {
 }
 
 
-public struct LTCharacterDiffResult: CustomDebugStringConvertible {
+public struct LTCharacterDiffResult : CustomDebugStringConvertible {
     
     public var diffType: LTCharacterDiffType = .Add
     public var moveOffset: Int = 0
     public var skip: Bool = false
     
     public var debugDescription: String {
-    get {
         switch diffType {
         case .Same:
             return "The character is unchanged."
@@ -78,7 +77,6 @@ public struct LTCharacterDiffResult: CustomDebugStringConvertible {
         default:
             return "The character is REPLACED with a new character."
         }
-    }
     }
     
 }

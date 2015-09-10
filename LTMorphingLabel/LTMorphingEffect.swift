@@ -9,7 +9,8 @@
 import UIKit
 
 
-@objc public enum LTMorphingEffect: Int, CustomStringConvertible {
+@objc public enum LTMorphingEffect : Int, CustomStringConvertible {
+
     case Scale = 0
     case Evaporate
     case Fall
@@ -18,7 +19,9 @@ import UIKit
     case Burn
     case Anvil
     
-    static let allValues = ["Scale", "Evaporate", "Fall", "Pixelate", "Sparkle", "Burn", "Anvil"]
+    public static let allValues = [
+        "Scale", "Evaporate", "Fall", "Pixelate", "Sparkle", "Burn", "Anvil"
+    ]
     
     public var description: String {
         switch self {
