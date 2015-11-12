@@ -57,6 +57,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
     @IBInspectable public var morphingProgress: Float = 0.0
     @IBInspectable public var morphingDuration: Float = 0.6
     @IBInspectable public var morphingCharacterDelay: Float = 0.026
+    @IBInspectable public var morphingEnabled: Bool = true
     @IBOutlet public weak var delegate: LTMorphingLabelDelegate?
     public var morphingEffect: LTMorphingEffect = .Scale
     
@@ -99,6 +100,10 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
             
             setNeedsLayout()
             
+            if !morphingEnabled {
+                return
+            }
+            
             if presentingInIB {
                 morphingDuration = 0.01
                 morphingProgress = 0.5
@@ -108,9 +113,7 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
                     return closure()
                 }
                 
-                if let didStart = delegate?.morphingDidStart {
-                    didStart(self)
-                }
+                delegate?.morphingDidStart?(self)
             }
         }
     }
@@ -188,9 +191,7 @@ extension LTMorphingLabel {
         } else {
             displayLink.paused = true
             
-            if let complete = delegate?.morphingDidComplete {
-                complete(self)
-            }
+            delegate?.morphingDidComplete?(self)
         }
     }
     
@@ -366,6 +367,11 @@ extension LTMorphingLabel {
     }
     
     override public func drawTextInRect(rect: CGRect) {
+        if !morphingEnabled {
+            super.drawTextInRect(rect)
+            return
+        }
+        
         for charLimbo in limboOfCharacters() {
             let charRect:CGRect = charLimbo.rect
             
