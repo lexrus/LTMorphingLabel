@@ -87,7 +87,7 @@ extension LTMorphingLabel {
                     rect.origin.x + rect.size.width / 2.0,
                     CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y)
                 
-                self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
+                self.emitterView.createEmitter("c\(index)", particleName: "Fire", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 1)
                     layer.renderMode = kCAEmitterLayerAdditive
@@ -96,7 +96,6 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 160.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
                     cell.birthRate = Float(self.font.pointSize)
-                    cell.contents = UIImage(named: "Fire")!.CGImage
                     cell.emissionLongitude = CGFloat(arc4random_uniform(30))
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = self.morphingDuration * -3.0
@@ -111,7 +110,7 @@ extension LTMorphingLabel {
                         layer.emitterPosition = emitterPosition
                     }.play()
                 
-                self.emitterView.createEmitter("s\(index)", duration: self.morphingDuration) {
+                self.emitterView.createEmitter("s\(index)", particleName: "Smoke", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 10)
                     layer.renderMode = kCAEmitterLayerAdditive
@@ -120,7 +119,6 @@ extension LTMorphingLabel {
                     cell.scale = self.font.pointSize / 40.0
                     cell.scaleSpeed = self.font.pointSize / 100.0
                     cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(10) + 10)
-                    cell.contents = UIImage(named: "Smoke")!.CGImage
                     cell.emissionLongitude = 0
                     cell.emissionRange = CGFloat(M_PI_4)
                     cell.alphaSpeed = self.morphingDuration * -3

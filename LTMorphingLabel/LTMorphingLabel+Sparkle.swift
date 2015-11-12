@@ -86,7 +86,7 @@ extension LTMorphingLabel {
                     rect.origin.x + rect.size.width / 2.0,
                     CGFloat(progress) * rect.size.height * 0.9 + rect.origin.y)
                 
-                self.emitterView.createEmitter("c\(index)", duration: self.morphingDuration) {
+                self.emitterView.createEmitter("c\(index)", particleName: "Sparkle", duration: self.morphingDuration) {
                     (layer, cell) in
                     layer.emitterSize = CGSizeMake(rect.size.width , 1)
                     layer.renderMode = kCAEmitterLayerOutline
