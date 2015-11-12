@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
 
 A morphing UILabel subclass written in Swift.
-The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morphing effects are available as Swift extensions.
+The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) in WWDC 2014. New morphing effects are available as Swift extensions.
 
 ## enum LTMorphingEffect: Int, Printable
 
@@ -36,7 +36,7 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 
 ## Requirements
 
-1. Xcode 7
+1. Xcode 7.1
 2. iOS 8.0+
 
 ## Installation
@@ -50,13 +50,13 @@ The ```.Scale``` effect is originally introduced by Apple in WWDC 2014. New morp
 ### [CocoaPods](http://cocoapods.org)
 
 1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.8'`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.9'`
 3. Install the pod: `pod install`
 
 ## Usage
 
 1. Change the class of a label from UILabel to LTMorphingLabel;
-2. Programatically set a new String to its text property.
+2. Programmatically set a new String to its text property.
 
 ## Unit tests
 
