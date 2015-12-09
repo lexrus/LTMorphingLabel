@@ -61,15 +61,19 @@ public struct LTEmitter {
     init(name: String, particleName: String, duration: Float) {
         cell.name = name
         self.duration = duration
-        
-        if let image = UIImage(
-            named: name,
-            inBundle: NSBundle(forClass: LTMorphingLabel.self),
-            compatibleWithTraitCollection: nil)?.CGImage {
-                self.cell.contents = image
-        } else {
-            cell.contents = UIImage(named: particleName)?.CGImage
+        var image: UIImage?
+        defer {
+            cell.contents = image?.CGImage
         }
+
+        image = UIImage(named: particleName)
+
+        // Load from Framework
+        if image != nil { return }
+        image = UIImage(
+            named: particleName,
+            inBundle: NSBundle(forClass: LTMorphingLabel.self),
+            compatibleWithTraitCollection: nil)
     }
     
     public func play() {
