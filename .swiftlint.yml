@@ -1,0 +1,22 @@
+disabled_rules:
+  - variable_name_min_length
+  - todo
+  - force_cast
+  - trailing_whitespace
+  - colon
+excluded:
+  - Carthage
+  - Pods
+line_length: 100
+function_body_length:
+  - 230
+  - 300
+type_body_length:
+  - 300
+  - 600
+variable_name_max_length:
+  - 30
+  - 50
+file_length:
+  - 500
+  - 700

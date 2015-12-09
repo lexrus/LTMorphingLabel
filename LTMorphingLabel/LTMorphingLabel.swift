@@ -5,23 +5,24 @@
 //  The MIT License (MIT)
 //  Copyright (c) 2015 Lex Tang, http://lexrus.com
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the “Software”), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files
+//  (the “Software”), to deal in the Software without restriction,
+//  including without limitation the rights to use, copy, modify, merge,
+//  publish, distribute, sublicense, and/or sell copies of the Software,
+//  and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
+//  The above copyright notice and this permission notice shall be included
+//  in all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+//  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+//  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 import Foundation
@@ -29,19 +30,28 @@ import UIKit
 import QuartzCore
 
 
-let LTMorphingPhaseStart = "Start"
-let LTMorphingPhaseAppear = "Appear"
-let LTMorphingPhaseDisappear = "Disappear"
-let LTMorphingPhaseDraw = "Draw"
-let LTMorphingPhaseManipulateProgress = "ManipulateProgress"
-let LTMorphingPhaseSkipFrames = "SkipFrames"
+let phaseStart = "Start"
+let phaseAppear = "Appear"
+let phaseDisappear = "Disappear"
+let phaseDraw = "Draw"
+let phaseProgress = "ManipulateProgress"
+let phaseSkipFrames = "SkipFrames"
 
 
-typealias LTMorphingStartClosure = (Void) -> Void
-typealias LTMorphingEffectClosure = (Character, index: Int, progress: Float) -> LTCharacterLimbo
-typealias LTMorphingDrawingClosure = LTCharacterLimbo -> Bool
-typealias LTMorphingManipulateProgressClosure = (index: Int, progress: Float, isNewChar: Bool) -> Float
-typealias LTMorphingSkipFramesClosure = (Void) -> Int
+typealias LTMorphingStartClosure =
+    (Void) -> Void
+
+typealias LTMorphingEffectClosure =
+    (Character, index: Int, progress: Float) -> LTCharacterLimbo
+
+typealias LTMorphingDrawingClosure =
+    LTCharacterLimbo -> Bool
+
+typealias LTMorphingManipulateProgressClosure =
+    (index: Int, progress: Float, isNewChar: Bool) -> Float
+
+typealias LTMorphingSkipFramesClosure =
+    (Void) -> Int
 
 
 @objc public protocol LTMorphingLabelDelegate {
@@ -109,8 +119,10 @@ typealias LTMorphingSkipFramesClosure = (Void) -> Int
                 morphingProgress = 0.5
             } else if previousText != text {
                 displayLink.paused = false
-                if let closure = startClosures["\(morphingEffect.description)\(LTMorphingPhaseStart)"] {
-                    return closure()
+                if let closure = startClosures[
+                    "\(morphingEffect.description)\(phaseStart)"
+                    ] {
+                        return closure()
                 }
                 
                 delegate?.morphingDidStart?(self)
@@ -176,11 +188,13 @@ extension LTMorphingLabel {
         if previousText != text && currentFrame++ < totalFrames + totalDelayFrames + 5 {
             morphingProgress += 1.0 / Float(totalFrames)
             
-            if let closure = skipFramesClosures["\(morphingEffect.description)\(LTMorphingPhaseSkipFrames)"] {
-                if ++skipFramesCount > closure() {
-                    skipFramesCount = 0
-                    setNeedsDisplay()
-                }
+            if let closure = skipFramesClosures[
+                "\(morphingEffect.description)\(phaseSkipFrames)"
+                ] {
+                    if ++skipFramesCount > closure() {
+                        skipFramesCount = 0
+                        setNeedsDisplay()
+                    }
             } else {
                 setNeedsDisplay()
             }
@@ -207,7 +221,12 @@ extension LTMorphingLabel {
         
         for (_, char) in textToDraw.characters.enumerate() {
             let charSize = String(char).sizeWithAttributes([NSFontAttributeName: font])
-            charRects.append(CGRect(origin: CGPointMake(leftOffset, topOffset), size: charSize))
+            charRects.append(
+                CGRect(
+                    origin: CGPointMake(leftOffset, topOffset),
+                    size: charSize
+                )
+            )
             leftOffset += charSize.width
         }
         
@@ -249,16 +268,22 @@ extension LTMorphingLabel {
                 // Move the character that exists in the new text to current position
             case .Move, .MoveAndAdd, .Same:
                 newX = Float(newRects[index + diffResult.moveOffset].origin.x)
-                currentRect.origin.x = CGFloat(LTEasing.easeOutQuint(progress, oriX, newX - oriX))
+                currentRect.origin.x = CGFloat(
+                    LTEasing.easeOutQuint(progress, oriX, newX - oriX)
+                )
             default:
                 // Otherwise, remove it
                 
                 // Override morphing effect with closure in extenstions
-                if let closure = effectClosures["\(morphingEffect.description)\(LTMorphingPhaseDisappear)"] {
-                    return closure(char, index: index, progress: progress)
+                if let closure = effectClosures[
+                    "\(morphingEffect.description)\(phaseDisappear)"
+                    ] {
+                        return closure(char, index: index, progress: progress)
                 } else {
                     // And scale it by default
-                    currentFontSize = font.pointSize - CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
+                    currentFontSize =
+                        font.pointSize
+                        - CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
                     currentAlpha = CGFloat(1.0 - progress)
                     currentRect = CGRectOffset(previousRects[index], 0,
                         CGFloat(font.pointSize - currentFontSize))
@@ -280,12 +305,18 @@ extension LTMorphingLabel {
         progress: Float) -> LTCharacterLimbo {
             
             let currentRect = newRects[index]
-            var currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
+            var currentFontSize = CGFloat(
+                LTEasing.easeOutQuint(progress, 0, Float(font.pointSize))
+            )
             
-            if let closure = effectClosures["\(morphingEffect.description)\(LTMorphingPhaseAppear)"] {
-                return closure(char, index: index, progress: progress)
+            if let closure = effectClosures[
+                "\(morphingEffect.description)\(phaseAppear)"
+                ] {
+                    return closure(char, index: index, progress: progress)
             } else {
-                currentFontSize = CGFloat(LTEasing.easeOutQuint(progress, 0.0, Float(font.pointSize)))
+                currentFontSize = CGFloat(
+                    LTEasing.easeOutQuint(progress, 0.0, Float(font.pointSize))
+                )
                 let yOffset = CGFloat(font.pointSize - currentFontSize)
                 
                 return LTCharacterLimbo(
@@ -305,8 +336,10 @@ extension LTMorphingLabel {
         for (i, character) in previousText.characters.enumerate() {
             var progress: Float = 0.0
             
-            if let closure = progressClosures["\(morphingEffect.description)\(LTMorphingPhaseManipulateProgress)"] {
-                progress = closure(index: i, progress: morphingProgress, isNewChar: false)
+            if let closure = progressClosures[
+                "\(morphingEffect.description)\(phaseProgress)"
+                ] {
+                    progress = closure(index: i, progress: morphingProgress, isNewChar: false)
             } else {
                 progress = min(1.0, max(0.0, morphingProgress + morphingCharacterDelay * Float(i)))
             }
@@ -323,8 +356,10 @@ extension LTMorphingLabel {
             
             var progress: Float = 0.0
             
-            if let closure = progressClosures["\(morphingEffect.description)\(LTMorphingPhaseManipulateProgress)"] {
-                progress = closure(index: i, progress: morphingProgress, isNewChar: true)
+            if let closure = progressClosures[
+                "\(morphingEffect.description)\(phaseProgress)"
+                ] {
+                    progress = closure(index: i, progress: morphingProgress, isNewChar: true)
             } else {
                 progress = min(1.0, max(0.0, morphingProgress - morphingCharacterDelay * Float(i)))
             }
@@ -376,8 +411,10 @@ extension LTMorphingLabel {
             let charRect:CGRect = charLimbo.rect
             
             let willAvoidDefaultDrawing: Bool = {
-                if let closure = drawingClosures["\(morphingEffect.description)\(LTMorphingPhaseDraw)"] {
-                    return closure($0)
+                if let closure = drawingClosures[
+                    "\(morphingEffect.description)\(phaseDraw)"
+                    ] {
+                        return closure($0)
                 }
                 return false
                 }(charLimbo)
@@ -385,11 +422,12 @@ extension LTMorphingLabel {
             if !willAvoidDefaultDrawing {
                 let s = String(charLimbo.char)
                 s.drawInRect(charRect, withAttributes: [
-                    NSFontAttributeName: font.fontWithSize(charLimbo.size),
-                    NSForegroundColorAttributeName: textColor.colorWithAlphaComponent(charLimbo.alpha)
+                    NSFontAttributeName:
+                        font.fontWithSize(charLimbo.size),
+                    NSForegroundColorAttributeName:
+                        textColor.colorWithAlphaComponent(charLimbo.alpha)
                     ])
             }
         }
     }
 }
-

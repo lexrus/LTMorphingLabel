@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,7 +41,7 @@
 		D7D4B0401A5E8F6E0087F83D /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D7D4B0411A5E8F6E0087F83D /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D7D4B0421A5E8F6E0087F83D /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
-		D7E537321B8CADF6008EF6D1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E537311B8CADF6008EF6D1 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		D7E537321B8CADF6008EF6D1 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7E537311B8CADF6008EF6D1 /* Launch Screen.storyboard */; };
 		D7EF4F041AB5608000D46A0E /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F031AB5608000D46A0E /* LTMorphingEffect.swift */; };
 		D7EF4F051AB5610200D46A0E /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F031AB5608000D46A0E /* LTMorphingEffect.swift */; };
 		D7EF4F071AB5612C00D46A0E /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F061AB5612C00D46A0E /* LTCharacterLimbo.swift */; };
@@ -305,6 +305,7 @@
 				D7D4B01B1A5E87D50087F83D /* Frameworks */,
 				D7D4B01C1A5E87D50087F83D /* Headers */,
 				D7D4B01D1A5E87D50087F83D /* Resources */,
+				D7CA19C31C17CE9A00F2EFDB /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -324,7 +325,7 @@
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = LexTang.com;
+				ORGANIZATIONNAME = lexrus.com;
 				TargetAttributes = {
 					D74AD96D195171E7009A2ACD = {
 						CreatedOnToolsVersion = 6.0;
@@ -339,7 +340,7 @@
 				};
 			};
 			buildConfigurationList = D74AD969195171E7009A2ACD /* Build configuration list for PBXProject "LTMorphingLabelDemo" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -391,6 +392,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D7CA19C31C17CE9A00F2EFDB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D74AD96A195171E7009A2ACD /* Sources */ = {

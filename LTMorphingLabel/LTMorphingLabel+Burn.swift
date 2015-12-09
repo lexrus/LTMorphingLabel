@@ -5,23 +5,24 @@
 //  The MIT License (MIT)
 //  Copyright (c) 2015 Lex Tang, http://lexrus.com
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the “Software”), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files
+//  (the “Software”), to deal in the Software without restriction,
+//  including without limitation the rights to use, copy, modify, merge,
+//  publish, distribute, sublicense, and/or sell copies of the Software,
+//  and to permit persons to whom the Software is furnished to do so,
+//  subject to the following conditions:
 //
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
+//  The above copyright notice and this permission notice shall be included
+//  in all copies or substantial portions of the Software.
 //
-//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+//  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+//  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+//  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+//  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+//  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 import UIKit
@@ -29,32 +30,39 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    private func burningImageForCharLimbo(charLimbo: LTCharacterLimbo, withProgress progress: CGFloat) -> (UIImage, CGRect) {
-        let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
-        let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
-        UIGraphicsBeginImageContextWithOptions(maskedSize, false, UIScreen.mainScreen().scale)
-        let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
-        String(charLimbo.char).drawInRect(rect, withAttributes: [
-            NSFontAttributeName: self.font,
-            NSForegroundColorAttributeName: self.textColor
-            ])
-        let newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        let newRect = CGRectMake(
-            charLimbo.rect.origin.x,
-            charLimbo.rect.origin.y,
-            charLimbo.rect.size.width,
-            maskedHeight)
+    private func burningImageForCharLimbo(
+        charLimbo: LTCharacterLimbo,
+        withProgress progress: CGFloat
+        ) -> (UIImage, CGRect) {
+            let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
+            let maskedSize = CGSizeMake( charLimbo.rect.size.width, maskedHeight)
+            UIGraphicsBeginImageContextWithOptions(
+                maskedSize,
+                false,
+                UIScreen.mainScreen().scale
+            )
+            let rect = CGRectMake(0, 0, charLimbo.rect.size.width, maskedHeight)
+            String(charLimbo.char).drawInRect(rect, withAttributes: [
+                NSFontAttributeName: self.font,
+                NSForegroundColorAttributeName: self.textColor
+                ])
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            let newRect = CGRectMake(
+                charLimbo.rect.origin.x,
+                charLimbo.rect.origin.y,
+                charLimbo.rect.size.width,
+                maskedHeight)
         return (newImage, newRect)
     }
     
     func BurnLoad() {
         
-        startClosures["Burn\(LTMorphingPhaseStart)"] = {
+        startClosures["Burn\(phaseStart)"] = {
             self.emitterView.removeAllEmitters()
         }
         
-        progressClosures["Burn\(LTMorphingPhaseManipulateProgress)"] = {
+        progressClosures["Burn\(phaseProgress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -66,7 +74,7 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Burn\(LTMorphingPhaseDisappear)"] = {
+        effectClosures["Burn\(phaseDisappear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             return LTCharacterLimbo(
@@ -78,7 +86,7 @@ extension LTMorphingLabel {
             )
         }
         
-        effectClosures["Burn\(LTMorphingPhaseAppear)"] = {
+        effectClosures["Burn\(phaseAppear)"] = {
             (char:Character, index: Int, progress: Float) in
             
             if char != " " {
@@ -87,47 +95,55 @@ extension LTMorphingLabel {
                     rect.origin.x + rect.size.width / 2.0,
                     CGFloat(progress) * rect.size.height / 1.2 + rect.origin.y)
                 
-                self.emitterView.createEmitter("c\(index)", particleName: "Fire", duration: self.morphingDuration) {
-                    (layer, cell) in
-                    layer.emitterSize = CGSizeMake(rect.size.width , 1)
-                    layer.renderMode = kCAEmitterLayerAdditive
-                    layer.emitterMode = kCAEmitterLayerOutline
-                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 160.0
-                    cell.scaleSpeed = self.font.pointSize / 100.0
-                    cell.birthRate = Float(self.font.pointSize)
-                    cell.emissionLongitude = CGFloat(arc4random_uniform(30))
-                    cell.emissionRange = CGFloat(M_PI_4)
-                    cell.alphaSpeed = self.morphingDuration * -3.0
-                    cell.yAcceleration = 10
-                    cell.velocity = CGFloat(10 + Int(arc4random_uniform(3)))
-                    cell.velocityRange = 10
-                    cell.spin = 0
-                    cell.spinRange = 0
-                    cell.lifetime = self.morphingDuration / 3.0
+                self.emitterView.createEmitter(
+                    "c\(index)",
+                    particleName: "Fire",
+                    duration: self.morphingDuration
+                    ) { (layer, cell) in
+                        layer.emitterSize = CGSizeMake(rect.size.width, 1)
+                        layer.renderMode = kCAEmitterLayerAdditive
+                        layer.emitterMode = kCAEmitterLayerOutline
+                        cell.emissionLongitude = CGFloat(M_PI / 2.0)
+                        cell.scale = self.font.pointSize / 160.0
+                        cell.scaleSpeed = self.font.pointSize / 100.0
+                        cell.birthRate = Float(self.font.pointSize)
+                        cell.emissionLongitude = CGFloat(arc4random_uniform(30))
+                        cell.emissionRange = CGFloat(M_PI_4)
+                        cell.alphaSpeed = self.morphingDuration * -3.0
+                        cell.yAcceleration = 10
+                        cell.velocity = CGFloat(10 + Int(arc4random_uniform(3)))
+                        cell.velocityRange = 10
+                        cell.spin = 0
+                        cell.spinRange = 0
+                        cell.lifetime = self.morphingDuration / 3.0
                     }.update {
                         (layer, cell) in
                         layer.emitterPosition = emitterPosition
                     }.play()
                 
-                self.emitterView.createEmitter("s\(index)", particleName: "Smoke", duration: self.morphingDuration) {
-                    (layer, cell) in
-                    layer.emitterSize = CGSizeMake(rect.size.width , 10)
-                    layer.renderMode = kCAEmitterLayerAdditive
-                    layer.emitterMode = kCAEmitterLayerVolume
-                    cell.emissionLongitude = CGFloat(M_PI / 2.0)
-                    cell.scale = self.font.pointSize / 40.0
-                    cell.scaleSpeed = self.font.pointSize / 100.0
-                    cell.birthRate = Float(self.font.pointSize) / Float(arc4random_uniform(10) + 10)
-                    cell.emissionLongitude = 0
-                    cell.emissionRange = CGFloat(M_PI_4)
-                    cell.alphaSpeed = self.morphingDuration * -3
-                    cell.yAcceleration = -5
-                    cell.velocity = CGFloat(20 + Int(arc4random_uniform(15)))
-                    cell.velocityRange = 20
-                    cell.spin = CGFloat(Float(arc4random_uniform(30)) / 10.0)
-                    cell.spinRange = 3
-                    cell.lifetime = self.morphingDuration
+                self.emitterView.createEmitter(
+                    "s\(index)",
+                    particleName: "Smoke",
+                    duration: self.morphingDuration
+                    ) { (layer, cell) in
+                        layer.emitterSize = CGSizeMake(rect.size.width, 10)
+                        layer.renderMode = kCAEmitterLayerAdditive
+                        layer.emitterMode = kCAEmitterLayerVolume
+                        cell.emissionLongitude = CGFloat(M_PI / 2.0)
+                        cell.scale = self.font.pointSize / 40.0
+                        cell.scaleSpeed = self.font.pointSize / 100.0
+                        cell.birthRate =
+                            Float(self.font.pointSize)
+                            / Float(arc4random_uniform(10) + 10)
+                        cell.emissionLongitude = 0
+                        cell.emissionRange = CGFloat(M_PI_4)
+                        cell.alphaSpeed = self.morphingDuration * -3
+                        cell.yAcceleration = -5
+                        cell.velocity = CGFloat(20 + Int(arc4random_uniform(15)))
+                        cell.velocityRange = 20
+                        cell.spin = CGFloat(Float(arc4random_uniform(30)) / 10.0)
+                        cell.spinRange = 3
+                        cell.lifetime = self.morphingDuration
                     }.update {
                         (layer, cell) in
                         layer.emitterPosition = emitterPosition
@@ -143,12 +159,15 @@ extension LTMorphingLabel {
             )
         }
         
-        drawingClosures["Burn\(LTMorphingPhaseDraw)"] = {
+        drawingClosures["Burn\(phaseDraw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
                 
-                let (charImage, rect) = self.burningImageForCharLimbo(charLimbo, withProgress: charLimbo.drawingProgress)
+                let (charImage, rect) = self.burningImageForCharLimbo(
+                    charLimbo,
+                    withProgress: charLimbo.drawingProgress
+                )
                 charImage.drawInRect(rect)
                 
                 return true
@@ -157,7 +176,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        skipFramesClosures["Burn\(LTMorphingPhaseSkipFrames)"] = {
+        skipFramesClosures["Burn\(phaseSkipFrames)"] = {
             return 1
         }
     }
