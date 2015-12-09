@@ -44,13 +44,12 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 1. Add this line to your Cartfile: `github "lexrus/LTMorphingLabel"`
-2. Run `carthage update` to fetch and build the `LTMorphingLabel.framework`
-3. Drag `LTMorphingLabel.framework` into your iOS 8 project
+2. Read the [official instruction](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
 
 ### [CocoaPods](http://cocoapods.org)
 
 1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel', '~> 0.0.9'`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel'`
 3. Install the pod: `pod install`
 
 ## Usage
