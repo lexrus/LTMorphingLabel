@@ -268,6 +268,8 @@
 				D74AD96B195171E7009A2ACD /* Frameworks */,
 				D74AD96C195171E7009A2ACD /* Resources */,
 				D7D4B0371A5E87D50087F83D /* Embed Frameworks */,
+				D7E30A621C28449F00A708CF /* SwiftLint */,
+				D7E30A631C2844B000A708CF /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -305,7 +307,6 @@
 				D7D4B01B1A5E87D50087F83D /* Frameworks */,
 				D7D4B01C1A5E87D50087F83D /* Headers */,
 				D7D4B01D1A5E87D50087F83D /* Resources */,
-				D7CA19C31C17CE9A00F2EFDB /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -394,7 +395,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D7CA19C31C17CE9A00F2EFDB /* SwiftLint */ = {
+		D7E30A621C28449F00A708CF /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -407,6 +408,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		D7E30A631C2844B000A708CF /* Tailor */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\ntailor ${SRCROOT}/LTMorphingLabel/ --except=trailing-whitespace,lower-camel-case\nelse\necho \"warning: Please install Tailor from https://tailor.sh\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

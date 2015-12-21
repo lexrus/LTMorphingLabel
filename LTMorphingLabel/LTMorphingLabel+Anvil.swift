@@ -179,7 +179,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Anvil\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -190,7 +190,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Anvil\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             var rect = self.newRects[index]
             

@@ -50,4 +50,5 @@ public struct LTEasing {
             }
         }(t / d)
     }
+
 }

@@ -33,7 +33,7 @@ extension LTMorphingLabel {
     func PixelateLoad() {
         
         effectClosures["Pixelate\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -44,7 +44,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Pixelate\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -56,16 +56,16 @@ extension LTMorphingLabel {
         }
         
         drawingClosures["Pixelate\(phaseDraw)"] = {
-            (charLimbo: LTCharacterLimbo) in
+            limbo in
             
-            if charLimbo.drawingProgress > 0.0 {
+            if limbo.drawingProgress > 0.0 {
                 
                 let charImage = self.pixelateImageForCharLimbo(
-                    charLimbo,
-                    withBlurRadius: charLimbo.drawingProgress * 6.0
+                    limbo,
+                    withBlurRadius: limbo.drawingProgress * 6.0
                 )
                 
-                charImage.drawInRect(charLimbo.rect)
+                charImage.drawInRect(limbo.rect)
                 
                 return true
             }

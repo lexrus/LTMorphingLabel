@@ -28,7 +28,7 @@
 import UIKit
 
 
-public struct LTCharacterLimbo : CustomDebugStringConvertible {
+public struct LTCharacterLimbo: CustomDebugStringConvertible {
     
     public let char: Character
     public var rect: CGRect

@@ -40,7 +40,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Evaporate\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             let newProgress = LTEasing.easeOutQuint(progress, 0.0, 1.0, 1.0)
             let yOffset: CGFloat = -0.8 * CGFloat(self.font.pointSize) * CGFloat(newProgress)
@@ -56,7 +56,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Evaporate\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             let newProgress = 1.0 - LTEasing.easeOutQuint(progress, 0.0, 1.0)
             let yOffset = CGFloat(self.font.pointSize) * CGFloat(newProgress) * 1.2

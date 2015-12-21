@@ -68,8 +68,10 @@ public struct LTEmitter {
 
         image = UIImage(named: particleName)
 
+        if image != nil {
+            return
+        }
         // Load from Framework
-        if image != nil { return }
         image = UIImage(
             named: particleName,
             inBundle: NSBundle(forClass: LTMorphingLabel.self),

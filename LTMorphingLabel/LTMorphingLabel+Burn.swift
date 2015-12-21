@@ -72,7 +72,7 @@ extension LTMorphingLabel {
         }
         
         progressClosures["Burn\(phaseProgress)"] = {
-            (index: Int, progress: Float, isNewChar: Bool) in
+            index, progress, isNewChar in
             
             if !isNewChar {
                 return min(1.0, max(0.0, progress))
@@ -84,7 +84,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Burn\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -96,7 +96,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Burn\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             if char != " " {
                 let rect = self.newRects[index]

@@ -28,7 +28,7 @@
 import UIKit
 
 
-@objc public enum LTMorphingEffect : Int, CustomStringConvertible {
+@objc public enum LTMorphingEffect: Int, CustomStringConvertible {
 
     case Scale = 0
     case Evaporate
@@ -60,4 +60,5 @@ import UIKit
             return "Scale"
         }
     }
+
 }

@@ -62,7 +62,7 @@ typealias LTMorphingSkipFramesClosure =
 
 
 // MARK: - LTMorphingLabel
-@IBDesignable public class LTMorphingLabel : UILabel {
+@IBDesignable public class LTMorphingLabel: UILabel {
     
     @IBInspectable public var morphingProgress: Float = 0.0
     @IBInspectable public var morphingDuration: Float = 0.6
@@ -95,7 +95,7 @@ typealias LTMorphingSkipFramesClosure =
     let presentingInIB = false
     #endif
     
-    override public var text:String! {
+    override public var text: String! {
         get {
             return super.text
         }
@@ -136,7 +136,7 @@ typealias LTMorphingSkipFramesClosure =
         newRects = rectsOfEachCharacter(text ?? "", withFont: font)
     }
     
-    override public var bounds:CGRect {
+    override public var bounds: CGRect {
         get {
             return super.bounds
         }
@@ -146,7 +146,7 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    override public var frame:CGRect {
+    override public var frame: CGRect {
         get {
             return super.frame
         }
@@ -211,7 +211,7 @@ extension LTMorphingLabel {
     
     // Could be enhanced by kerning text:
     // http://stackoverflow.com/questions/21443625/core-text-calculate-letter-frame-in-ios
-    func rectsOfEachCharacter(textToDraw:String, withFont font:UIFont) -> [CGRect] {
+    func rectsOfEachCharacter(textToDraw: String, withFont font: UIFont) -> [CGRect] {
         var charRects = [CGRect]()
         var leftOffset: CGFloat = 0.0
         
@@ -391,6 +391,7 @@ extension LTMorphingLabel {
         
         return limbo
     }
+
 }
 
 
@@ -418,7 +419,7 @@ extension LTMorphingLabel {
         }
         
         for charLimbo in limboOfCharacters() {
-            let charRect:CGRect = charLimbo.rect
+            let charRect = charLimbo.rect
             
             let willAvoidDefaultDrawing: Bool = {
                 if let closure = drawingClosures[
@@ -440,4 +441,5 @@ extension LTMorphingLabel {
             }
         }
     }
+
 }

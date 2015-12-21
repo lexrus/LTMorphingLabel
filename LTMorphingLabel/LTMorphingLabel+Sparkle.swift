@@ -90,7 +90,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Sparkle\(phaseDisappear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             return LTCharacterLimbo(
                 char: char,
@@ -101,7 +101,7 @@ extension LTMorphingLabel {
         }
         
         effectClosures["Sparkle\(phaseAppear)"] = {
-            (char:Character, index: Int, progress: Float) in
+            char, index, progress in
             
             if char != " " {
                 let rect = self.newRects[index]
