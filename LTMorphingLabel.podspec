@@ -19,7 +19,8 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "Lex Tang" => "lexrus@gmail.com" }
   s.social_media_url   = "https://twitter.com/lexrus"
-  s.platform     = :ios, "8.0"
+  s.ios.deployment_target = "8.0"
+  s.tvos.deployment_target = "9.0"
   s.source       = {
                     :git => "https://github.com/lexrus/LTMorphingLabel.git",
                     :tag => s.version
