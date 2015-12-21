@@ -36,7 +36,7 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 
 ## Requirements
 
-1. Xcode 7.1
+1. Xcode 7.2
 2. iOS 8.0+
 
 ## Installation
@@ -63,7 +63,13 @@ Open the project with Xcode then press command + u.
 
 ## Alternative
 
-Even though this lib was used in a few products on App Store, it’s still an experimental project. Frankly, there’re some nice competitors out there guarantee both compatibility and stability. And the most outstanding one is [ZCAnimatedLabel](https://github.com/overboming/ZCAnimatedLabel). I’d like to recommend it for production use.
+Even though this lib was used in
+[a few products on App Store](https://github.com/lexrus/LTMorphingLabel/wiki/Apps-using-LTMorphingLabel),
+it’s still an experimental project. Frankly, there’re some nice competitors out
+there guarantee both compatibility and stability.
+And the most outstanding one is
+[ZCAnimatedLabel](https://github.com/overboming/ZCAnimatedLabel).
+I’d like to recommend it for production use.
 
 ## License
 
