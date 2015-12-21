@@ -281,9 +281,13 @@ extension LTMorphingLabel {
                         return closure(char, index: index, progress: progress)
                 } else {
                     // And scale it by default
-                    currentFontSize =
-                        font.pointSize
-                        - CGFloat(LTEasing.easeOutQuint(progress, 0, Float(font.pointSize)))
+                    let fontEase = CGFloat(
+                        LTEasing.easeOutQuint(
+                            progress, 0, Float(font.pointSize)
+                        )
+                    )
+                    // For emojis
+                    currentFontSize = max(0.0001, font.pointSize - fontEase)
                     currentAlpha = CGFloat(1.0 - progress)
                     currentRect = CGRectOffset(previousRects[index], 0,
                         CGFloat(font.pointSize - currentFontSize))
@@ -317,6 +321,9 @@ extension LTMorphingLabel {
                 currentFontSize = CGFloat(
                     LTEasing.easeOutQuint(progress, 0.0, Float(font.pointSize))
                 )
+                // For emojis
+                currentFontSize = max(0.0001, currentFontSize)
+                
                 let yOffset = CGFloat(font.pointSize - currentFontSize)
                 
                 return LTCharacterLimbo(
