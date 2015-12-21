@@ -32,8 +32,8 @@ public struct LTEmitter {
     
     let layer: CAEmitterLayer = {
         let layer = CAEmitterLayer()
-        layer.emitterPosition = CGPointMake(10, 10)
-        layer.emitterSize = CGSizeMake(10, 1)
+        layer.emitterPosition = CGPoint(x: 10, y: 10)
+        layer.emitterSize = CGSize(width: 10, height: 1)
         layer.renderMode = kCAEmitterLayerOutline
         layer.emitterShape = kCAEmitterLayerLine
         return layer

@@ -223,7 +223,10 @@ extension LTMorphingLabel {
             let charSize = String(char).sizeWithAttributes([NSFontAttributeName: font])
             charRects.append(
                 CGRect(
-                    origin: CGPointMake(leftOffset, topOffset),
+                    origin: CGPoint(
+                        x: leftOffset,
+                        y: topOffset
+                    ),
                     size: charSize
                 )
             )

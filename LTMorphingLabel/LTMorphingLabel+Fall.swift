@@ -114,11 +114,11 @@ extension LTMorphingLabel {
                     charColor = self.textColor.colorWithAlphaComponent(fadeOutAlpha)
                 }
                 
-                charRect = CGRectMake(
-                    charRect.size.width / -2.0,
-                    charRect.size.height * -1.0 + self.font.pointSize / 6,
-                    charRect.size.width,
-                    charRect.size.height)
+                charRect = CGRect(
+                    x: charRect.size.width / -2.0,
+                    y: charRect.size.height * -1.0 + self.font.pointSize / 6,
+                    width: charRect.size.width,
+                    height: charRect.size.height)
                 CGContextTranslateCTM(context, charCenterX, charBottomY)
                 
                 let angle = Float(sin(Double(charLimbo.rect.origin.x)) > 0.5 ? 168 : -168)

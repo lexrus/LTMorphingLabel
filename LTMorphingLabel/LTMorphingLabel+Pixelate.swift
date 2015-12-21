@@ -81,7 +81,12 @@ extension LTMorphingLabel {
             let scale = min(UIScreen.mainScreen().scale, 1.0 / blurRadius)
             UIGraphicsBeginImageContextWithOptions(charLimbo.rect.size, false, scale)
             let fadeOutAlpha = min(1.0, max(0.0, charLimbo.drawingProgress * -2.0 + 2.0 + 0.01))
-            let rect = CGRectMake(0, 0, charLimbo.rect.size.width, charLimbo.rect.size.height)
+            let rect = CGRect(
+                x: 0,
+                y: 0,
+                width: charLimbo.rect.size.width,
+                height: charLimbo.rect.size.height
+            )
             String(charLimbo.char).drawInRect(rect, withAttributes: [
                 NSFontAttributeName:
                     self.font,

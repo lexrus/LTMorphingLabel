@@ -83,7 +83,7 @@ public struct LTCharacterDiffResult : CustomDebugStringConvertible {
 }
 
 
-public func >>(lhs: String, rhs: String) -> [LTCharacterDiffResult] {
+public func >> (lhs: String, rhs: String) -> [LTCharacterDiffResult] {
     
     let newChars = rhs.characters.enumerate()
     let lhsLength = lhs.characters.count
