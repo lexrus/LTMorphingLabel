@@ -71,6 +71,8 @@ And the most outstanding one is
 [ZCAnimatedLabel](https://github.com/overboming/ZCAnimatedLabel).
 I’d like to recommend it for production use.
 
+And finally, [an Android port](https://github.com/hanks-zyh/HTextView).
+
 ## License
 
 This code is distributed under the terms and conditions of the MIT license.
