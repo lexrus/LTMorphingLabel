@@ -434,7 +434,7 @@ extension LTMorphingLabel {
                 let s = String(charLimbo.char)
                 s.drawInRect(charRect, withAttributes: [
                     NSFontAttributeName:
-                        font.fontWithSize(charLimbo.size),
+                        UIFont.init(name: font.fontName, size: charLimbo.size)!,
                     NSForegroundColorAttributeName:
                         textColor.colorWithAlphaComponent(charLimbo.alpha)
                     ])
