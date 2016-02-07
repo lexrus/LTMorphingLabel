@@ -4,6 +4,7 @@ disabled_rules:
   - force_cast
   - trailing_whitespace
   - colon
+  - variable_name
 excluded:
   - Carthage
   - Pods
