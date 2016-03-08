@@ -100,6 +100,8 @@ typealias LTMorphingSkipFramesClosure =
             return super.text
         }
         set {
+            guard text != newValue else { return }
+
             previousText = text ?? ""
             diffResults = previousText >> (newValue ?? "")
             super.text = newValue ?? ""
