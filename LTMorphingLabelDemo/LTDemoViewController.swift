@@ -10,7 +10,7 @@ import UIKit
 
 class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     
-    private var i = 0
+    private var i = -1
     private var textArray = [
         "What is design?",
         "Design", "Design is not just", "what it looks like", "and feels like.",
@@ -23,10 +23,8 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         "老婆和女儿"
     ]
     private var text: String {
-        if i >= textArray.count {
-            i = 0
-        }
-        return textArray[i++]
+        i = i >= textArray.count ? 0 : i + 1
+        return textArray[i]
     }
 
     override func viewDidLoad() {
@@ -34,36 +32,17 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         
         label.delegate = self
     }
-    
-    deinit {
-        label.delegate = nil
-    }
 
     @IBOutlet private var label: LTMorphingLabel!
     @IBAction func changeText(sender: AnyObject) {
         label.text = text
     }
-    
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         let seg = sender
-        switch seg.selectedSegmentIndex {
-        case 1:
-            label.morphingEffect = .Evaporate
-        case 2:
-            label.morphingEffect = .Fall
-        case 3:
-            label.morphingEffect = .Pixelate
-        case 4:
-            label.morphingEffect = .Sparkle
-        case 5:
-            label.morphingEffect = .Burn
-        case 6:
-            label.morphingEffect = .Anvil
-        default:
-            label.morphingEffect = .Scale
+        if let effect = LTMorphingEffect(rawValue: seg.selectedSegmentIndex) {
+            label.morphingEffect = effect
+            changeText(sender)
         }
-        
-        changeText(sender)
     }
 
     @IBAction func toggleLight(sender: UISegmentedControl) {
@@ -89,7 +68,7 @@ extension LTDemoViewController {
         
     }
     
-    func morphingOnProgress(label: LTMorphingLabel, _ progress: Float) {
+    func morphingOnProgress(label: LTMorphingLabel, progress: Float) {
         
     }
     

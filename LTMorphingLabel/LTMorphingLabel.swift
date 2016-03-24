@@ -57,7 +57,7 @@ typealias LTMorphingSkipFramesClosure =
 @objc public protocol LTMorphingLabelDelegate {
     optional func morphingDidStart(label: LTMorphingLabel)
     optional func morphingDidComplete(label: LTMorphingLabel)
-    optional func morphingOnProgress(label: LTMorphingLabel, _ progress: Float)
+    optional func morphingOnProgress(label: LTMorphingLabel, progress: Float)
 }
 
 
@@ -121,10 +121,9 @@ typealias LTMorphingSkipFramesClosure =
                 morphingProgress = 0.5
             } else if previousText != text {
                 displayLink.paused = false
-                if let closure = startClosures[
-                    "\(morphingEffect.description)\(phaseStart)"
-                    ] {
-                        return closure()
+                let closureKey = "\(morphingEffect.description)\(phaseStart)"
+                if let closure = startClosures[closureKey] {
+                    return closure()
                 }
                 
                 delegate?.morphingDidStart?(self)
@@ -161,7 +160,7 @@ typealias LTMorphingSkipFramesClosure =
     private lazy var displayLink: CADisplayLink = {
         let displayLink = CADisplayLink(
             target: self,
-            selector: Selector("displayFrameTick"))
+            selector: #selector(LTMorphingLabel.displayFrameTick))
         displayLink.addToRunLoop(
             NSRunLoop.currentRunLoop(),
             forMode: NSRunLoopCommonModes)
@@ -177,36 +176,38 @@ typealias LTMorphingSkipFramesClosure =
 
 // MARK: - Animation extension
 extension LTMorphingLabel {
-    
+
     func displayFrameTick() {
         if displayLink.duration > 0.0 && totalFrames == 0 {
             let frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
             totalFrames = Int(ceil(morphingDuration / frameRate))
-            
+
             let totalDelay = Float((text!).characters.count) * morphingCharacterDelay
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
-        
-        if previousText != text && currentFrame++ < totalFrames + totalDelayFrames + 5 {
+
+        currentFrame += 1
+
+        if previousText != text && currentFrame < totalFrames + totalDelayFrames + 5 {
             morphingProgress += 1.0 / Float(totalFrames)
-            
-            if let closure = skipFramesClosures[
-                "\(morphingEffect.description)\(phaseSkipFrames)"
-                ] {
-                    if ++skipFramesCount > closure() {
-                        skipFramesCount = 0
-                        setNeedsDisplay()
-                    }
+
+            let closureKey = "\(morphingEffect.description)\(phaseSkipFrames)"
+            if let closure = skipFramesClosures[closureKey] {
+                skipFramesCount += 1
+                if skipFramesCount > closure() {
+                    skipFramesCount = 0
+                    setNeedsDisplay()
+                }
             } else {
                 setNeedsDisplay()
             }
-            
+
             if let onProgress = delegate?.morphingOnProgress {
-                onProgress(self, morphingProgress)
+                onProgress(self, progress: morphingProgress)
             }
         } else {
             displayLink.paused = true
-            
+
             delegate?.morphingDidComplete?(self)
         }
     }
