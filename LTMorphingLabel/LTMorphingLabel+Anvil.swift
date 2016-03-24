@@ -32,7 +32,7 @@ extension LTMorphingLabel {
     
     func AnvilLoad() {
         
-        startClosures["Anvil\(phaseStart)"] = {
+        startClosures["Anvil\(LTMorphingPhases.Start)"] = {
             self.emitterView.removeAllEmitters()
             
             guard self.newRects.count > 0 else { return }
@@ -166,7 +166,7 @@ extension LTMorphingLabel {
             }
         }
         
-        progressClosures["Anvil\(phaseProgress)"] = {
+        progressClosures["Anvil\(LTMorphingPhases.Progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if !isNewChar {
@@ -178,7 +178,7 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Anvil\(phaseDisappear)"] = {
+        effectClosures["Anvil\(LTMorphingPhases.Disappear)"] = {
             char, index, progress in
             
             return LTCharacterLimbo(
@@ -189,7 +189,7 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        effectClosures["Anvil\(phaseAppear)"] = {
+        effectClosures["Anvil\(LTMorphingPhases.Appear)"] = {
             char, index, progress in
             
             var rect = self.newRects[index]

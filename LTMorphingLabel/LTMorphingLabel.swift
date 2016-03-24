@@ -30,12 +30,9 @@ import UIKit
 import QuartzCore
 
 
-let phaseStart = "Start"
-let phaseAppear = "Appear"
-let phaseDisappear = "Disappear"
-let phaseDraw = "Draw"
-let phaseProgress = "ManipulateProgress"
-let phaseSkipFrames = "SkipFrames"
+enum LTMorphingPhases: Int {
+    case Start, Appear, Disappear, Draw, Progress, SkipFrames
+}
 
 
 typealias LTMorphingStartClosure =
@@ -121,7 +118,7 @@ typealias LTMorphingSkipFramesClosure =
                 morphingProgress = 0.5
             } else if previousText != text {
                 displayLink.paused = false
-                let closureKey = "\(morphingEffect.description)\(phaseStart)"
+                let closureKey = "\(morphingEffect.description)\(LTMorphingPhases.Start)"
                 if let closure = startClosures[closureKey] {
                     return closure()
                 }
@@ -191,7 +188,7 @@ extension LTMorphingLabel {
         if previousText != text && currentFrame < totalFrames + totalDelayFrames + 5 {
             morphingProgress += 1.0 / Float(totalFrames)
 
-            let closureKey = "\(morphingEffect.description)\(phaseSkipFrames)"
+            let closureKey = "\(morphingEffect.description)\(LTMorphingPhases.SkipFrames)"
             if let closure = skipFramesClosures[closureKey] {
                 skipFramesCount += 1
                 if skipFramesCount > closure() {
@@ -282,7 +279,7 @@ extension LTMorphingLabel {
                 
                 // Override morphing effect with closure in extenstions
                 if let closure = effectClosures[
-                    "\(morphingEffect.description)\(phaseDisappear)"
+                    "\(morphingEffect.description)\(LTMorphingPhases.Disappear)"
                     ] {
                         return closure(char, index: index, progress: progress)
                 } else {
@@ -320,7 +317,7 @@ extension LTMorphingLabel {
             )
             
             if let closure = effectClosures[
-                "\(morphingEffect.description)\(phaseAppear)"
+                "\(morphingEffect.description)\(LTMorphingPhases.Appear)"
                 ] {
                     return closure(char, index: index, progress: progress)
             } else {
@@ -350,7 +347,7 @@ extension LTMorphingLabel {
             var progress: Float = 0.0
             
             if let closure = progressClosures[
-                "\(morphingEffect.description)\(phaseProgress)"
+                "\(morphingEffect.description)\(LTMorphingPhases.Progress)"
                 ] {
                     progress = closure(index: i, progress: morphingProgress, isNewChar: false)
             } else {
@@ -370,7 +367,7 @@ extension LTMorphingLabel {
             var progress: Float = 0.0
             
             if let closure = progressClosures[
-                "\(morphingEffect.description)\(phaseProgress)"
+                "\(morphingEffect.description)\(LTMorphingPhases.Progress)"
                 ] {
                     progress = closure(index: i, progress: morphingProgress, isNewChar: true)
             } else {
@@ -426,7 +423,7 @@ extension LTMorphingLabel {
             
             let willAvoidDefaultDrawing: Bool = {
                 if let closure = drawingClosures[
-                    "\(morphingEffect.description)\(phaseDraw)"
+                    "\(morphingEffect.description)\(LTMorphingPhases.Draw)"
                     ] {
                         return closure($0)
                 }

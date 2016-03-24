@@ -23,7 +23,7 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         "老婆和女儿"
     ]
     private var text: String {
-        i = i >= textArray.count ? 0 : i + 1
+        i = i >= textArray.count - 1 ? 0 : i + 1
         return textArray[i]
     }
 

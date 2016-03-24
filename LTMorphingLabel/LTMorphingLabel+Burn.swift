@@ -67,11 +67,11 @@ extension LTMorphingLabel {
     
     func BurnLoad() {
         
-        startClosures["Burn\(phaseStart)"] = {
+        startClosures["Burn\(LTMorphingPhases.Start)"] = {
             self.emitterView.removeAllEmitters()
         }
         
-        progressClosures["Burn\(phaseProgress)"] = {
+        progressClosures["Burn\(LTMorphingPhases.Progress)"] = {
             index, progress, isNewChar in
             
             if !isNewChar {
@@ -83,7 +83,7 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Burn\(phaseDisappear)"] = {
+        effectClosures["Burn\(LTMorphingPhases.Disappear)"] = {
             char, index, progress in
             
             return LTCharacterLimbo(
@@ -95,7 +95,7 @@ extension LTMorphingLabel {
             )
         }
         
-        effectClosures["Burn\(phaseAppear)"] = {
+        effectClosures["Burn\(LTMorphingPhases.Appear)"] = {
             char, index, progress in
             
             if char != " " {
@@ -175,7 +175,7 @@ extension LTMorphingLabel {
             )
         }
         
-        drawingClosures["Burn\(phaseDraw)"] = {
+        drawingClosures["Burn\(LTMorphingPhases.Draw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
@@ -192,7 +192,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        skipFramesClosures["Burn\(phaseSkipFrames)"] = {
+        skipFramesClosures["Burn\(LTMorphingPhases.SkipFrames)"] = {
             return 1
         }
     }
