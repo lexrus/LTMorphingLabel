@@ -249,7 +249,7 @@ extension LTMorphingLabel {
         var offsetedCharRects = [CGRect]()
         
         for r in charRects {
-            offsetedCharRects.append(CGRectOffset(r, stringLeftOffSet, 0.0))
+            offsetedCharRects.append(r.offsetBy(dx: stringLeftOffSet, dy: 0.0))
         }
         
         return offsetedCharRects
@@ -292,8 +292,10 @@ extension LTMorphingLabel {
                     // For emojis
                     currentFontSize = max(0.0001, font.pointSize - fontEase)
                     currentAlpha = CGFloat(1.0 - progress)
-                    currentRect = CGRectOffset(previousRects[index], 0,
-                        CGFloat(font.pointSize - currentFontSize))
+                    currentRect = previousRects[index].offsetBy(
+                        dx: 0,
+                        dy: CGFloat(font.pointSize - currentFontSize)
+                    )
                 }
             }
             
@@ -331,7 +333,7 @@ extension LTMorphingLabel {
                 
                 return LTCharacterLimbo(
                     char: char,
-                    rect: CGRectOffset(currentRect, 0.0, yOffset),
+                    rect: currentRect.offsetBy(dx: 0, dy: yOffset),
                     alpha: CGFloat(morphingProgress),
                     size: currentFontSize,
                     drawingProgress: 0.0

@@ -74,7 +74,7 @@ extension LTMorphingLabel {
             
             return LTCharacterLimbo(
                 char: char,
-                rect: CGRectOffset(self.newRects[index], 0.0, yOffset),
+                rect: self.newRects[index].offsetBy(dx: 0, dy: yOffset),
                 alpha: CGFloat(self.morphingProgress),
                 size: currentFontSize,
                 drawingProgress: 0.0

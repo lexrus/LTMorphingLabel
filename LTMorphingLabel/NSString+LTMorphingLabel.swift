@@ -105,39 +105,27 @@ public func >> (lhs: String, rhs: String) -> [LTCharacterDiffResult] {
         // Search left character in the new string
         var foundCharacterInRhs = false
         for (j, newChar) in newChars {
-            let currentCharWouldBeReplaced = {
-                (index: Int) -> Bool in
-                for k in skipIndexes {
-                    if index == k {
-                        return true
-                    }
-                }
-                return false
-                }(j)
-            
-            if currentCharWouldBeReplaced {
+            if skipIndexes.contains(j) || leftChar != newChar {
                 continue
             }
-            
-            if leftChar == newChar {
-                skipIndexes.append(j)
-                foundCharacterInRhs = true
-                if i == j {
-                    // Character not changed
-                    diffResults[i].diffType = .Same
-                } else {
-                    // foundCharacterInRhs and move
-                    diffResults[i].diffType = .Move
-                    if i <= rhsLength - 1 {
-                        // Move to a new index and add a new character to new original place
-                        diffResults[i].diffType = .MoveAndAdd
-                    }
-                    diffResults[i].moveOffset = j - i
+
+            skipIndexes.append(j)
+            foundCharacterInRhs = true
+            if i == j {
+                // Character not changed
+                diffResults[i].diffType = .Same
+            } else {
+                // foundCharacterInRhs and move
+                diffResults[i].diffType = .Move
+                if i <= rhsLength - 1 {
+                    // Move to a new index and add a new character to new original place
+                    diffResults[i].diffType = .MoveAndAdd
                 }
-                break
+                diffResults[i].moveOffset = j - i
             }
+            break
         }
-        
+
         if !foundCharacterInRhs {
             if i < rhs.characters.count - 1 {
                 diffResults[i].diffType = .Replace
