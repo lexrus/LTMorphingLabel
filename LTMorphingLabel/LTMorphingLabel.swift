@@ -415,7 +415,7 @@ extension LTMorphingLabel {
     }
     
     override public func drawTextInRect(rect: CGRect) {
-        if !morphingEnabled {
+        if !morphingEnabled || limboOfCharacters().count == 0 {
             super.drawTextInRect(rect)
             return
         }
