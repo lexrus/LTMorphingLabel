@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D720D06B1A5E91CB00747465 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
-		D720D06C1A5E91CB00747465 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
+		D720D06C1A5E91CB00747465 /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* LTStringDiffResult.swift */; };
 		D720D06D1A5E91CB00747465 /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
 		D720D06E1A5E91CB00747465 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
 		D720D06F1A5E91CB00747465 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
@@ -17,7 +17,7 @@
 		D720D0721A5E91CB00747465 /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */; };
 		D720D0731A5E91CB00747465 /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98F381975265C00902C5C /* LTMorphingLabel+Anvil.swift */; };
 		D720D0741A5E923100747465 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
-		D720D0751A5E923100747465 /* NSString+LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */; };
+		D720D0751A5E923100747465 /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* LTStringDiffResult.swift */; };
 		D720D0761A5E923100747465 /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
 		D720D0771A5E923100747465 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
 		D720D0781A5E923100747465 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
@@ -35,6 +35,8 @@
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
 		D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */; };
+		D797F6F91D2E992200531960 /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */; };
+		D797F6FA1D2EA47A00531960 /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */; };
 		D7D4B0241A5E87D50087F83D /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7D4B0381A5E87D50087F83D /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4B03F1A5E8F6E0087F83D /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
@@ -93,10 +95,11 @@
 		D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Burn.swift"; sourceTree = "<group>"; };
 		D757C31619742B1D00A34565 /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.png; sourceTree = "<group>"; };
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
-		D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+LTMorphingLabel.swift"; sourceTree = "<group>"; };
+		D7633A2C195965A00009D084 /* LTStringDiffResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTStringDiffResult.swift; sourceTree = "<group>"; };
 		D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7934DC91A63AF1100AE04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelTests.swift; sourceTree = "<group>"; };
+		D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTCharacterDiffResult.swift; sourceTree = "<group>"; };
 		D7AFEC911962511C0006FA88 /* LTEasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTEasing.swift; sourceTree = "<group>"; };
 		D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Evaporate.swift"; sourceTree = "<group>"; };
 		D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Fall.swift"; sourceTree = "<group>"; };
@@ -196,7 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				D7AFEC911962511C0006FA88 /* LTEasing.swift */,
-				D7633A2C195965A00009D084 /* NSString+LTMorphingLabel.swift */,
+				D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */,
+				D7633A2C195965A00009D084 /* LTStringDiffResult.swift */,
 				D7EF4F061AB5612C00D46A0E /* LTCharacterLimbo.swift */,
 				D7EF4F031AB5608000D46A0E /* LTMorphingEffect.swift */,
 				D7EF4F091AB561A400D46A0E /* LTEmitterView.swift */,
@@ -418,7 +422,7 @@
 			files = (
 				D720D0741A5E923100747465 /* LTEasing.swift in Sources */,
 				D7EF4F071AB5612C00D46A0E /* LTCharacterLimbo.swift in Sources */,
-				D720D0751A5E923100747465 /* NSString+LTMorphingLabel.swift in Sources */,
+				D720D0751A5E923100747465 /* LTStringDiffResult.swift in Sources */,
 				D7EF4F051AB5610200D46A0E /* LTMorphingEffect.swift in Sources */,
 				D720D0761A5E923100747465 /* LTMorphingLabel.swift in Sources */,
 				D720D0771A5E923100747465 /* LTMorphingLabel+Evaporate.swift in Sources */,
@@ -429,6 +433,7 @@
 				D720D07C1A5E923100747465 /* LTMorphingLabel+Anvil.swift in Sources */,
 				D7EF4F0A1AB561A400D46A0E /* LTEmitterView.swift in Sources */,
 				D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */,
+				D797F6FA1D2EA47A00531960 /* LTCharacterDiffResult.swift in Sources */,
 				D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,9 +452,10 @@
 			files = (
 				D7EF4F081AB5612C00D46A0E /* LTCharacterLimbo.swift in Sources */,
 				D720D06B1A5E91CB00747465 /* LTEasing.swift in Sources */,
-				D720D06C1A5E91CB00747465 /* NSString+LTMorphingLabel.swift in Sources */,
+				D720D06C1A5E91CB00747465 /* LTStringDiffResult.swift in Sources */,
 				D7EF4F041AB5608000D46A0E /* LTMorphingEffect.swift in Sources */,
 				D720D06D1A5E91CB00747465 /* LTMorphingLabel.swift in Sources */,
+				D797F6F91D2E992200531960 /* LTCharacterDiffResult.swift in Sources */,
 				D720D06E1A5E91CB00747465 /* LTMorphingLabel+Evaporate.swift in Sources */,
 				D720D06F1A5E91CB00747465 /* LTMorphingLabel+Fall.swift in Sources */,
 				D720D0701A5E91CB00747465 /* LTMorphingLabel+Pixelate.swift in Sources */,

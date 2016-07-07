@@ -73,7 +73,7 @@ typealias LTMorphingSkipFramesClosure =
     var drawingClosures = [String: LTMorphingDrawingClosure]()
     var progressClosures = [String: LTMorphingManipulateProgressClosure]()
     var skipFramesClosures = [String: LTMorphingSkipFramesClosure]()
-    var diffResults = [LTCharacterDiffResult]()
+    var diffResults: LTStringDiffResult?
     var previousText = ""
     
     var currentFrame = 0
@@ -100,7 +100,7 @@ typealias LTMorphingSkipFramesClosure =
             guard text != newValue else { return }
 
             previousText = text ?? ""
-            diffResults = previousText >> (newValue ?? "")
+            diffResults = previousText.diffWith(newValue)
             super.text = newValue ?? ""
             
             morphingProgress = 0.0
@@ -263,14 +263,24 @@ extension LTMorphingLabel {
             var currentRect = previousRects[index]
             let oriX = Float(currentRect.origin.x)
             var newX = Float(currentRect.origin.x)
-            let diffResult = diffResults[index]
+            let diffResult = diffResults!.0[index]
             var currentFontSize: CGFloat = font.pointSize
             var currentAlpha: CGFloat = 1.0
             
-            switch diffResult.diffType {
+            switch diffResult {
                 // Move the character that exists in the new text to current position
-            case .Move, .MoveAndAdd, .Same:
-                newX = Float(newRects[index + diffResult.moveOffset].origin.x)
+            case .Same:
+                newX = Float(newRects[index].origin.x)
+                currentRect.origin.x = CGFloat(
+                    LTEasing.easeOutQuint(progress, oriX, newX - oriX)
+                )
+            case .Move(let offset):
+                newX = Float(newRects[index + offset].origin.x)
+                currentRect.origin.x = CGFloat(
+                    LTEasing.easeOutQuint(progress, oriX, newX - oriX)
+                )
+            case .MoveAndAdd(let offset):
+                newX = Float(newRects[index + offset].origin.x)
                 currentRect.origin.x = CGFloat(
                     LTEasing.easeOutQuint(progress, oriX, newX - oriX)
                 )
@@ -362,7 +372,7 @@ extension LTMorphingLabel {
         
         // Add new characters
         for (i, character) in (text!).characters.enumerate() {
-            if i >= diffResults.count {
+            if i >= diffResults?.0.count {
                 break
             }
             
@@ -377,17 +387,22 @@ extension LTMorphingLabel {
             }
             
             // Don't draw character that already exists
-            let diffResult = diffResults[i]
-            if diffResult.skip {
+            if diffResults?.skipDrawingResults[i] == true {
                 continue
             }
             
-            switch diffResult.diffType {
-            case .MoveAndAdd, .Replace, .Add, .Delete:
-                let limboOfCharacter = limboOfNewCharacter(character, index: i, progress: progress)
-                limbo.append(limboOfCharacter)
-            default:
-                ()
+            if let diffResult = diffResults?.0[i] {
+                switch diffResult {
+                case .MoveAndAdd, .Replace, .Add, .Delete:
+                    let limboOfCharacter = limboOfNewCharacter(
+                        character,
+                        index: i,
+                        progress: progress
+                    )
+                    limbo.append(limboOfCharacter)
+                default:
+                    ()
+                }
             }
         }
         

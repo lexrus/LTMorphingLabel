@@ -12,72 +12,80 @@ import LTMorphingLabel
 class LTMorphingLabelTests : XCTestCase {
     
     func testStringDiff1() {
-        let diffResults = "he" >> "hello"
+        let diffResults = "he".diffWith("hello")
         XCTAssert(
-            diffResults[0].diffType == LTCharacterDiffType.Same,
+            diffResults.0[0] == .Same,
             "First character isn't changed."
         )
-        XCTAssert(diffResults[2].diffType == .Add, "Third character is added.")
+        XCTAssert(diffResults.0[2] == .Add, "Third character is added.")
     }
     
     func testStringDiff2() {
-        let diffResults = "news" >> "westen"
-        XCTAssert(diffResults[0].diffType == .MoveAndAdd, "n is moved.")
-        XCTAssert(
-            diffResults[0].moveOffset == 5,
-            "n is moved right for 5 steps, not \(diffResults[0].moveOffset)."
-        )
-        XCTAssert(diffResults[2].diffType == .MoveAndAdd, "w is moved.")
-        XCTAssert(
-            diffResults[2].moveOffset == -2,
-            "w is moved left for 2 steps, not \(diffResults[2].moveOffset)."
-        )
-        XCTAssert(diffResults[4].diffType == .Add, "2nd e is added.")
-        XCTAssert(diffResults[5].skip, "The last n was moved in.")
+        let diffResults = "news".diffWith("westen")
+        if case .MoveAndAdd(let offset) = diffResults.0[0] {
+            XCTAssert(
+                offset == 5,
+                "n is moved right for 5 steps, not \(offset)."
+            )
+        } else {
+            XCTFail()
+        }
+        
+        if case .MoveAndAdd(let offset) = diffResults.0[2] {
+            XCTAssert(
+                offset == -2,
+                "w is moved left for 2 steps, not \(offset)."
+            )
+        } else {
+            XCTFail()
+        }
+        
+        XCTAssert(diffResults.0[4] == .Add, "2nd e is added.")
+        XCTAssert(diffResults.1[5], "The last n was moved in.")
     }
     
     func testStringDiff3() {
-        let diffResults = "Enchanté" >> "Swifter"
+        let diffResults = "Enchanté".diffWith("Swifter")
         
-        XCTAssert(diffResults[4].diffType == .Replace, "a is deleted.")
+        XCTAssert(diffResults.0[4] == .Replace, "a is deleted.")
     }
     
     func testStringDiff4() {
-        let diffResults = "wo" >> "ox"
-        XCTAssert(diffResults[0].diffType == .Replace, "w is replaced.")
+        let diffResults = "wo".diffWith("ox")
+        XCTAssert(diffResults.0[0] == .Replace, "w is replaced.")
         XCTAssert(
-            diffResults[1].diffType == .MoveAndAdd,
+            diffResults.0[1] == .MoveAndAdd(offset: -1),
             "o is moved and add a new character."
         )
     }
     
     func testStringDiff5() {
-        let diffResults = "Objective-C" >> "iPhone"
-        XCTAssert(diffResults[0].diffType == .Replace, "w is replaced.")
+        let diffResults = "Objective-C".diffWith("iPhone")
+        XCTAssert(diffResults.0[0] == .Replace, "w is replaced.")
         XCTAssert(
-            diffResults[3].diffType == .MoveAndAdd,
+            diffResults.0[3] == .MoveAndAdd(offset: 2),
             "e is moved and add a new character."
         )
-        XCTAssert(diffResults[8].diffType == .Delete, "2nd e is deleted.")
+        XCTAssert(diffResults.0[8] == .Delete, "2nd e is deleted.")
     }
     
     func testStringDiff6() {
-        let diffResults = "wow" >> "newwow"
-        XCTAssert(diffResults[2].diffType == .MoveAndAdd, "2nd. w is moved.")
+        let diffResults = "wow".diffWith("newwow")
+        XCTAssert(diffResults.0[2] == .MoveAndAdd(offset: 1), "2nd. w is moved.")
     }
     
     func testEmojiDiff7() {
-        let diffResults = "1️⃣2️⃣3️⃣" >> "3️⃣1️⃣2️⃣"
-        XCTAssert(diffResults[0].diffType == .MoveAndAdd, "1st. 1 is moved.")
+        let diffResults = "1️⃣2️⃣3️⃣".diffWith("3️⃣1️⃣2️⃣")
+        XCTAssert(diffResults.0[0] == .MoveAndAdd(offset: 1), "1st. 1 is moved.")
     }
     
     func testEmptyDiff8() {
-        let diffResults0 = "" >> "hello"
-        XCTAssert(diffResults0[0].diffType == .Add, "Every characters must be added.")
-        let diffResults1 = "" >> ""
-        XCTAssert(diffResults1.count == 0, "Must be empty.")
-        let diffResults2 = "Hello" >> ""
-        XCTAssert(diffResults2[0].diffType == .Delete, "Must be empty.")
+        let diffResults0 = "".diffWith("hello")
+        XCTAssert(diffResults0.0[0] == .Add, "Every characters must be added.")
+        let diffResults1 = "".diffWith("")
+        XCTAssert(diffResults1.0.count == 0, "Must be empty.")
+        let diffResults2 = "Hello".diffWith("")
+        XCTAssert(diffResults2.0[0] == .Delete, "Must be empty.")
     }
 
     func testLongDiffPerformance() {
@@ -87,7 +95,7 @@ class LTMorphingLabelTests : XCTestCase {
                 + "Design is how it works."
             let rhs =
                 "Innovation distinguishes between a leader and a follower."
-            lhs >> rhs
+            lhs.diffWith(rhs)
         }
     }
 
