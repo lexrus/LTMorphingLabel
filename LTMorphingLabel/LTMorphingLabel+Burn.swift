@@ -62,7 +62,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-        return (newImage, newRect)
+        return (newImage!, newRect)
     }
     
     func BurnLoad() {

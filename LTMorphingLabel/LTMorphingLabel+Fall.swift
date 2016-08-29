@@ -88,7 +88,7 @@ extension LTMorphingLabel {
             if limbo.drawingProgress > 0.0 {
                 let context = UIGraphicsGetCurrentContext()
                 var charRect = limbo.rect
-                CGContextSaveGState(context)
+                CGContextSaveGState(context!)
                 let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
                 var charBottomY = charRect.origin.y + charRect.size.height - self.font.pointSize / 6
                 var charColor = self.textColor
@@ -119,7 +119,7 @@ extension LTMorphingLabel {
                     y: charRect.size.height * -1.0 + self.font.pointSize / 6,
                     width: charRect.size.width,
                     height: charRect.size.height)
-                CGContextTranslateCTM(context, charCenterX, charBottomY)
+                CGContextTranslateCTM(context!, charCenterX, charBottomY)
                 
                 let angle = Float(sin(Double(limbo.rect.origin.x)) > 0.5 ? 168 : -168)
                 let rotation = CGFloat(
@@ -132,13 +132,13 @@ extension LTMorphingLabel {
                         1.0
                     ) * angle
                 )
-                CGContextRotateCTM(context, rotation * CGFloat(M_PI) / 180.0)
+                CGContextRotateCTM(context!, rotation * CGFloat(M_PI) / 180.0)
                 let s = String(limbo.char)
                 s.drawInRect(charRect, withAttributes: [
                     NSFontAttributeName: self.font.fontWithSize(limbo.size),
                     NSForegroundColorAttributeName: charColor
                     ])
-                CGContextRestoreGState(context)
+                CGContextRestoreGState(context!)
                 
                 return true
             }
