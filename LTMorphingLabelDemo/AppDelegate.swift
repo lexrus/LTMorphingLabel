@@ -15,10 +15,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
 
     
     func application(
-        application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [NSObject : Any]?
         ) -> Bool {
-            window!.backgroundColor = UIColor.blackColor()
+            window!.backgroundColor = UIColor.black
             window!.makeKeyAndVisible()
             return true
     }

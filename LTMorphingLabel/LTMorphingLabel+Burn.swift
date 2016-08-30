@@ -30,8 +30,8 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    private func burningImageForCharLimbo(
-        charLimbo: LTCharacterLimbo,
+    fileprivate func burningImageForCharLimbo(
+        _ charLimbo: LTCharacterLimbo,
         withProgress progress: CGFloat
         ) -> (UIImage, CGRect) {
             let maskedHeight = charLimbo.rect.size.height * max(0.01, progress)
@@ -42,7 +42,7 @@ extension LTMorphingLabel {
             UIGraphicsBeginImageContextWithOptions(
                 maskedSize,
                 false,
-                UIScreen.mainScreen().scale
+                UIScreen.main.scale
             )
             let rect = CGRect(
                 x: 0,
@@ -50,7 +50,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-            String(charLimbo.char).drawInRect(rect, withAttributes: [
+            String(charLimbo.char).draw(in: rect, withAttributes: [
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
@@ -62,16 +62,16 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-        return (newImage, newRect)
+        return (newImage!, newRect)
     }
     
     func BurnLoad() {
         
-        startClosures["Burn\(LTMorphingPhases.Start)"] = {
+        startClosures["Burn\(LTMorphingPhases.start)"] = {
             self.emitterView.removeAllEmitters()
         }
         
-        progressClosures["Burn\(LTMorphingPhases.Progress)"] = {
+        progressClosures["Burn\(LTMorphingPhases.progress)"] = {
             index, progress, isNewChar in
             
             if !isNewChar {
@@ -83,7 +83,7 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Burn\(LTMorphingPhases.Disappear)"] = {
+        effectClosures["Burn\(LTMorphingPhases.disappear)"] = {
             char, index, progress in
             
             return LTCharacterLimbo(
@@ -95,7 +95,7 @@ extension LTMorphingLabel {
             )
         }
         
-        effectClosures["Burn\(LTMorphingPhases.Appear)"] = {
+        effectClosures["Burn\(LTMorphingPhases.appear)"] = {
             char, index, progress in
             
             if char != " " {
@@ -175,7 +175,7 @@ extension LTMorphingLabel {
             )
         }
         
-        drawingClosures["Burn\(LTMorphingPhases.Draw)"] = {
+        drawingClosures["Burn\(LTMorphingPhases.draw)"] = {
             (charLimbo: LTCharacterLimbo) in
             
             if charLimbo.drawingProgress > 0.0 {
@@ -184,7 +184,7 @@ extension LTMorphingLabel {
                     charLimbo,
                     withProgress: charLimbo.drawingProgress
                 )
-                charImage.drawInRect(rect)
+                charImage.draw(in: rect)
                 
                 return true
             }
@@ -192,7 +192,7 @@ extension LTMorphingLabel {
             return false
         }
         
-        skipFramesClosures["Burn\(LTMorphingPhases.SkipFrames)"] = {
+        skipFramesClosures["Burn\(LTMorphingPhases.skipFrames)"] = {
             return 1
         }
     }
