@@ -95,7 +95,7 @@ extension LTMorphingLabel {
                 ])
             let newImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            return newImage
+            return newImage!
     }
     
 }
