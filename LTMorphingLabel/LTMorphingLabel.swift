@@ -65,6 +65,7 @@ typealias LTMorphingSkipFramesClosure =
     @IBInspectable public var morphingDuration: Float = 0.6
     @IBInspectable public var morphingCharacterDelay: Float = 0.026
     @IBInspectable public var morphingEnabled: Bool = true
+
     @IBOutlet public weak var delegate: LTMorphingLabelDelegate?
     public var morphingEffect: LTMorphingEffect = .Scale
     
@@ -91,6 +92,16 @@ typealias LTMorphingSkipFramesClosure =
     #else
     let presentingInIB = false
     #endif
+    
+    override public var font: UIFont! {
+        get {
+            return super.font
+        }
+        set {
+            super.font = newValue
+            setNeedsLayout()
+        }
+    }
     
     override public var text: String! {
         get {
