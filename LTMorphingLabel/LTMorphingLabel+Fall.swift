@@ -32,7 +32,7 @@ extension LTMorphingLabel {
     
     func FallLoad() {
         
-        progressClosures["Fall\(LTMorphingPhases.Progress)"] = {
+        progressClosures["Fall\(LTMorphingPhases.progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             
             if isNewChar {
@@ -53,7 +53,7 @@ extension LTMorphingLabel {
             
         }
         
-        effectClosures["Fall\(LTMorphingPhases.Disappear)"] = {
+        effectClosures["Fall\(LTMorphingPhases.disappear)"] = {
             char, index, progress in
             
             return LTCharacterLimbo(
@@ -64,7 +64,7 @@ extension LTMorphingLabel {
                 drawingProgress: CGFloat(progress))
         }
         
-        effectClosures["Fall\(LTMorphingPhases.Appear)"] = {
+        effectClosures["Fall\(LTMorphingPhases.appear)"] = {
             char, index, progress in
             
             let currentFontSize = CGFloat(
@@ -82,13 +82,13 @@ extension LTMorphingLabel {
         }
         
         
-        drawingClosures["Fall\(LTMorphingPhases.Draw)"] = {
+        drawingClosures["Fall\(LTMorphingPhases.draw)"] = {
             limbo in
             
             if limbo.drawingProgress > 0.0 {
                 let context = UIGraphicsGetCurrentContext()
                 var charRect = limbo.rect
-                CGContextSaveGState(context!)
+                context!.saveGState()
                 let charCenterX = charRect.origin.x + (charRect.size.width / 2.0)
                 var charBottomY = charRect.origin.y + charRect.size.height - self.font.pointSize / 6
                 var charColor = self.textColor
@@ -111,7 +111,7 @@ extension LTMorphingLabel {
                             limbo.drawingProgress * -2.0 + 2.0 + 0.01
                         )
                     )
-                    charColor = self.textColor.colorWithAlphaComponent(fadeOutAlpha)
+                    charColor = self.textColor.withAlphaComponent(fadeOutAlpha)
                 }
                 
                 charRect = CGRect(
@@ -119,7 +119,7 @@ extension LTMorphingLabel {
                     y: charRect.size.height * -1.0 + self.font.pointSize / 6,
                     width: charRect.size.width,
                     height: charRect.size.height)
-                CGContextTranslateCTM(context!, charCenterX, charBottomY)
+                context!.translateBy(x: charCenterX, y: charBottomY)
                 
                 let angle = Float(sin(Double(limbo.rect.origin.x)) > 0.5 ? 168 : -168)
                 let rotation = CGFloat(
@@ -132,13 +132,13 @@ extension LTMorphingLabel {
                         1.0
                     ) * angle
                 )
-                CGContextRotateCTM(context!, rotation * CGFloat(M_PI) / 180.0)
+                context!.rotate(by: rotation * CGFloat(M_PI) / 180.0)
                 let s = String(limbo.char)
-                s.drawInRect(charRect, withAttributes: [
-                    NSFontAttributeName: self.font.fontWithSize(limbo.size),
+                s.draw(in: charRect, withAttributes: [
+                    NSFontAttributeName: self.font.withSize(limbo.size),
                     NSForegroundColorAttributeName: charColor
                     ])
-                CGContextRestoreGState(context!)
+                context!.restoreGState()
                 
                 return true
             }

@@ -33,24 +33,24 @@ public typealias LTStringDiffResult = ([LTCharacterDiffResult], skipDrawingResul
 
 public extension String {
     
-    public func diffWith(anotherString: String?) -> LTStringDiffResult {
+    public func diffWith(_ anotherString: String?) -> LTStringDiffResult {
         
         guard let anotherString = anotherString else {
             let diffResults: [LTCharacterDiffResult] =
-                Array(count: characters.count, repeatedValue: .Delete)
-            let skipDrawingResults: [Bool] = Array(count: characters.count, repeatedValue: false)
+                Array(repeating: .delete, count: characters.count) 
+            let skipDrawingResults: [Bool] = Array(repeating: false, count: characters.count)
             return (diffResults, skipDrawingResults)
         }
         
-        let newChars = anotherString.characters.enumerate()
+        let newChars = anotherString.characters.enumerated()
         let lhsLength = characters.count
         let rhsLength = anotherString.characters.count
         var skipIndexes = [Int]()
         let leftChars = Array(characters)
         
         let maxLength = max(lhsLength, rhsLength)
-        var diffResults: [LTCharacterDiffResult] = Array(count: maxLength, repeatedValue: .Add)
-        var skipDrawingResults: [Bool] = Array(count: maxLength, repeatedValue: false)
+        var diffResults: [LTCharacterDiffResult] = Array(repeating: .add, count: maxLength) 
+        var skipDrawingResults: [Bool] = Array(repeating: false, count: maxLength)
         
         for i in 0..<maxLength {
             // If new string is longer than the original one
@@ -71,16 +71,16 @@ public extension String {
                 foundCharacterInRhs = true
                 if i == j {
                     // Character not changed
-                    diffResults[i] = .Same
+                    diffResults[i] = .same
                 } else {
                     // foundCharacterInRhs and move
                     let offset = j - i
                     
                     if i <= rhsLength - 1 {
                         // Move to a new index and add a new character to new original place
-                        diffResults[i] = .MoveAndAdd(offset: offset)
+                        diffResults[i] = .moveAndAdd(offset: offset)
                     } else {
-                        diffResults[i] = .Move(offset: offset)
+                        diffResults[i] = .move(offset: offset)
                     }
                     
                     skipDrawingResults[j] = true
@@ -90,9 +90,9 @@ public extension String {
             
             if !foundCharacterInRhs {
                 if i < rhsLength - 1 {
-                    diffResults[i] = .Replace
+                    diffResults[i] = .replace
                 } else {
-                    diffResults[i] = .Delete
+                    diffResults[i] = .delete
                 }
             }
         }

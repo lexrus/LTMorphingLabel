@@ -10,8 +10,8 @@ import UIKit
 
 class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     
-    private var i = -1
-    private var textArray = [
+    fileprivate var i = -1
+    fileprivate var textArray = [
         "What is design?",
         "Design", "Design is not just", "what it looks like", "and feels like.",
         "Design", "is how it works.", "- Steve Jobs",
@@ -22,7 +22,7 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         "爱老婆",
         "老婆和女儿"
     ]
-    private var text: String {
+    fileprivate var text: String {
         i = i >= textArray.count - 1 ? 0 : i + 1
         return textArray[i]
     }
@@ -33,13 +33,13 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         label.delegate = self
     }
 
-    @IBOutlet private var label: LTMorphingLabel!
+    @IBOutlet fileprivate var label: LTMorphingLabel!
     
-    @IBAction func changeText(sender: AnyObject) {
+    @IBAction func changeText(_ sender: AnyObject) {
         label.text = text
     }
     
-    @IBAction func segmentChanged(sender: UISegmentedControl) {
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let seg = sender
         if let effect = LTMorphingEffect(rawValue: seg.selectedSegmentIndex) {
             label.morphingEffect = effect
@@ -47,13 +47,13 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         }
     }
 
-    @IBAction func toggleLight(sender: UISegmentedControl) {
+    @IBAction func toggleLight(_ sender: UISegmentedControl) {
         let isNight = Bool(sender.selectedSegmentIndex == 0)
-        view.backgroundColor = isNight ? UIColor.blackColor() : UIColor.whiteColor()
-        label.textColor = isNight ? UIColor.whiteColor() : UIColor.blackColor()
+        view.backgroundColor = isNight ? UIColor.black : UIColor.white
+        label.textColor = isNight ? UIColor.white : UIColor.black
     }
     
-    @IBAction func changeFontSize(sender: UISlider) {
+    @IBAction func changeFontSize(_ sender: UISlider) {
         label.font = UIFont.init(name: label.font.fontName, size: CGFloat(sender.value))
         label.text = label.text
     }
@@ -61,15 +61,15 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
 
 extension LTDemoViewController {
     
-    func morphingDidStart(label: LTMorphingLabel) {
+    func morphingDidStart(_ label: LTMorphingLabel) {
         
     }
     
-    func morphingDidComplete(label: LTMorphingLabel) {
+    func morphingDidComplete(_ label: LTMorphingLabel) {
         
     }
     
-    func morphingOnProgress(label: LTMorphingLabel, progress: Float) {
+    func morphingOnProgress(_ label: LTMorphingLabel, progress: Float) {
         
     }
     
