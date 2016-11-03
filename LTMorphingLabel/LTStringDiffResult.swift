@@ -37,20 +37,20 @@ public extension String {
         
         guard let anotherString = anotherString else {
             let diffResults: [LTCharacterDiffResult] =
-                Array(count: characters.count, repeatedValue: .Delete)
-            let skipDrawingResults: [Bool] = Array(count: characters.count, repeatedValue: false)
+                Array(repeating: .Delete, count: characters.count)
+            let skipDrawingResults: [Bool] = Array(repeating: false, count: characters.count)
             return (diffResults, skipDrawingResults)
         }
         
-        let newChars = anotherString.characters.enumerate()
+        let newChars = anotherString.characters.enumerated()
         let lhsLength = characters.count
         let rhsLength = anotherString.characters.count
         var skipIndexes = [Int]()
         let leftChars = Array(characters)
         
         let maxLength = max(lhsLength, rhsLength)
-        var diffResults: [LTCharacterDiffResult] = Array(count: maxLength, repeatedValue: .Add)
-        var skipDrawingResults: [Bool] = Array(count: maxLength, repeatedValue: false)
+        var diffResults: [LTCharacterDiffResult] = Array(repeating: .Add, count: maxLength)
+        var skipDrawingResults: [Bool] = Array(repeating: false, count: maxLength)
         
         for i in 0..<maxLength {
             // If new string is longer than the original one

@@ -42,7 +42,7 @@ extension LTMorphingLabel {
             UIGraphicsBeginImageContextWithOptions(
                 maskedSize,
                 false,
-                UIScreen.mainScreen().scale
+                UIScreen.main.scale
             )
             let rect = CGRect(
                 x: 0,
@@ -50,7 +50,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-            String(charLimbo.char).drawInRect(rect, withAttributes: [
+            String(charLimbo.char).draw(in: rect, withAttributes: [
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
@@ -106,7 +106,7 @@ extension LTMorphingLabel {
                 )
                 
                 self.emitterView.createEmitter(
-                    "c\(index)",
+                    name: "c\(index)",
                     particleName: "Fire",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
@@ -135,7 +135,7 @@ extension LTMorphingLabel {
                     }.play()
                 
                 self.emitterView.createEmitter(
-                    "s\(index)",
+                    name: "s\(index)",
                     particleName: "Smoke",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
@@ -181,10 +181,10 @@ extension LTMorphingLabel {
             if charLimbo.drawingProgress > 0.0 {
                 
                 let (charImage, rect) = self.burningImageForCharLimbo(
-                    charLimbo,
+                    charLimbo: charLimbo,
                     withProgress: charLimbo.drawingProgress
                 )
-                charImage.drawInRect(rect)
+                charImage.draw(in: rect)
                 
                 return true
             }
