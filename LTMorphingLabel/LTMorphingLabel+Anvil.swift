@@ -40,7 +40,7 @@ extension LTMorphingLabel {
             let centerRect = self.newRects[Int(self.newRects.count / 2)]
 
             self.emitterView.createEmitter(
-                "leftSmoke",
+                name: "leftSmoke",
                 particleName: "Smoke",
                 duration: 0.6
                 ) { (layer, cell) in
@@ -65,7 +65,7 @@ extension LTMorphingLabel {
             }
             
             self.emitterView.createEmitter(
-                "rightSmoke",
+                name: "rightSmoke",
                 particleName: "Smoke",
                 duration: 0.6
                 ) { (layer, cell) in
@@ -90,7 +90,7 @@ extension LTMorphingLabel {
             }
             
             self.emitterView.createEmitter(
-                "leftFragments",
+                name: "leftFragments",
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
@@ -104,7 +104,7 @@ extension LTMorphingLabel {
                     )
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
-                    cell.color = self.textColor.CGColor
+                    cell.color = self.textColor.cgColor
                     cell.birthRate = 60
                     cell.velocity = 350
                     cell.yAcceleration = 0
@@ -116,7 +116,7 @@ extension LTMorphingLabel {
             }
             
             self.emitterView.createEmitter(
-                "rightFragments",
+                name: "rightFragments",
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
@@ -129,7 +129,7 @@ extension LTMorphingLabel {
                         y: centerRect.origin.y + centerRect.size.height / 1.3)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
-                    cell.color = self.textColor.CGColor
+                    cell.color = self.textColor.cgColor
                     cell.birthRate = 60
                     cell.velocity = 350
                     cell.yAcceleration = 0
@@ -141,7 +141,7 @@ extension LTMorphingLabel {
             }
             
             self.emitterView.createEmitter(
-                "fragments",
+                name: "fragments",
                 particleName: "Fragment",
                 duration: 0.6
                 ) { (layer, cell) in
@@ -154,7 +154,7 @@ extension LTMorphingLabel {
                         y: centerRect.origin.y + centerRect.size.height / 1.3)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 40.0
-                    cell.color = self.textColor.CGColor
+                    cell.color = self.textColor.cgColor
                     cell.birthRate = 60
                     cell.velocity = 250
                     cell.velocityRange = CGFloat(Int(arc4random_uniform(20)) + 30)
@@ -195,14 +195,14 @@ extension LTMorphingLabel {
             var rect = self.newRects[index]
             
             if progress < 1.0 {
-                let easingValue = LTEasing.easeOutBounce(progress, 0.0, 1.0)
+                let easingValue = LTEasing.easeOutBounce(t: progress, 0.0, 1.0)
                 rect.origin.y = CGFloat(Float(rect.origin.y) * easingValue)
             }
             
             if progress > self.morphingDuration * 0.5 {
                 let end = self.morphingDuration * 0.55
                 self.emitterView.createEmitter(
-                    "fragments",
+                    name: "fragments",
                     particleName: "Fragment",
                     duration: 0.6
                     ) {_ in}.update {
@@ -212,7 +212,7 @@ extension LTMorphingLabel {
                         }
                     }.play()
                 self.emitterView.createEmitter(
-                    "leftFragments",
+                    name: "leftFragments",
                     particleName: "Fragment",
                     duration: 0.6
                     ) {_ in}.update {
@@ -222,7 +222,7 @@ extension LTMorphingLabel {
                         }
                     }.play()
                 self.emitterView.createEmitter(
-                    "rightFragments",
+                    name: "rightFragments",
                     particleName: "Fragment",
                     duration: 0.6
                     ) {_ in}.update {
@@ -236,7 +236,7 @@ extension LTMorphingLabel {
             if progress > self.morphingDuration * 0.63 {
                 let end = self.morphingDuration * 0.7
                 self.emitterView.createEmitter(
-                    "leftSmoke",
+                    name: "leftSmoke",
                     particleName: "Smoke",
                     duration: 0.6
                     ) {_ in}.update {
@@ -246,7 +246,7 @@ extension LTMorphingLabel {
                         }
                     }.play()
                 self.emitterView.createEmitter(
-                    "rightSmoke",
+                    name: "rightSmoke",
                     particleName: "Smoke",
                     duration: 0.6
                     ) {_ in}.update {

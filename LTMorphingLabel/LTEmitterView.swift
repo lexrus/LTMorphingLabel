@@ -63,7 +63,7 @@ public struct LTEmitter {
         self.duration = duration
         var image: UIImage?
         defer {
-            cell.contents = image?.CGImage
+            cell.contents = image?.cgImage
         }
 
         image = UIImage(named: particleName)
@@ -74,23 +74,21 @@ public struct LTEmitter {
         // Load from Framework
         image = UIImage(
             named: particleName,
-            inBundle: NSBundle(forClass: LTMorphingLabel.self),
-            compatibleWithTraitCollection: nil)
+            in: Bundle(for: LTMorphingLabel.self),
+            compatibleWith: nil)
     }
     
     public func play() {
-        if layer.emitterCells?.count > 0 {
+        if (layer.emitterCells?.count)! > 0 {
             return
         }
         
         layer.emitterCells = [cell]
-        let d = dispatch_time(
-            DISPATCH_TIME_NOW,
-            Int64(duration * Float(NSEC_PER_SEC))
-        )
-        dispatch_after(d, dispatch_get_main_queue()) {
+
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(duration)) {
             self.layer.birthRate = 0.0
         }
+      
     }
     
     public func stop() {
@@ -99,7 +97,7 @@ public struct LTEmitter {
         }
     }
     
-    func update(configureClosure: LTEmitterConfigureClosure? = .None) -> LTEmitter {
+    func update(configureClosure: LTEmitterConfigureClosure? = .none) -> LTEmitter {
         configureClosure?(layer, cell)
         return self
     }
@@ -125,7 +123,7 @@ public class LTEmitterView: UIView {
         ) -> LTEmitter {
 
             var emitter: LTEmitter
-            if let e = emitterByName(name) {
+            if let e = emitterByName(name: name) {
                 emitter = e
             } else {
                 emitter = LTEmitter(
@@ -146,14 +144,14 @@ public class LTEmitterView: UIView {
         if let e = emitters[name] {
             return e
         }
-        return Optional.None
+        return Optional.none
     }
     
     public func removeAllEmitters() {
         for (_, emitter) in emitters {
             emitter.layer.removeFromSuperlayer()
         }
-        emitters.removeAll(keepCapacity: false)
+        emitters.removeAll(keepingCapacity: false)
     }
     
 }

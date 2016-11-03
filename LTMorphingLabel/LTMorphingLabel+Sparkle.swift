@@ -42,7 +42,7 @@ extension LTMorphingLabel {
             UIGraphicsBeginImageContextWithOptions(
                 maskedSize,
                 false,
-                UIScreen.mainScreen().scale
+                UIScreen.main.scale
             )
             let rect = CGRect(
                 x: 0,
@@ -50,7 +50,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-            String(charLimbo.char).drawInRect(rect, withAttributes: [
+            String(charLimbo.char).draw(in: rect, withAttributes: [
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
@@ -111,7 +111,7 @@ extension LTMorphingLabel {
                 )
 
                 self.emitterView.createEmitter(
-                    "c\(index)",
+                    name: "c\(index)",
                     particleName: "Sparkle",
                     duration: self.morphingDuration
                     ) { (layer, cell) in
@@ -123,7 +123,7 @@ extension LTMorphingLabel {
                         cell.emissionLongitude = CGFloat(M_PI / 2.0)
                         cell.scale = self.font.pointSize / 300.0
                         cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
-                        cell.color = self.textColor.CGColor
+                        cell.color = self.textColor.cgColor
                         cell.birthRate =
                             Float(self.font.pointSize)
                             * Float(arc4random_uniform(7) + 3)
@@ -148,10 +148,10 @@ extension LTMorphingLabel {
             if charLimbo.drawingProgress > 0.0 {
                 
                 let (charImage, rect) = self.maskedImageForCharLimbo(
-                    charLimbo,
+                    charLimbo: charLimbo,
                     withProgress: charLimbo.drawingProgress
                 )
-                charImage.drawInRect(rect)
+                charImage.draw(in: rect)
                 
                 return true
             }
