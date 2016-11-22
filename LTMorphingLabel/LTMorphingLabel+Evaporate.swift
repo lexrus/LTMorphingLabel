@@ -32,14 +32,14 @@ extension LTMorphingLabel {
     
     func EvaporateLoad() {
         
-        progressClosures["Evaporate\(LTMorphingPhases.Progress)"] = {
+        progressClosures["Evaporate\(LTMorphingPhases.progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
             let j: Int = Int(round(cos(Double(index)) * 1.2))
             let delay = isNewChar ? self.morphingCharacterDelay * -1.0 : self.morphingCharacterDelay
             return min(1.0, max(0.0, self.morphingProgress + delay * Float(j)))
         }
         
-        effectClosures["Evaporate\(LTMorphingPhases.Disappear)"] = {
+        effectClosures["Evaporate\(LTMorphingPhases.disappear)"] = {
             char, index, progress in
             
             let newProgress = LTEasing.easeOutQuint(progress, 0.0, 1.0, 1.0)
@@ -55,7 +55,7 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0)
         }
         
-        effectClosures["Evaporate\(LTMorphingPhases.Appear)"] = {
+        effectClosures["Evaporate\(LTMorphingPhases.appear)"] = {
             char, index, progress in
             
             let newProgress = 1.0 - LTEasing.easeOutQuint(progress, 0.0, 1.0)
