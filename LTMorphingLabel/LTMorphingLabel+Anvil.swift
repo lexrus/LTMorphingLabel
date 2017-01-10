@@ -27,7 +27,6 @@
 
 import UIKit
 
-
 extension LTMorphingLabel {
     
     func AnvilLoad() {
@@ -39,7 +38,7 @@ extension LTMorphingLabel {
             
             let centerRect = self.newRects[Int(self.newRects.count / 2)]
 
-            self.emitterView.createEmitter(
+            _ = self.emitterView.createEmitter(
                 "leftSmoke",
                 particleName: "Smoke",
                 duration: 0.6
@@ -64,7 +63,7 @@ extension LTMorphingLabel {
                     cell.alphaSpeed = -0.5 / self.morphingDuration
             }
             
-            self.emitterView.createEmitter(
+            _ = self.emitterView.createEmitter(
                 "rightSmoke",
                 particleName: "Smoke",
                 duration: 0.6
@@ -89,7 +88,7 @@ extension LTMorphingLabel {
                     cell.alphaSpeed = -0.5 / self.morphingDuration
             }
             
-            self.emitterView.createEmitter(
+            _ = self.emitterView.createEmitter(
                 "leftFragments",
                 particleName: "Fragment",
                 duration: 0.6
@@ -115,7 +114,7 @@ extension LTMorphingLabel {
                     cell.lifetime = self.morphingDuration
             }
             
-            self.emitterView.createEmitter(
+            _ = self.emitterView.createEmitter(
                 "rightFragments",
                 particleName: "Fragment",
                 duration: 0.6
@@ -140,7 +139,7 @@ extension LTMorphingLabel {
                     cell.lifetime = self.morphingDuration
             }
             
-            self.emitterView.createEmitter(
+            _ = self.emitterView.createEmitter(
                 "fragments",
                 particleName: "Fragment",
                 duration: 0.6
@@ -205,8 +204,7 @@ extension LTMorphingLabel {
                     "fragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update {
-                        (layer, cell) in
+                    ) {_ in}.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -215,8 +213,7 @@ extension LTMorphingLabel {
                     "leftFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update {
-                        (layer, cell) in
+                    ) {_ in}.update {  (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -225,8 +222,7 @@ extension LTMorphingLabel {
                     "rightFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update {
-                        (layer, cell) in
+                    ) {_ in}.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -239,8 +235,7 @@ extension LTMorphingLabel {
                     "leftSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update {
-                        (layer, cell) in
+                    ) {_ in}.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -249,8 +244,7 @@ extension LTMorphingLabel {
                     "rightSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update {
-                        (layer, cell) in
+                    ) {_ in}.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }

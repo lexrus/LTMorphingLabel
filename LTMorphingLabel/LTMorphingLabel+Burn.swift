@@ -27,7 +27,6 @@
 
 import UIKit
 
-
 extension LTMorphingLabel {
     
     fileprivate func burningImageForCharLimbo(
@@ -129,8 +128,7 @@ extension LTMorphingLabel {
                         cell.spin = 0
                         cell.spinRange = 0
                         cell.lifetime = self.morphingDuration / 3.0
-                    }.update {
-                        (layer, cell) in
+                    }.update { (layer, _) in
                         layer.emitterPosition = emitterPosition
                     }.play()
                 
@@ -160,8 +158,7 @@ extension LTMorphingLabel {
                         cell.spin = CGFloat(Float(arc4random_uniform(30)) / 10.0)
                         cell.spinRange = 3
                         cell.lifetime = self.morphingDuration
-                    }.update {
-                        (layer, cell) in
+                    }.update { (layer, _) in
                         layer.emitterPosition = emitterPosition
                     }.play()
             }

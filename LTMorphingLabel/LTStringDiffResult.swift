@@ -27,9 +27,7 @@
 
 import Foundation
 
-
 public typealias LTStringDiffResult = ([LTCharacterDiffResult], skipDrawingResults: [Bool])
-
 
 public extension String {
     

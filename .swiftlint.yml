@@ -8,7 +8,7 @@ disabled_rules:
 excluded:
   - Carthage
   - Pods
-line_length: 100
+line_length: 120
 function_body_length:
   - 230
   - 300

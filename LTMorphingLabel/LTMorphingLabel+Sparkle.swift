@@ -27,7 +27,6 @@
 
 import UIKit
 
-
 extension LTMorphingLabel {
     
     fileprivate func maskedImageForCharLimbo(
@@ -127,8 +126,7 @@ extension LTMorphingLabel {
                         cell.birthRate =
                             Float(self.font.pointSize)
                             * Float(arc4random_uniform(7) + 3)
-                    }.update {
-                        (layer, cell) in
+                    }.update { (layer, _) in
                         layer.emitterPosition = emitterPosition
                     }.play()
             }

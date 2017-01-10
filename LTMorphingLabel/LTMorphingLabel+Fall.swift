@@ -27,7 +27,6 @@
 
 import UIKit
 
-
 extension LTMorphingLabel {
     
     func FallLoad() {
@@ -80,7 +79,6 @@ extension LTMorphingLabel {
                 drawingProgress: 0.0
             )
         }
-        
         
         drawingClosures["Fall\(LTMorphingPhases.draw)"] = {
             limbo in

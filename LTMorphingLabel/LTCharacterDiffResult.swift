@@ -27,7 +27,6 @@
 
 import Foundation
 
-
 public enum LTCharacterDiffResult: CustomDebugStringConvertible, Equatable {
     
     case same

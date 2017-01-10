@@ -48,12 +48,9 @@ fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
-
 enum LTMorphingPhases: Int {
     case start, appear, disappear, draw, progress, skipFrames
 }
-
 
 typealias LTMorphingStartClosure =
     (Void) -> Void
@@ -70,13 +67,11 @@ typealias LTMorphingManipulateProgressClosure =
 typealias LTMorphingSkipFramesClosure =
     (Void) -> Int
 
-
 @objc public protocol LTMorphingLabelDelegate {
     @objc optional func morphingDidStart(_ label: LTMorphingLabel)
     @objc optional func morphingDidComplete(_ label: LTMorphingLabel)
     @objc optional func morphingOnProgress(_ label: LTMorphingLabel, progress: Float)
 }
-
 
 // MARK: - LTMorphingLabel
 @IBDesignable open class LTMorphingLabel: UILabel {
@@ -441,7 +436,6 @@ extension LTMorphingLabel {
     }
 
 }
-
 
 // MARK: - Drawing extension
 extension LTMorphingLabel {

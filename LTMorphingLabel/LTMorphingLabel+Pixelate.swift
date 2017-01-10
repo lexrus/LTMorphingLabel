@@ -27,7 +27,6 @@
 
 import UIKit
 
-
 extension LTMorphingLabel {
     
     func PixelateLoad() {

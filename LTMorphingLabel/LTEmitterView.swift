@@ -46,8 +46,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-
-
 public struct LTEmitter {
     
     let layer: CAEmitterLayer = {
@@ -123,14 +121,12 @@ public struct LTEmitter {
     
 }
 
-
 public typealias LTEmitterConfigureClosure = (CAEmitterLayer, CAEmitterCell) -> Void
-
 
 open class LTEmitterView: UIView {
     
-    open lazy var emitters: Dictionary<String, LTEmitter> = {
-        var _emitters = Dictionary<String, LTEmitter>()
+    open lazy var emitters: [String: LTEmitter] = {
+        var _emitters = [String: LTEmitter]()
         return _emitters
         }()
     

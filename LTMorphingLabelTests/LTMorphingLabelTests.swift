@@ -89,13 +89,13 @@ class LTMorphingLabelTests : XCTestCase {
     }
 
     func testLongDiffPerformance() {
-        measure() {
+        measure {
             let lhs =
                 "Design is not just what it looks like and feels like."
                 + "Design is how it works."
             let rhs =
                 "Innovation distinguishes between a leader and a follower."
-            lhs.diffWith(rhs)
+            _ = lhs.diffWith(rhs)
         }
     }
 

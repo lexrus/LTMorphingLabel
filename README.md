@@ -1,7 +1,7 @@
 # LTMorphingLabel
 
 [![Travis](https://img.shields.io/travis/lexrus/LTMorphingLabel.svg)](https://travis-ci.org/lexrus/LTMorphingLabel)
-![Language](https://img.shields.io/badge/language-Swift%202.3-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%203-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/LTMorphingLabel)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)

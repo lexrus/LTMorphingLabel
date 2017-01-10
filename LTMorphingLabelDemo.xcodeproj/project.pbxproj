@@ -333,7 +333,6 @@
 				TargetAttributes = {
 					D74AD96D195171E7009A2ACD = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 5SKD83S59G;
 						LastSwiftMigration = 0800;
 					};
 					D7934DC51A63AF1100AE04CE = {
@@ -578,6 +577,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -601,6 +601,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
