@@ -119,7 +119,7 @@ extension LTMorphingLabel {
                             height: 1
                         )
                         layer.renderMode = kCAEmitterLayerOutline
-                        cell.emissionLongitude = CGFloat(M_PI / 2.0)
+                        cell.emissionLongitude = CGFloat(Double.pi / 2.0)
                         cell.scale = self.font.pointSize / 300.0
                         cell.scaleSpeed = self.font.pointSize / 300.0 * -1.5
                         cell.color = self.textColor.cgColor

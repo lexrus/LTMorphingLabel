@@ -65,8 +65,8 @@ public struct LTEmitter {
         cell.velocityRange = -80.0
         cell.lifetime = 0.16
         cell.lifetimeRange = 0.1
-        cell.emissionLongitude = CGFloat(M_PI_2 * 2.0)
-        cell.emissionRange = CGFloat(M_PI_2 * 2.0)
+        cell.emissionLongitude = CGFloat(Double.pi / 2 * 2.0)
+        cell.emissionRange = CGFloat(Double.pi / 2 * 2.0)
         cell.scale = 0.1
         cell.yAcceleration = 100
         cell.scaleSpeed = -0.06

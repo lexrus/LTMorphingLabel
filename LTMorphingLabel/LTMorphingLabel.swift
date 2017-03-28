@@ -244,8 +244,8 @@ extension LTMorphingLabel {
         charHeight = "Leg".size(attributes: [NSFontAttributeName: font]).height
         
         let topOffset = (bounds.size.height - charHeight) / 2.0
-        
-        for (_, char) in textToDraw.characters.enumerated() {
+
+        for char in textToDraw.characters {
             let charSize = String(char).size(attributes: [NSFontAttributeName: font])
             charRects.append(
                 CGRect(
