@@ -202,7 +202,20 @@ extension LTMorphingLabel {
 
     func displayFrameTick() {
         if displayLink.duration > 0.0 && totalFrames == 0 {
-            let frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
+            var frameRate = Float(0)
+            if #available(iOS 10.0, *) {
+                var frameInterval = 1
+                if displayLink.preferredFramesPerSecond == 60 {
+                    frameInterval = 1
+                } else if displayLink.preferredFramesPerSecond == 30 {
+                    frameInterval = 2
+                } else {
+                    frameInterval = 1
+                }
+                frameRate = Float(displayLink.duration) / Float(frameInterval)
+            } else {
+                frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
+            }
             totalFrames = Int(ceil(morphingDuration / frameRate))
 
             let totalDelay = Float((text!).characters.count) * morphingCharacterDelay
