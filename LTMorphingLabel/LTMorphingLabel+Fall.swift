@@ -29,7 +29,7 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    func FallLoad() {
+    func fallLoad() {
         
         progressClosures["Fall\(LTMorphingPhases.progress)"] = {
             (index: Int, progress: Float, isNewChar: Bool) in
