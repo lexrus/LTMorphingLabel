@@ -29,7 +29,7 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    func AnvilLoad() {
+    func anvilLoad() {
         
         startClosures["Anvil\(LTMorphingPhases.start)"] = {
             self.emitterView.removeAllEmitters()

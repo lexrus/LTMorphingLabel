@@ -64,7 +64,7 @@ extension LTMorphingLabel {
             return (newImage!, newRect)
     }
     
-    func SparkleLoad() {
+    func sparkleLoad() {
         
         startClosures["Sparkle\(LTMorphingPhases.start)"] = {
             self.emitterView.removeAllEmitters()

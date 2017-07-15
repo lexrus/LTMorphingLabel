@@ -64,7 +64,7 @@ extension LTMorphingLabel {
         return (newImage!, newRect)
     }
     
-    func BurnLoad() {
+    func burnLoad() {
         
         startClosures["Burn\(LTMorphingPhases.start)"] = {
             self.emitterView.removeAllEmitters()

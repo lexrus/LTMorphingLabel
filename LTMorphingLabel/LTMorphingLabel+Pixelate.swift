@@ -29,7 +29,7 @@ import UIKit
 
 extension LTMorphingLabel {
     
-    func PixelateLoad() {
+    func pixelateLoad() {
         
         effectClosures["Pixelate\(LTMorphingPhases.disappear)"] = {
             char, index, progress in
