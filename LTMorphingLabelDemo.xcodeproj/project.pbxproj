@@ -30,6 +30,24 @@
 		D720D07F1A5E923800747465 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D720D0801A5E923800747465 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
 		D73C19FA1AC2824100C1A824 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; };
+		D73DFD021F4DB5CC00F84122 /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F061AB5612C00D46A0E /* LTCharacterLimbo.swift */; };
+		D73DFD031F4DB5CC00F84122 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
+		D73DFD041F4DB5CC00F84122 /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* LTStringDiffResult.swift */; };
+		D73DFD051F4DB5CC00F84122 /* LTMorphingEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F031AB5608000D46A0E /* LTMorphingEffect.swift */; };
+		D73DFD061F4DB5CC00F84122 /* LTMorphingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD98E19517430009A2ACD /* LTMorphingLabel.swift */; };
+		D73DFD071F4DB5CC00F84122 /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */; };
+		D73DFD081F4DB5CC00F84122 /* LTMorphingLabel+Evaporate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC93196256720006FA88 /* LTMorphingLabel+Evaporate.swift */; };
+		D73DFD091F4DB5CC00F84122 /* LTMorphingLabel+Fall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC97196280860006FA88 /* LTMorphingLabel+Fall.swift */; };
+		D73DFD0A1F4DB5CC00F84122 /* LTMorphingLabel+Pixelate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7558D391962AB3000DCF592 /* LTMorphingLabel+Pixelate.swift */; };
+		D73DFD0B1F4DB5CC00F84122 /* LTMorphingLabel+Sparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC5FD5196692E8004E7076 /* LTMorphingLabel+Sparkle.swift */; };
+		D73DFD0C1F4DB5CC00F84122 /* LTMorphingLabel+Burn.swift in Sources */ = {isa = PBXBuildFile; fileRef = D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */; };
+		D73DFD0D1F4DB5CC00F84122 /* LTMorphingLabel+Anvil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C98F381975265C00902C5C /* LTMorphingLabel+Anvil.swift */; };
+		D73DFD0E1F4DB5CC00F84122 /* LTEmitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F091AB561A400D46A0E /* LTEmitterView.swift */; };
+		D73DFD111F4DB5CC00F84122 /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D73DFD131F4DB5CC00F84122 /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
+		D73DFD141F4DB5CC00F84122 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
+		D73DFD151F4DB5CC00F84122 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
+		D73DFD161F4DB5CC00F84122 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
@@ -85,6 +103,8 @@
 
 /* Begin PBXFileReference section */
 		D723B2CB196A3FD100B1BBE8 /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
+		D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "/Users/lex/git/LTMorphingLabel/tvOS-Info.plist"; sourceTree = "<absolute>"; };
 		D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTMorphingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74AD972195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74AD973195171E7009A2ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +137,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D73DFD0F1F4DB5CC00F84122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D74AD96B195171E7009A2ACD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -170,6 +197,7 @@
 				D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */,
 				D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */,
 				D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */,
+				D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				D7D4B0221A5E87D50087F83D /* Info.plist */,
+				D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -253,6 +282,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		D73DFD101F4DB5CC00F84122 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D73DFD111F4DB5CC00F84122 /* LTMorphingLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D7D4B01C1A5E87D50087F83D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +301,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D73DFD001F4DB5CC00F84122 /* LTMorphingLabel_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabel_tvOS" */;
+			buildPhases = (
+				D73DFD011F4DB5CC00F84122 /* Sources */,
+				D73DFD0F1F4DB5CC00F84122 /* Frameworks */,
+				D73DFD101F4DB5CC00F84122 /* Headers */,
+				D73DFD121F4DB5CC00F84122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LTMorphingLabel_tvOS;
+			productName = LTMorphingLabel;
+			productReference = D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74AD985195171E7009A2ACD /* Build configuration list for PBXNativeTarget "LTMorphingLabelDemo" */;
@@ -361,11 +416,23 @@
 				D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */,
 				D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */,
 				D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */,
+				D73DFD001F4DB5CC00F84122 /* LTMorphingLabel_tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D73DFD121F4DB5CC00F84122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D73DFD131F4DB5CC00F84122 /* Fire.png in Resources */,
+				D73DFD141F4DB5CC00F84122 /* Sparkle.png in Resources */,
+				D73DFD151F4DB5CC00F84122 /* Smoke.png in Resources */,
+				D73DFD161F4DB5CC00F84122 /* Fragment.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D74AD96C195171E7009A2ACD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,6 +485,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D73DFD011F4DB5CC00F84122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D73DFD021F4DB5CC00F84122 /* LTCharacterLimbo.swift in Sources */,
+				D73DFD031F4DB5CC00F84122 /* LTEasing.swift in Sources */,
+				D73DFD041F4DB5CC00F84122 /* LTStringDiffResult.swift in Sources */,
+				D73DFD051F4DB5CC00F84122 /* LTMorphingEffect.swift in Sources */,
+				D73DFD061F4DB5CC00F84122 /* LTMorphingLabel.swift in Sources */,
+				D73DFD071F4DB5CC00F84122 /* LTCharacterDiffResult.swift in Sources */,
+				D73DFD081F4DB5CC00F84122 /* LTMorphingLabel+Evaporate.swift in Sources */,
+				D73DFD091F4DB5CC00F84122 /* LTMorphingLabel+Fall.swift in Sources */,
+				D73DFD0A1F4DB5CC00F84122 /* LTMorphingLabel+Pixelate.swift in Sources */,
+				D73DFD0B1F4DB5CC00F84122 /* LTMorphingLabel+Sparkle.swift in Sources */,
+				D73DFD0C1F4DB5CC00F84122 /* LTMorphingLabel+Burn.swift in Sources */,
+				D73DFD0D1F4DB5CC00F84122 /* LTMorphingLabel+Anvil.swift in Sources */,
+				D73DFD0E1F4DB5CC00F84122 /* LTEmitterView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D74AD96A195171E7009A2ACD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -484,6 +571,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D73DFD181F4DB5CC00F84122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D73DFD191F4DB5CC00F84122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D74AD983195171E7009A2ACD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -713,6 +858,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabel_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D73DFD181F4DB5CC00F84122 /* Debug */,
+				D73DFD191F4DB5CC00F84122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D74AD969195171E7009A2ACD /* Build configuration list for PBXProject "LTMorphingLabelDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
