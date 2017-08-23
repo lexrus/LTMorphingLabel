@@ -189,6 +189,11 @@ typealias LTMorphingSkipFramesClosure =
         displayLink.add(to: .current, forMode: .commonModes)
         return displayLink
         }()
+
+    deinit {
+        displayLink.remove(from: .current, forMode: .commonModes)
+        displayLink.invalidate()
+    }
     
     lazy var emitterView: LTEmitterView = {
         let emitterView = LTEmitterView(frame: self.bounds)
