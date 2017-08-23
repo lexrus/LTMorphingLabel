@@ -28,7 +28,8 @@
 import Foundation
 import UIKit
 import QuartzCore
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+
+private func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l < r
@@ -39,7 +40,7 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   }
 }
 
-fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+private func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
     return l >= r
@@ -53,7 +54,7 @@ enum LTMorphingPhases: Int {
 }
 
 typealias LTMorphingStartClosure =
-    (Void) -> Void
+    () -> Void
 
 typealias LTMorphingEffectClosure =
     (Character, _ index: Int, _ progress: Float) -> LTCharacterLimbo
@@ -65,7 +66,7 @@ typealias LTMorphingManipulateProgressClosure =
     (_ index: Int, _ progress: Float, _ isNewChar: Bool) -> Float
 
 typealias LTMorphingSkipFramesClosure =
-    (Void) -> Int
+    () -> Int
 
 @objc public protocol LTMorphingLabelDelegate {
     @objc optional func morphingDidStart(_ label: LTMorphingLabel)
@@ -183,10 +184,9 @@ typealias LTMorphingSkipFramesClosure =
     fileprivate lazy var displayLink: CADisplayLink = {
         let displayLink = CADisplayLink(
             target: self,
-            selector: #selector(LTMorphingLabel.displayFrameTick))
-        displayLink.add(
-            to: RunLoop.current,
-            forMode: RunLoopMode.commonModes)
+            selector: #selector(LTMorphingLabel.displayFrameTick)
+        )
+        displayLink.add(to: .current, forMode: .commonModes)
         return displayLink
         }()
     
