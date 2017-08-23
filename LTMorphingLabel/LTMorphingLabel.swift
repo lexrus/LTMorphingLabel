@@ -208,7 +208,7 @@ extension LTMorphingLabel {
     func displayFrameTick() {
         if displayLink.duration > 0.0 && totalFrames == 0 {
             var frameRate = Float(0)
-            if #available(iOS 10.0, *) {
+            if #available(iOS 10.0, tvOS 10.0, *) {
                 var frameInterval = 1
                 if displayLink.preferredFramesPerSecond == 60 {
                     frameInterval = 1
