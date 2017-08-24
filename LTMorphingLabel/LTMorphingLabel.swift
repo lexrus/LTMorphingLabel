@@ -111,7 +111,7 @@ typealias LTMorphingSkipFramesClosure =
     
     override open var font: UIFont! {
         get {
-            return super.font
+            return super.font ?? UIFont.systemFont(ofSize: 15)
         }
         set {
             super.font = newValue
@@ -121,7 +121,7 @@ typealias LTMorphingSkipFramesClosure =
     
     override open var text: String! {
         get {
-            return super.text
+            return super.text ?? ""
         }
         set {
             guard text != newValue else { return }
@@ -489,15 +489,17 @@ extension LTMorphingLabel {
                 }
                 return false
                 }(charLimbo)
-            
+
             if !willAvoidDefaultDrawing {
+                var attrs: [String: Any] = [
+                    NSForegroundColorAttributeName: textColor.withAlphaComponent(charLimbo.alpha)
+                ]
+
+                if let font = UIFont(name: font.fontName, size: charLimbo.size) {
+                    attrs[NSFontAttributeName] = font
+                }
                 let s = String(charLimbo.char)
-                s.draw(in: charRect, withAttributes: [
-                    NSFontAttributeName:
-                        UIFont.init(name: font.fontName, size: charLimbo.size)!,
-                    NSForegroundColorAttributeName:
-                        textColor.withAlphaComponent(charLimbo.alpha)
-                    ])
+                s.draw(in: charRect, withAttributes: attrs)
             }
         }
     }

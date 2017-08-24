@@ -53,7 +53,9 @@ extension LTMorphingLabel {
                 NSFontAttributeName: self.font,
                 NSForegroundColorAttributeName: self.textColor
                 ])
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
+                return (UIImage(), CGRect.zero)
+            }
             UIGraphicsEndImageContext()
             let newRect = CGRect(
                 x: charLimbo.rect.origin.x,
@@ -61,7 +63,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-            return (newImage!, newRect)
+            return (newImage, newRect)
     }
     
     func SparkleLoad() {
