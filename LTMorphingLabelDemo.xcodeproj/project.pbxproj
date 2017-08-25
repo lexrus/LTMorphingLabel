@@ -112,7 +112,7 @@
 /* Begin PBXFileReference section */
 		D723B2CB196A3FD100B1BBE8 /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
 		D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "/Users/lex/git/LTMorphingLabel/tvOS-Info.plist"; sourceTree = "<absolute>"; };
+		D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "/Users/lex/git/LTMorphingLabel/LTMorphingLabel/tvOS-Info.plist"; sourceTree = "<absolute>"; };
 		D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelUITests.swift; sourceTree = "<group>"; };
 		D73DFD241F5056A700F84122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/tvOS-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/LTMorphingLabel/tvOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -688,7 +688,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/tvOS-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/LTMorphingLabel/tvOS-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
