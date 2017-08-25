@@ -22,11 +22,16 @@ class LTMorphingLabelUITests: XCTestCase {
         super.tearDown()
     }
 
-    func testMorphing() {
+    func testMonkeyTest() {
         let app = XCUIApplication()
         app.buttons["Evaporate"].tap()
 
         app.buttons["Fall"].tap()
+        
+        let morphinglabelStaticText = XCUIApplication().staticTexts["morphingLabel"]
+        for _ in 0...20 {
+            morphinglabelStaticText.tap()
+        }
     }
     
     func testNilText() {
