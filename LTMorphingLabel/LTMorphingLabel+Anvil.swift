@@ -200,11 +200,17 @@ extension LTMorphingLabel {
             
             if progress > self.morphingDuration * 0.5 {
                 let end = self.morphingDuration * 0.55
+
+                self.emitterView.createEmitter("fragments", particleName: "Fragment", duration: 0.6) { (layer, cell) in
+                    if progress > end {
+                        layer.birthRate = 0
+                    }
+                }.play()
                 self.emitterView.createEmitter(
                     "fragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -213,7 +219,7 @@ extension LTMorphingLabel {
                     "leftFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update {  (layer, _) in
+                    ) { (_, _) in }.update {  (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -222,7 +228,7 @@ extension LTMorphingLabel {
                     "rightFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -235,7 +241,7 @@ extension LTMorphingLabel {
                     "leftSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -244,7 +250,7 @@ extension LTMorphingLabel {
                     "rightSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }

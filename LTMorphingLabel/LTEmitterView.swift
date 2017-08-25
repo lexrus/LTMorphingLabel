@@ -135,7 +135,7 @@ open class LTEmitterView: UIView {
         _ name: String,
         particleName: String,
         duration: Float,
-        configureClosure: LTEmitterConfigureClosure?
+        configureClosure: LTEmitterConfigureClosure
         ) -> LTEmitter {
 
             var emitter: LTEmitter
@@ -148,7 +148,7 @@ open class LTEmitterView: UIView {
                     duration: duration
                 )
 
-                configureClosure?(emitter.layer, emitter.cell)
+                configureClosure(emitter.layer, emitter.cell)
 
                 layer.addSublayer(emitter.layer)
                 emitters.updateValue(emitter, forKey: name)
