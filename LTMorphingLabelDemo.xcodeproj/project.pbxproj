@@ -48,6 +48,7 @@
 		D73DFD141F4DB5CC00F84122 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D73DFD151F4DB5CC00F84122 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D73DFD161F4DB5CC00F84122 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
+		D73DFD231F5056A700F84122 /* LTMorphingLabelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */; };
 		D74AD974195171E7009A2ACD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AD973195171E7009A2ACD /* AppDelegate.swift */; };
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
@@ -85,6 +86,13 @@
 			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
 			remoteInfo = LTMorphingLabelDemo;
 		};
+		D73DFD251F5056A700F84122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D74AD966195171E7009A2ACD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D74AD96D195171E7009A2ACD;
+			remoteInfo = LTMorphingLabelDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +113,9 @@
 		D723B2CB196A3FD100B1BBE8 /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
 		D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "/Users/lex/git/LTMorphingLabel/tvOS-Info.plist"; sourceTree = "<absolute>"; };
+		D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelUITests.swift; sourceTree = "<group>"; };
+		D73DFD241F5056A700F84122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTMorphingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74AD972195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74AD973195171E7009A2ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +149,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		D73DFD0F1F4DB5CC00F84122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D73DFD1D1F5056A700F84122 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,6 +198,15 @@
 			path = Particles;
 			sourceTree = "<group>";
 		};
+		D73DFD211F5056A700F84122 /* LTMorphingLabelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */,
+				D73DFD241F5056A700F84122 /* Info.plist */,
+			);
+			path = LTMorphingLabelUITests;
+			sourceTree = "<group>";
+		};
 		D74AD965195171E7009A2ACD = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +214,7 @@
 				D74AD970195171E7009A2ACD /* LTMorphingLabelDemo */,
 				D7D4B0201A5E87D50087F83D /* LTMorphingLabel */,
 				D7934DC71A63AF1100AE04CE /* LTMorphingLabelTests */,
+				D73DFD211F5056A700F84122 /* LTMorphingLabelUITests */,
 				D74AD96F195171E7009A2ACD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,6 +226,7 @@
 				D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */,
 				D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */,
 				D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */,
+				D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,6 +348,24 @@
 			productReference = D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D73DFD1F1F5056A700F84122 /* LTMorphingLabelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D73DFD291F5056A700F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabelUITests" */;
+			buildPhases = (
+				D73DFD1C1F5056A700F84122 /* Sources */,
+				D73DFD1D1F5056A700F84122 /* Frameworks */,
+				D73DFD1E1F5056A700F84122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D73DFD261F5056A700F84122 /* PBXTargetDependency */,
+			);
+			name = LTMorphingLabelUITests;
+			productName = LTMorphingLabelUITests;
+			productReference = D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D74AD985195171E7009A2ACD /* Build configuration list for PBXNativeTarget "LTMorphingLabelDemo" */;
@@ -382,10 +429,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = lexrus.com;
 				TargetAttributes = {
+					D73DFD1F1F5056A700F84122 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5SKD83S59G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D74AD96D195171E7009A2ACD;
+					};
 					D74AD96D195171E7009A2ACD = {
 						CreatedOnToolsVersion = 6.0;
 						LastSwiftMigration = 0800;
@@ -417,6 +470,7 @@
 				D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */,
 				D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */,
 				D73DFD001F4DB5CC00F84122 /* LTMorphingLabel_tvOS */,
+				D73DFD1F1F5056A700F84122 /* LTMorphingLabelUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,6 +484,13 @@
 				D73DFD141F4DB5CC00F84122 /* Sparkle.png in Resources */,
 				D73DFD151F4DB5CC00F84122 /* Smoke.png in Resources */,
 				D73DFD161F4DB5CC00F84122 /* Fragment.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D73DFD1E1F5056A700F84122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +566,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D73DFD1C1F5056A700F84122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D73DFD231F5056A700F84122 /* LTMorphingLabelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D74AD96A195171E7009A2ACD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -568,6 +637,11 @@
 			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
 			targetProxy = D73C19FB1AC28DAA00C1A824 /* PBXContainerItemProxy */;
 		};
+		D73DFD261F5056A700F84122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */;
+			targetProxy = D73DFD251F5056A700F84122 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -628,6 +702,46 @@
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D73DFD271F5056A700F84122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5SKD83S59G;
+				INFOPLIST_FILE = LTMorphingLabelUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LexTang.LTMorphingLabelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LTMorphingLabelDemo;
+			};
+			name = Debug;
+		};
+		D73DFD281F5056A700F84122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5SKD83S59G;
+				INFOPLIST_FILE = LTMorphingLabelUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.LexTang.LTMorphingLabelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = LTMorphingLabelDemo;
 			};
 			name = Release;
 		};
@@ -868,6 +982,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D73DFD291F5056A700F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D73DFD271F5056A700F84122 /* Debug */,
+				D73DFD281F5056A700F84122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		D74AD969195171E7009A2ACD /* Build configuration list for PBXProject "LTMorphingLabelDemo" */ = {
 			isa = XCConfigurationList;

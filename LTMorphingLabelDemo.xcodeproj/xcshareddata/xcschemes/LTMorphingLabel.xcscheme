@@ -38,6 +38,16 @@
                ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D73DFD1F1F5056A700F84122"
+               BuildableName = "LTMorphingLabelUITests.xctest"
+               BlueprintName = "LTMorphingLabelUITests"
+               ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

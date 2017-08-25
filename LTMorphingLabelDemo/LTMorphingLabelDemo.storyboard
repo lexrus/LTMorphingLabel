@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0yF-A7-6PT">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0yF-A7-6PT">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--LTMorphingLabel Demo-->
@@ -14,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rVu-wP-OzT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D5d-Wo-IoW">
-                        <rect key="frame" x="0.0" y="64" width="568" height="256"/>
+                        <rect key="frame" x="0.0" y="64" width="667" height="311"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-Va-JH8">
-                                <rect key="frame" x="20" y="156" width="528" height="29"/>
+                                <rect key="frame" x="20" y="211" width="627" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="fIE-hM-Ab0"/>
                                     <constraint firstAttribute="height" constant="28" id="vaZ-df-xh8"/>
@@ -37,18 +41,18 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VJ-mH-2Xe">
-                                <rect key="frame" x="20" y="20" width="528" height="116"/>
+                                <rect key="frame" x="20" y="20" width="627" height="171"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="changeText:" destination="3ei-2r-m0A" eventType="touchUpInside" id="wca-7v-rZP"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ucn-av-UN6">
-                                <rect key="frame" x="20" y="206" width="120" height="29"/>
+                                <rect key="frame" x="20" y="261" width="120" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="9pE-1U-E4A"/>
                                     <constraint firstAttribute="height" constant="28" id="TLk-pB-ubA"/>
@@ -62,7 +66,7 @@
                                 </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="26" minValue="9" maxValue="42" translatesAutoresizingMaskIntoConstraints="NO" id="EOd-vo-0jD">
-                                <rect key="frame" x="168" y="204" width="378" height="31"/>
+                                <rect key="frame" x="168" y="259" width="477" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uft-oC-aVu"/>
                                 </constraints>
@@ -71,15 +75,16 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm LTMorphingLabel. Tap Me Please." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-dc-WVn" customClass="LTMorphingLabel" customModule="LTMorphingLabelDemo">
-                                <rect key="frame" x="20" y="20" width="528" height="116"/>
+                                <rect key="frame" x="20" y="20" width="627" height="171"/>
+                                <accessibility key="accessibilityConfiguration" identifier="morphingLabel" label="morphingLabel"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="3"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EOd-vo-0jD" firstAttribute="top" secondItem="rE7-Va-JH8" secondAttribute="bottom" constant="20" id="7ro-9X-VKm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EOd-vo-0jD" secondAttribute="trailing" constant="4" id="DrY-mw-8sU"/>
@@ -99,7 +104,13 @@
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="trailing" secondItem="D5d-Wo-IoW" secondAttribute="trailingMargin" id="o8d-0t-cq2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="LTMorphingLabel Demo" id="A7j-8h-CTu"/>
+                    <navigationItem key="navigationItem" title="LTMorphingLabel Demo" id="A7j-8h-CTu">
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="Bsc-Fz-3C2">
+                            <connections>
+                                <action selector="clear:" destination="3ei-2r-m0A" id="JHT-bA-GcN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="label" destination="fqc-dc-WVn" id="glJ-ku-ziP"/>
                     </connections>
@@ -113,15 +124,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0yF-A7-6PT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Atk-kR-TkL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="Atk-kR-TkL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.40613473360655739" green="0.0012104632456003813" blue="0.31570181335532965" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.40613473360655739" green="0.0012104632456003813" blue="0.31570181335532965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" red="1" green="0.51384911973201897" blue="0.9292181180547634" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="0.51384911973201897" blue="0.9292181180547634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>

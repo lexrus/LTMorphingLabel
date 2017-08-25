@@ -38,6 +38,10 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     @IBAction func changeText(_ sender: AnyObject) {
         label.text = text
     }
+
+    @IBAction func clear(_ sender: Any) {
+        label.text = nil
+    }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         let seg = sender
