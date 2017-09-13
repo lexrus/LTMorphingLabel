@@ -36,16 +36,16 @@ public struct LTEasing {
     
     public static func easeOutBounce(_ t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         return {
-            if $0 < 1 / 2.75 {
+            if $0 < 0.363636 { // 1 / 2.75
                 return c * 7.5625 * $0 * $0 + b
-            } else if $0 < 2 / 2.75 {
-                let t = $0 - 1.5 / 2.75
+            } else if $0 < 0.727272 { // 2 / 2.75
+                let t = $0 - 0.545454 // 1.5 / 2.75
                 return c * (7.5625 * t * t + 0.75) + b
-            } else if $0 < 2.5 / 2.75 {
-                let t = $0 - 2.25 / 2.75
+            } else if $0 < 0.909090 { // 2.5 / 2.75
+                let t = $0 - 0.818181 // 2.25 / 2.75
                 return c * (7.5625 * t * t + 0.9375) + b
             } else {
-                let t = $0 - 2.625 / 2.75
+                let t = $0 - 0.959595 // 2.625 / 2.75
                 return c * (7.5625 * t * t + 0.984375) + b
             }
         }(t / d)
