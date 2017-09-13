@@ -68,10 +68,10 @@ typealias LTMorphingManipulateProgressClosure =
 typealias LTMorphingSkipFramesClosure =
     () -> Int
 
-@objc public protocol LTMorphingLabelDelegate {
-    @objc optional func morphingDidStart(_ label: LTMorphingLabel)
-    @objc optional func morphingDidComplete(_ label: LTMorphingLabel)
-    @objc optional func morphingOnProgress(_ label: LTMorphingLabel, progress: Float)
+public protocol LTMorphingLabelDelegate: class {
+    func morphingDidStart(_ label: LTMorphingLabel)
+    func morphingDidComplete(_ label: LTMorphingLabel)
+    func morphingOnProgress(_ label: LTMorphingLabel, progress: Float)
 }
 
 // MARK: - LTMorphingLabel
@@ -82,7 +82,7 @@ typealias LTMorphingSkipFramesClosure =
     @IBInspectable open var morphingCharacterDelay: Float = 0.026
     @IBInspectable open var morphingEnabled: Bool = true
 
-    @IBOutlet open weak var delegate: LTMorphingLabelDelegate?
+    open weak var delegate: LTMorphingLabelDelegate?
     open var morphingEffect: LTMorphingEffect = .scale
     
     var startClosures = [String: LTMorphingStartClosure]()
@@ -150,7 +150,7 @@ typealias LTMorphingSkipFramesClosure =
                     return closure()
                 }
                 
-                delegate?.morphingDidStart?(self)
+                delegate?.morphingDidStart(self)
             }
         }
     }
@@ -249,7 +249,7 @@ extension LTMorphingLabel {
         } else {
             displayLink.isPaused = true
 
-            delegate?.morphingDidComplete?(self)
+            delegate?.morphingDidComplete(self)
         }
     }
     
