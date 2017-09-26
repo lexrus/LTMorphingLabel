@@ -66,6 +66,7 @@ extension LTMorphingLabel {
             return (newImage, newRect)
     }
     
+    @objc
     func SparkleLoad() {
         
         startClosures["Sparkle\(LTMorphingPhases.start)"] = {
