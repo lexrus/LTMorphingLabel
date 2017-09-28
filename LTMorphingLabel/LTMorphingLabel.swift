@@ -259,12 +259,12 @@ extension LTMorphingLabel {
         var charRects = [CGRect]()
         var leftOffset: CGFloat = 0.0
         
-        charHeight = "Leg".size(withAttributes: [NSAttributedStringKey.font: font]).height
+        charHeight = "Leg".size(withAttributes: [.font: font]).height
         
         let topOffset = (bounds.size.height - charHeight) / 2.0
 
         for char in textToDraw.characters {
-            let charSize = String(char).size(withAttributes: [NSAttributedStringKey.font: font])
+            let charSize = String(char).size(withAttributes: [.font: font])
             charRects.append(
                 CGRect(
                     origin: CGPoint(
@@ -492,11 +492,11 @@ extension LTMorphingLabel {
 
             if !willAvoidDefaultDrawing {
                 var attrs: [NSAttributedStringKey: Any] = [
-                    NSAttributedStringKey.foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
+                    .foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
                 ]
 
                 if let font = UIFont(name: font.fontName, size: charLimbo.size) {
-                    attrs[NSAttributedStringKey.font] = font
+                    attrs[.font] = font
                 }
                 let s = String(charLimbo.char)
                 s.draw(in: charRect, withAttributes: attrs)

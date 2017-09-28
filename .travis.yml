@@ -1,4 +1,4 @@
-osx_image: xcode8.3
+osx_image: xcode9
 language: objective-c
 script:
   - |
@@ -6,5 +6,5 @@ script:
     -project LTMorphingLabelDemo.xcodeproj \
     -scheme LTMorphingLabelDemo \
     -sdk iphonesimulator \
-    -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' \
+    -destination 'platform=iOS Simulator,name=iPhone X,OS=latest' \
     | xcpretty
