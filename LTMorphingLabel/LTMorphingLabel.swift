@@ -205,7 +205,7 @@ typealias LTMorphingSkipFramesClosure =
 // MARK: - Animation extension
 extension LTMorphingLabel {
 
-    func displayFrameTick() {
+    @objc func displayFrameTick() {
         if displayLink.duration > 0.0 && totalFrames == 0 {
             var frameRate = Float(0)
             if #available(iOS 10.0, tvOS 10.0, *) {
@@ -259,12 +259,12 @@ extension LTMorphingLabel {
         var charRects = [CGRect]()
         var leftOffset: CGFloat = 0.0
         
-        charHeight = "Leg".size(attributes: [NSFontAttributeName: font]).height
+        charHeight = "Leg".size(withAttributes: [NSAttributedStringKey.font: font]).height
         
         let topOffset = (bounds.size.height - charHeight) / 2.0
 
         for char in textToDraw.characters {
-            let charSize = String(char).size(attributes: [NSFontAttributeName: font])
+            let charSize = String(char).size(withAttributes: [NSAttributedStringKey.font: font])
             charRects.append(
                 CGRect(
                     origin: CGPoint(
@@ -491,12 +491,12 @@ extension LTMorphingLabel {
                 }(charLimbo)
 
             if !willAvoidDefaultDrawing {
-                var attrs: [String: Any] = [
-                    NSForegroundColorAttributeName: textColor.withAlphaComponent(charLimbo.alpha)
+                var attrs: [NSAttributedStringKey: Any] = [
+                    NSAttributedStringKey.foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
                 ]
 
                 if let font = UIFont(name: font.fontName, size: charLimbo.size) {
-                    attrs[NSFontAttributeName] = font
+                    attrs[NSAttributedStringKey.font] = font
                 }
                 let s = String(charLimbo.char)
                 s.draw(in: charRect, withAttributes: attrs)

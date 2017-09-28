@@ -204,7 +204,7 @@ extension LTMorphingLabel {
                     "fragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -213,7 +213,7 @@ extension LTMorphingLabel {
                     "leftFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update {  (layer, _) in
+                    ) { (_, _) in }.update {  (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -222,7 +222,7 @@ extension LTMorphingLabel {
                     "rightFragments",
                     particleName: "Fragment",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -235,7 +235,7 @@ extension LTMorphingLabel {
                     "leftSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
@@ -244,7 +244,7 @@ extension LTMorphingLabel {
                     "rightSmoke",
                     particleName: "Smoke",
                     duration: 0.6
-                    ) {_ in}.update { (layer, _) in
+                    ) { (_, _) in }.update { (layer, _) in
                         if progress > end {
                             layer.birthRate = 0
                         }
