@@ -28,7 +28,8 @@
 import UIKit
 
 extension LTMorphingLabel {
-    
+
+    @objc
     func FallLoad() {
         
         progressClosures["Fall\(LTMorphingPhases.progress)"] = {

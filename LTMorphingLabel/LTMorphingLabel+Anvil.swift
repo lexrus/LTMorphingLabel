@@ -28,7 +28,8 @@
 import UIKit
 
 extension LTMorphingLabel {
-    
+
+    @objc
     func AnvilLoad() {
         
         startClosures["Anvil\(LTMorphingPhases.start)"] = {

@@ -63,7 +63,8 @@ extension LTMorphingLabel {
             )
         return (newImage!, newRect)
     }
-    
+
+    @objc
     func BurnLoad() {
         
         startClosures["Burn\(LTMorphingPhases.start)"] = {
