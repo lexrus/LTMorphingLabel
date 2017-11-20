@@ -119,7 +119,7 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    override open var text: String! {
+    override open var text: String? {
         get {
             return super.text ?? ""
         }
