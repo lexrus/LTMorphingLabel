@@ -119,7 +119,7 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    override open var text: String! {
+    override open var text: String? {
         get {
             return super.text ?? ""
         }
@@ -223,7 +223,7 @@ extension LTMorphingLabel {
             }
             totalFrames = Int(ceil(morphingDuration / frameRate))
 
-            let totalDelay = Float((text!).characters.count) * morphingCharacterDelay
+            let totalDelay = Float((text!).count) * morphingCharacterDelay
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
 
@@ -263,7 +263,7 @@ extension LTMorphingLabel {
         
         let topOffset = (bounds.size.height - charHeight) / 2.0
 
-        for char in textToDraw.characters {
+        for char in textToDraw {
             let charSize = String(char).size(withAttributes: [.font: font])
             charRects.append(
                 CGRect(
@@ -399,7 +399,7 @@ extension LTMorphingLabel {
         var limbo = [LTCharacterLimbo]()
         
         // Iterate original characters
-        for (i, character) in previousText.characters.enumerated() {
+        for (i, character) in previousText.enumerated() {
             var progress: Float = 0.0
             
             if let closure = progressClosures[
@@ -415,7 +415,7 @@ extension LTMorphingLabel {
         }
         
         // Add new characters
-        for (i, character) in (text!).characters.enumerated() {
+        for (i, character) in (text!).enumerated() {
             if i >= diffResults?.0.count {
                 break
             }
