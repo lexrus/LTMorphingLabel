@@ -155,6 +155,12 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
+    open var textAttributes: [NSAttributedStringKey: Any]? {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+    
     open override func setNeedsLayout() {
         super.setNeedsLayout()
         previousRects = rectsOfEachCharacter(previousText, withFont: font)
@@ -498,6 +504,11 @@ extension LTMorphingLabel {
                 if let font = UIFont(name: font.fontName, size: charLimbo.size) {
                     attrs[.font] = font
                 }
+                
+                for (key, value) in textAttributes ?? [:] {
+                    attrs[key] = value
+                }
+                
                 let s = String(charLimbo.char)
                 s.draw(in: charRect, withAttributes: attrs)
             }
