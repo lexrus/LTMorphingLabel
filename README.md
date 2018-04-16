@@ -73,6 +73,12 @@ I’d like to recommend it for production use.
 
 And finally, [an Android port](https://github.com/hanks-zyh/HTextView).
 
+## Third Party Bindings
+
+### React Native
+You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-morphing-text)
+
+
 ## License
 
 This code is distributed under the terms and conditions of the MIT license.
