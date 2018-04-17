@@ -1,10 +1,9 @@
 disabled_rules:
-  - variable_name_min_length
   - todo
   - force_cast
   - trailing_whitespace
   - colon
-  - variable_name
+  - identifier_name
 excluded:
   - Carthage
   - Pods
@@ -15,9 +14,6 @@ function_body_length:
 type_body_length:
   - 300
   - 600
-variable_name_max_length:
-  - 30
-  - 50
 file_length:
   - 500
   - 700
