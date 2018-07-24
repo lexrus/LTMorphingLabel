@@ -28,7 +28,7 @@ class LTMorphingLabelTests : XCTestCase {
                 "n is moved right for 5 steps, not \(offset)."
             )
         } else {
-            XCTFail()
+            XCTFail("Failed to move and add.")
         }
         
         if case .moveAndAdd(let offset) = diffResults.0[2] {
@@ -37,7 +37,7 @@ class LTMorphingLabelTests : XCTestCase {
                 "w is moved left for 2 steps, not \(offset)."
             )
         } else {
-            XCTFail()
+            XCTFail("Failed to move and add.")
         }
         
         XCTAssert(diffResults.0[4] == .add, "2nd e is added.")

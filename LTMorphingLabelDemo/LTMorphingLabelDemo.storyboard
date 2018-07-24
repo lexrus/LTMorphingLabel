@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0yF-A7-6PT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IAM-hL-9eW">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,16 +14,12 @@
         <scene sceneID="vlG-gG-Crg">
             <objects>
                 <viewController id="3ei-2r-m0A" customClass="LTDemoViewController" customModule="LTMorphingLabelDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zgg-QG-WxN"/>
-                        <viewControllerLayoutGuide type="bottom" id="rVu-wP-OzT"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="D5d-Wo-IoW">
-                        <rect key="frame" x="0.0" y="64" width="667" height="311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-Va-JH8">
-                                <rect key="frame" x="20" y="211" width="627" height="29"/>
+                                <rect key="frame" x="20" y="275" width="627" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="fIE-hM-Ab0"/>
                                     <constraint firstAttribute="height" constant="28" id="vaZ-df-xh8"/>
@@ -41,7 +38,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3VJ-mH-2Xe">
-                                <rect key="frame" x="20" y="20" width="627" height="171"/>
+                                <rect key="frame" x="20" y="52" width="627" height="203"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,7 +49,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ucn-av-UN6">
-                                <rect key="frame" x="20" y="261" width="120" height="29"/>
+                                <rect key="frame" x="20" y="325" width="120" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="9pE-1U-E4A"/>
                                     <constraint firstAttribute="height" constant="28" id="TLk-pB-ubA"/>
@@ -66,7 +63,7 @@
                                 </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="26" minValue="9" maxValue="42" translatesAutoresizingMaskIntoConstraints="NO" id="EOd-vo-0jD">
-                                <rect key="frame" x="168" y="259" width="477" height="31"/>
+                                <rect key="frame" x="168" y="323" width="477" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uft-oC-aVu"/>
                                 </constraints>
@@ -75,7 +72,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm LTMorphingLabel. Tap Me Please." textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqc-dc-WVn" customClass="LTMorphingLabel" customModule="LTMorphingLabelDemo">
-                                <rect key="frame" x="20" y="20" width="627" height="171"/>
+                                <rect key="frame" x="20" y="52" width="627" height="203"/>
                                 <accessibility key="accessibilityConfiguration" identifier="morphingLabel" label="morphingLabel"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="26"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,58 +87,62 @@
                             <constraint firstAttribute="trailingMargin" secondItem="EOd-vo-0jD" secondAttribute="trailing" constant="4" id="DrY-mw-8sU"/>
                             <constraint firstItem="fqc-dc-WVn" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="FRI-HA-iwA"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="top" secondItem="3VJ-mH-2Xe" secondAttribute="bottom" constant="20" id="FbJ-XZ-R2b"/>
-                            <constraint firstItem="fqc-dc-WVn" firstAttribute="top" secondItem="zgg-QG-WxN" secondAttribute="bottom" constant="20" id="JLl-ED-669"/>
+                            <constraint firstItem="fqc-dc-WVn" firstAttribute="top" secondItem="upB-mu-6Xz" secondAttribute="top" constant="20" id="JLl-ED-669"/>
                             <constraint firstItem="EOd-vo-0jD" firstAttribute="leading" secondItem="Ucn-av-UN6" secondAttribute="trailing" constant="30" id="TpR-XE-wc6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rE7-Va-JH8" secondAttribute="trailing" id="URl-uL-VkH"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="Uv1-gH-Yw5"/>
                             <constraint firstItem="Ucn-av-UN6" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="ato-cL-hIr"/>
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="d9f-iq-G1D"/>
-                            <constraint firstItem="3VJ-mH-2Xe" firstAttribute="top" secondItem="zgg-QG-WxN" secondAttribute="bottom" constant="20" id="ev9-ly-VWf"/>
-                            <constraint firstItem="rVu-wP-OzT" firstAttribute="top" secondItem="Ucn-av-UN6" secondAttribute="bottom" constant="22" id="fFq-dK-A0i"/>
-                            <constraint firstItem="rVu-wP-OzT" firstAttribute="top" secondItem="EOd-vo-0jD" secondAttribute="bottom" constant="22" id="grd-XJ-WqJ"/>
+                            <constraint firstItem="3VJ-mH-2Xe" firstAttribute="top" secondItem="upB-mu-6Xz" secondAttribute="top" constant="20" id="ev9-ly-VWf"/>
+                            <constraint firstItem="upB-mu-6Xz" firstAttribute="bottom" secondItem="Ucn-av-UN6" secondAttribute="bottom" constant="22" id="fFq-dK-A0i"/>
+                            <constraint firstItem="upB-mu-6Xz" firstAttribute="bottom" secondItem="EOd-vo-0jD" secondAttribute="bottom" constant="22" id="grd-XJ-WqJ"/>
                             <constraint firstItem="fqc-dc-WVn" firstAttribute="trailing" secondItem="D5d-Wo-IoW" secondAttribute="trailingMargin" id="izu-ll-ljE"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="top" secondItem="fqc-dc-WVn" secondAttribute="bottom" constant="20" id="k9Z-OZ-VrU"/>
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="trailing" secondItem="D5d-Wo-IoW" secondAttribute="trailingMargin" id="o8d-0t-cq2"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="upB-mu-6Xz"/>
                     </view>
                     <navigationItem key="navigationItem" title="LTMorphingLabel Demo" id="A7j-8h-CTu">
                         <barButtonItem key="rightBarButtonItem" title="Clear" id="Bsc-Fz-3C2">
+                            <color key="tintColor" red="1" green="0.0" blue="0.78291556679999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="clear:" destination="3ei-2r-m0A" id="JHT-bA-GcN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="label" destination="fqc-dc-WVn" id="glJ-ku-ziP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOt-ne-B2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1846" y="264"/>
+            <point key="canvasLocation" x="1851" y="73"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="NUq-4d-uqM">
+        <scene sceneID="BST-oi-p39">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0yF-A7-6PT" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcq-7b-9Jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IAM-hL-9eW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="Atk-kR-TkL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <navigationItem key="navigationItem" id="Cel-o5-IrA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="V1l-3x-LRf">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.40613473360655739" green="0.0012104632456003813" blue="0.31570181335532965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                            <color key="textColor" red="1" green="0.51384911973201897" blue="0.9292181180547634" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="1" green="0.00019225223670915614" blue="0.803035042899366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3ei-2r-m0A" kind="relationship" relationship="rootViewController" id="Jwe-zE-cQ3"/>
+                        <segue destination="3ei-2r-m0A" kind="relationship" relationship="rootViewController" id="Pr8-Cq-f6N"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lS-KF-edA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="652.5" y="264.08450704225351"/>
+            <point key="canvasLocation" x="1851" y="-700"/>
         </scene>
     </scenes>
 </document>

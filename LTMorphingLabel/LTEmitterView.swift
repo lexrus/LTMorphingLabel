@@ -104,13 +104,14 @@ public struct LTEmitter {
         
         layer.emitterCells = [cell]
         let d = DispatchTime.now() + Double(Int64(duration * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-        DispatchQueue.main.asyncAfter(deadline: d) {
-            self.layer.birthRate = 0.0
+        DispatchQueue.main.asyncAfter(deadline: d) { [weak layer] in
+            layer?.birthRate = 0.0
         }
     }
     
     public func stop() {
         if nil != layer.superlayer {
+            layer.emitterCells = nil
             layer.removeFromSuperlayer()
         }
     }
@@ -139,7 +140,7 @@ open class LTEmitterView: UIView {
         ) -> LTEmitter {
 
             var emitter: LTEmitter
-            if let e = emitterByName(name) {
+            if let e = emitters[name] {
                 emitter = e
             } else {
                 emitter = LTEmitter(
@@ -156,16 +157,9 @@ open class LTEmitterView: UIView {
             return emitter
     }
     
-    open func emitterByName(_ name: String) -> LTEmitter? {
-        if let e = emitters[name] {
-            return e
-        }
-        return Optional.none
-    }
-    
     open func removeAllEmitters() {
-        for (_, emitter) in emitters {
-            emitter.layer.removeFromSuperlayer()
+        emitters.forEach {
+            $0.value.layer.removeFromSuperlayer()
         }
         emitters.removeAll(keepingCapacity: false)
     }
