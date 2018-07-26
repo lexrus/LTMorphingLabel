@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LTMorphingLabel"
-  s.version      = "0.5.6"
+  s.version      = "0.5.7"
   s.summary      = "Graceful morphing effects for UILabel written in Swift."
   s.description  = <<-DESC
                    A morphing UILabel subclass written in Swift.
