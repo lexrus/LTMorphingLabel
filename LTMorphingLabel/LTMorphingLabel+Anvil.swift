@@ -48,7 +48,7 @@ extension LTMorphingLabel {
                     layer.emitterPosition = CGPoint(
                         x: centerRect.origin.x,
                         y: centerRect.origin.y + centerRect.size.height / 1.3)
-                    layer.renderMode = kCAEmitterLayerSurface
+                    layer.renderMode = .unordered
                     cell.emissionLongitude = CGFloat(Double.pi / 2)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
@@ -73,7 +73,7 @@ extension LTMorphingLabel {
                     layer.emitterPosition = CGPoint(
                         x: centerRect.origin.x,
                         y: centerRect.origin.y + centerRect.size.height / 1.3)
-                    layer.renderMode = kCAEmitterLayerSurface
+                    layer.renderMode = .unordered
                     cell.emissionLongitude = CGFloat(Double.pi / 2)
                     cell.scale = self.font.pointSize / 90.0
                     cell.scaleSpeed = self.font.pointSize / 130
