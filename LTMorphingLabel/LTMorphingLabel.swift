@@ -163,16 +163,16 @@ typealias LTMorphingSkipFramesClosure =
     open func start() {
         guard displayLink == nil else { return }
         displayLink = CADisplayLink(target: self, selector: #selector(displayFrameTick))
-        displayLink?.add(to: .current, forMode: .commonModes)
+        displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
     }
 
     open func stop() {
-        displayLink?.remove(from: .current, forMode: .commonModes)
+        displayLink?.remove(from: .current, forMode: RunLoop.Mode.common)
         displayLink?.invalidate()
         displayLink = nil
     }
     
-    open var textAttributes: [NSAttributedStringKey: Any]? {
+    open var textAttributes: [NSAttributedString.Key: Any]? {
         didSet {
             setNeedsLayout()
         }
@@ -510,7 +510,7 @@ extension LTMorphingLabel {
                 }(charLimbo)
 
             if !willAvoidDefaultDrawing {
-                var attrs: [NSAttributedStringKey: Any] = [
+                var attrs: [NSAttributedString.Key: Any] = [
                     .foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
                 ]
 

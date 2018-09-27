@@ -133,7 +133,7 @@ extension LTMorphingLabel {
                 )
                 context!.rotate(by: rotation * CGFloat(Double.pi) / 180.0)
                 let s = String(limbo.char)
-                let attributes: [NSAttributedStringKey: Any] = [
+                let attributes: [NSAttributedString.Key: Any] = [
                     .font: self.font.withSize(limbo.size),
                     .foregroundColor: charColor
                 ]
