@@ -105,6 +105,8 @@ typealias LTMorphingSkipFramesClosure =
 
     fileprivate var displayLink: CADisplayLink?
     
+    private var tempRenderMorphingEnabled = true
+    
     #if TARGET_INTERFACE_BUILDER
     let presentingInIB = true
     #else
@@ -136,6 +138,7 @@ typealias LTMorphingSkipFramesClosure =
             currentFrame = 0
             totalFrames = 0
             
+            tempRenderMorphingEnabled = morphingEnabled
             setNeedsLayout()
             
             if !morphingEnabled {
@@ -489,7 +492,7 @@ extension LTMorphingLabel {
     }
     
     override open func drawText(in rect: CGRect) {
-        if !morphingEnabled || limboOfCharacters().count == 0 {
+        if !tempRenderMorphingEnabled || limboOfCharacters().count == 0 {
             super.drawText(in: rect)
             return
         }
