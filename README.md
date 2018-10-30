@@ -36,7 +36,7 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 
 ## Requirements
 
-1. Xcode 9.3
+1. Xcode 10
 2. iOS 8.0+
 
 ## Installation
