@@ -56,6 +56,7 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 
 1. Change the class of a label from UILabel to LTMorphingLabel;
 2. Programmatically set a new String to its text property.
+3. To use interactively, call `.pause()` after changing `.text` property, and use `updateProgress(progress: Float)`to update the progress interactively.
 
 ## Unit tests
 

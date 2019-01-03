@@ -166,6 +166,18 @@ typealias LTMorphingSkipFramesClosure =
         displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
     }
 
+    open func pause() {
+        displayLink?.isPaused = true
+    }
+    
+    open func unpause() {
+        displayLink?.isPaused = false
+    }
+    
+    open func finish() {
+        displayLink?.isPaused = false
+    }
+    
     open func stop() {
         displayLink?.remove(from: .current, forMode: RunLoop.Mode.common)
         displayLink?.invalidate()
@@ -218,7 +230,7 @@ typealias LTMorphingSkipFramesClosure =
 // MARK: - Animation extension
 extension LTMorphingLabel {
 
-    @objc func displayFrameTick() {
+    public func updateProgress(progress: Float) {
         guard let displayLink = displayLink else { return }
         if displayLink.duration > 0.0 && totalFrames == 0 {
             var frameRate = Float(0)
@@ -236,16 +248,16 @@ extension LTMorphingLabel {
                 frameRate = Float(displayLink.duration) / Float(displayLink.frameInterval)
             }
             totalFrames = Int(ceil(morphingDuration / frameRate))
-
+            
             let totalDelay = Float((text!).count) * morphingCharacterDelay
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
-
-        currentFrame += 1
-
+        
+        currentFrame = Int(progress * Float(totalFrames))
+        
         if previousText != text && currentFrame < totalFrames + totalDelayFrames + 5 {
-            morphingProgress += 1.0 / Float(totalFrames)
-
+            morphingProgress = progress
+            
             let closureKey = "\(morphingEffect.description)\(LTMorphingPhases.skipFrames)"
             if let closure = skipFramesClosures[closureKey] {
                 skipFramesCount += 1
@@ -256,15 +268,19 @@ extension LTMorphingLabel {
             } else {
                 setNeedsDisplay()
             }
-
+            
             if let onProgress = delegate?.morphingOnProgress {
                 onProgress(self, morphingProgress)
             }
         } else {
             stop()
-
+            
             delegate?.morphingDidComplete?(self)
         }
+    }
+    
+    @objc func displayFrameTick() {
+        updateProgress(progress: Float(currentFrame + 1) / Float(totalFrames))
     }
     
     // Could be enhanced by kerning text:
