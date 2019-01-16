@@ -280,7 +280,11 @@ extension LTMorphingLabel {
     }
     
     @objc func displayFrameTick() {
-        updateProgress(progress: Float(currentFrame + 1) / Float(totalFrames))
+        if totalFrames == 0 {
+            updateProgress(progress: 0)
+        } else {
+            updateProgress(progress: Float(currentFrame + 1) / Float(totalFrames))
+        }
     }
     
     // Could be enhanced by kerning text:
