@@ -253,9 +253,9 @@ extension LTMorphingLabel {
             totalDelayFrames = Int(ceil(totalDelay / frameRate))
         }
         
-        currentFrame = Int(progress * Float(totalFrames))
+        currentFrame = Int(ceil(progress * Float(totalFrames)))
         
-        if previousText != text && currentFrame < totalFrames + totalDelayFrames + 5 {
+        if previousText != text && currentFrame < totalFrames + totalDelayFrames + 10 {
             morphingProgress = progress
             
             let closureKey = "\(morphingEffect.description)\(LTMorphingPhases.skipFrames)"
@@ -283,7 +283,8 @@ extension LTMorphingLabel {
         if totalFrames == 0 {
             updateProgress(progress: 0)
         } else {
-            updateProgress(progress: Float(currentFrame + 1) / Float(totalFrames))
+            morphingProgress += 1.0 / Float(totalFrames)
+            updateProgress(progress: morphingProgress)
         }
     }
     

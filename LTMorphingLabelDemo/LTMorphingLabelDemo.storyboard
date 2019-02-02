@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IAM-hL-9eW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IAM-hL-9eW">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,6 +67,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="uft-oC-aVu"/>
                                 </constraints>
+                                <color key="maximumTrackTintColor" red="0.30549782390000002" green="0.0" blue="0.2343322595" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.73414486649999999" green="0.003415785264" blue="0.56606709960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="changeFontSize:" destination="3ei-2r-m0A" eventType="valueChanged" id="RPG-Ij-VXw"/>
                                 </connections>
@@ -79,26 +81,47 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="3"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lO7-Hn-KaX">
+                                <rect key="frame" x="594" y="224" width="51" height="31"/>
+                                <color key="onTintColor" red="0.61243192365132471" green="0.0" blue="0.46976621517848066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.73414486649999999" green="0.003415785264" blue="0.56606709960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="updateAutoStart:" destination="3ei-2r-m0A" eventType="valueChanged" id="uct-K6-Dxl"/>
+                                </connections>
+                            </switch>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="170" translatesAutoresizingMaskIntoConstraints="NO" id="SYv-GM-ZcQ">
+                                <rect key="frame" x="18" y="224.5" width="559" height="31"/>
+                                <color key="maximumTrackTintColor" red="0.30549782391039204" green="0.0" blue="0.23433225954000511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.73414486646652222" green="0.003415785264223814" blue="0.56606709957122803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="updateProgress:" destination="3ei-2r-m0A" eventType="valueChanged" id="Wq3-xc-LMd"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.73750000000000004" green="0.0" blue="0.56877266069999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EOd-vo-0jD" firstAttribute="top" secondItem="rE7-Va-JH8" secondAttribute="bottom" constant="20" id="7ro-9X-VKm"/>
+                            <constraint firstItem="SYv-GM-ZcQ" firstAttribute="leading" secondItem="upB-mu-6Xz" secondAttribute="leading" constant="20" id="DbV-iG-EcM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EOd-vo-0jD" secondAttribute="trailing" constant="4" id="DrY-mw-8sU"/>
                             <constraint firstItem="fqc-dc-WVn" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="FRI-HA-iwA"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="top" secondItem="3VJ-mH-2Xe" secondAttribute="bottom" constant="20" id="FbJ-XZ-R2b"/>
                             <constraint firstItem="fqc-dc-WVn" firstAttribute="top" secondItem="upB-mu-6Xz" secondAttribute="top" constant="20" id="JLl-ED-669"/>
+                            <constraint firstItem="SYv-GM-ZcQ" firstAttribute="centerY" secondItem="lO7-Hn-KaX" secondAttribute="centerY" id="SSM-o6-i6w"/>
                             <constraint firstItem="EOd-vo-0jD" firstAttribute="leading" secondItem="Ucn-av-UN6" secondAttribute="trailing" constant="30" id="TpR-XE-wc6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rE7-Va-JH8" secondAttribute="trailing" id="URl-uL-VkH"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="Uv1-gH-Yw5"/>
                             <constraint firstItem="Ucn-av-UN6" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="ato-cL-hIr"/>
+                            <constraint firstItem="lO7-Hn-KaX" firstAttribute="leading" secondItem="SYv-GM-ZcQ" secondAttribute="trailing" constant="19" id="cYN-Mq-FvX"/>
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="leading" secondItem="D5d-Wo-IoW" secondAttribute="leadingMargin" id="d9f-iq-G1D"/>
+                            <constraint firstItem="rE7-Va-JH8" firstAttribute="top" secondItem="lO7-Hn-KaX" secondAttribute="bottom" constant="20" id="dov-c6-FLk"/>
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="top" secondItem="upB-mu-6Xz" secondAttribute="top" constant="20" id="ev9-ly-VWf"/>
                             <constraint firstItem="upB-mu-6Xz" firstAttribute="bottom" secondItem="Ucn-av-UN6" secondAttribute="bottom" constant="22" id="fFq-dK-A0i"/>
                             <constraint firstItem="upB-mu-6Xz" firstAttribute="bottom" secondItem="EOd-vo-0jD" secondAttribute="bottom" constant="22" id="grd-XJ-WqJ"/>
                             <constraint firstItem="fqc-dc-WVn" firstAttribute="trailing" secondItem="D5d-Wo-IoW" secondAttribute="trailingMargin" id="izu-ll-ljE"/>
                             <constraint firstItem="rE7-Va-JH8" firstAttribute="top" secondItem="fqc-dc-WVn" secondAttribute="bottom" constant="20" id="k9Z-OZ-VrU"/>
                             <constraint firstItem="3VJ-mH-2Xe" firstAttribute="trailing" secondItem="D5d-Wo-IoW" secondAttribute="trailingMargin" id="o8d-0t-cq2"/>
+                            <constraint firstItem="upB-mu-6Xz" firstAttribute="trailing" secondItem="lO7-Hn-KaX" secondAttribute="trailing" constant="24" id="oPt-lM-mnb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="upB-mu-6Xz"/>
                     </view>
@@ -112,17 +135,18 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
+                        <outlet property="autoStart" destination="lO7-Hn-KaX" id="6UG-Ps-ekd"/>
                         <outlet property="label" destination="fqc-dc-WVn" id="glJ-ku-ziP"/>
+                        <outlet property="progressSlider" destination="SYv-GM-ZcQ" id="Qhe-p3-cbZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOt-ne-B2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1851" y="73"/>
+            <point key="canvasLocation" x="1850.824587706147" y="72.799999999999997"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BST-oi-p39">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vcq-7b-9Jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IAM-hL-9eW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Cel-o5-IrA"/>
@@ -141,6 +165,7 @@
                         <segue destination="3ei-2r-m0A" kind="relationship" relationship="rootViewController" id="Pr8-Cq-f6N"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcq-7b-9Jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1851" y="-700"/>
         </scene>
