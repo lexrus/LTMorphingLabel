@@ -18,7 +18,7 @@ public struct LTEasing {
     
     public static func easeOutQuint(_ t: Float, _ b: Float, _ c: Float, _ d: Float = 1.0) -> Float {
         return {
-            return c * ($0 * $0 * $0 * $0 * $0 + 1.0) + b
+            return c * (pow($0, 5) + 1.0) + b
             }(t / d - 1.0)
     }
     
