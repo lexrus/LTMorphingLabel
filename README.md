@@ -1,7 +1,7 @@
 # LTMorphingLabel
 
 [![Travis](https://img.shields.io/travis/lexrus/LTMorphingLabel.svg)](https://travis-ci.org/lexrus/LTMorphingLabel)
-![Language](https://img.shields.io/badge/language-Swift%204-orange.svg)
+![Language](https://img.shields.io/badge/language-Swift%205-orange.svg)
 [![CocoaPods](https://img.shields.io/cocoapods/v/LTMorphingLabel.svg?style=flat)](https://github.com/lexrus/LTMorphingLabel)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
@@ -36,7 +36,7 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 
 ## Requirements
 
-1. Xcode 10
+1. Xcode 10.3+
 2. iOS 8.0+
 
 ## Installation
@@ -78,14 +78,6 @@ And finally, [an Android port](https://github.com/hanks-zyh/HTextView).
 
 ### React Native
 You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-morphing-text)
-
-## Donation
-
-Buy me a coffee? Here is my wallet:
-
-BTC: `3MnMu3Q1UK63dRbwjhwqWSBVLWxy8SPk6b`
-
-ETH: `0x2884F4bE2cBA05395EE0EF997a44aA9B90fD2E2A`
 
 ## License
 
