@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/lexrus"
   s.ios.deployment_target = "8.0"
   s.tvos.deployment_target = "9.0"
+  s.swift_versions = ['5.0']
   s.source       = {
                     :git => "https://github.com/lexrus/LTMorphingLabel.git",
                     :tag => s.version
