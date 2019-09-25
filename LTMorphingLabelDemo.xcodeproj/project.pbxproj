@@ -128,7 +128,7 @@
 /* Begin PBXFileReference section */
 		D723B2CB196A3FD100B1BBE8 /* Sparkle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sparkle.png; sourceTree = "<group>"; };
 		D72CE5F420863C9D005BBDEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73DFD1B1F4DB5CC00F84122 /* tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "tvOS-Info.plist"; path = "/Users/lex/git/LTMorphingLabel/LTMorphingLabel/tvOS-Info.plist"; sourceTree = "<absolute>"; };
 		D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelUITests.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 				D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */,
 				D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */,
 				D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */,
-				D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */,
+				D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel.framework */,
 				D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */,
 			);
 			name = Products;
@@ -373,7 +373,7 @@
 			);
 			name = LTMorphingLabel_tvOS;
 			productName = LTMorphingLabel;
-			productReference = D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel_tvOS.framework */;
+			productReference = D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D73DFD1F1F5056A700F84122 /* LTMorphingLabelUITests */ = {
@@ -490,6 +490,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -708,11 +709,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LTMorphingLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -736,11 +737,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LTMorphingLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
