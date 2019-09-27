@@ -84,7 +84,7 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     }
     
     @IBAction func changeFontSize(_ sender: UISlider) {
-        label.font = UIFont.init(name: label.font.fontName, size: CGFloat(sender.value))
+        label.font = UIFont(descriptor: label.font.fontDescriptor, size: CGFloat(sender.value))
         label.text = label.text
     }
 }
