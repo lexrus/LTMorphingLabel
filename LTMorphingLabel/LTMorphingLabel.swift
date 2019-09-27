@@ -535,9 +535,7 @@ extension LTMorphingLabel {
                     .foregroundColor: textColor.withAlphaComponent(charLimbo.alpha)
                 ]
 
-                if let font = UIFont(name: font.fontName, size: charLimbo.size) {
-                    attrs[.font] = font
-                }
+                attrs[.font] = UIFont(descriptor: font.fontDescriptor, size: charLimbo.size)
                 
                 for (key, value) in textAttributes ?? [:] {
                     attrs[key] = value
