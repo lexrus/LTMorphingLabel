@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D74AD96D195171E7009A2ACD"
-               BuildableName = "LTMorphingLabelDemo.app"
+               BuildableName = "Morphing.app"
                BlueprintName = "LTMorphingLabelDemo"
                ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
             </BuildableReference>
@@ -27,6 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "D74AD96D195171E7009A2ACD"
+            BuildableName = "Morphing.app"
+            BlueprintName = "LTMorphingLabelDemo"
+            ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -49,17 +58,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D74AD96D195171E7009A2ACD"
-            BuildableName = "LTMorphingLabelDemo.app"
-            BlueprintName = "LTMorphingLabelDemo"
-            ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -76,13 +74,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D74AD96D195171E7009A2ACD"
-            BuildableName = "LTMorphingLabelDemo.app"
+            BuildableName = "Morphing.app"
             BlueprintName = "LTMorphingLabelDemo"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -95,7 +91,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D74AD96D195171E7009A2ACD"
-            BuildableName = "LTMorphingLabelDemo.app"
+            BuildableName = "Morphing.app"
             BlueprintName = "LTMorphingLabelDemo"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>

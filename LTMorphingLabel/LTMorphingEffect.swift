@@ -27,7 +27,10 @@
 
 import UIKit
 
-@objc public enum LTMorphingEffect: Int, CustomStringConvertible {
+@objc public enum LTMorphingEffect: Int, CustomStringConvertible, ExpressibleByIntegerLiteral, ExpressibleByStringLiteral, CaseIterable {
+    
+    public typealias IntegerLiteralType = Int
+    public typealias StringLiteralType = String
 
     case scale = 0
     case evaporate
@@ -58,6 +61,24 @@ import UIKit
         default:
             return "Scale"
         }
+    }
+    
+    public init(integerLiteral value: Int) {
+        self = LTMorphingEffect(rawValue: value) ?? .scale
+    }
+    
+    public init(stringLiteral value: String) {
+        self = {
+            switch value {
+            case "Evaporate": return .evaporate
+            case "Fall": return .fall
+            case "Pixelate": return .pixelate
+            case "Sparkle": return .sparkle
+            case "Burn": return .burn
+            case "Anvil": return .anvil
+            default: return .scale
+            }
+        }()
     }
 
 }

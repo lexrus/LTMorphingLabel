@@ -29,9 +29,9 @@
 		D720D07E1A5E923800747465 /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D720D07F1A5E923800747465 /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
 		D720D0801A5E923800747465 /* Fragment.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3A1975298000902C5C /* Fragment.png */; };
-		D72A94E01F7CAF8B007E5157 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; };
-		D72A94E11F7CAFA5007E5157 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; };
-		D73C19FA1AC2824100C1A824 /* LTMorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; };
+		D72A94E01F7CAF8B007E5157 /* MorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */; };
+		D72A94E11F7CAFA5007E5157 /* MorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */; };
+		D73C19FA1AC2824100C1A824 /* MorphingLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */; };
 		D73DFD021F4DB5CC00F84122 /* LTCharacterLimbo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF4F061AB5612C00D46A0E /* LTCharacterLimbo.swift */; };
 		D73DFD031F4DB5CC00F84122 /* LTEasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AFEC911962511C0006FA88 /* LTEasing.swift */; };
 		D73DFD041F4DB5CC00F84122 /* LTStringDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2C195965A00009D084 /* LTStringDiffResult.swift */; };
@@ -55,11 +55,12 @@
 		D74AD976195171E7009A2ACD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D74AD975195171E7009A2ACD /* Images.xcassets */; };
 		D74AD98D195173B5009A2ACD /* LTMorphingLabelDemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D74AD98C195173B5009A2ACD /* LTMorphingLabelDemo.storyboard */; };
 		D7633A2B195812020009D084 /* LTDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7633A2A195812020009D084 /* LTDemoViewController.swift */; };
+		D786856F2467A35800D4C46F /* MorphingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D764373D2467A01A0037C36B /* MorphingText.swift */; };
 		D7934DCB1A63AF1100AE04CE /* LTMorphingLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */; };
 		D797F6F91D2E992200531960 /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */; };
 		D797F6FA1D2EA47A00531960 /* LTCharacterDiffResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D797F6F81D2E992200531960 /* LTCharacterDiffResult.swift */; };
 		D7D4B0241A5E87D50087F83D /* LTMorphingLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7D4B0381A5E87D50087F83D /* LTMorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D7D4B0381A5E87D50087F83D /* MorphingLabel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7D4B03F1A5E8F6E0087F83D /* Fire.png in Resources */ = {isa = PBXBuildFile; fileRef = D757C31619742B1D00A34565 /* Fire.png */; };
 		D7D4B0401A5E8F6E0087F83D /* Sparkle.png in Resources */ = {isa = PBXBuildFile; fileRef = D723B2CB196A3FD100B1BBE8 /* Sparkle.png */; };
 		D7D4B0411A5E8F6E0087F83D /* Smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C98F3619750F6900902C5C /* Smoke.png */; };
@@ -118,7 +119,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D7D4B0381A5E87D50087F83D /* LTMorphingLabel.framework in Embed Frameworks */,
+				D7D4B0381A5E87D50087F83D /* MorphingLabel.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +134,7 @@
 		D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D73DFD221F5056A700F84122 /* LTMorphingLabelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelUITests.swift; sourceTree = "<group>"; };
 		D73DFD241F5056A700F84122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTMorphingLabelDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D74AD96E195171E7009A2ACD /* Morphing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morphing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74AD972195171E7009A2ACD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D74AD973195171E7009A2ACD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D74AD975195171E7009A2ACD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		D757C31619742B1D00A34565 /* Fire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fire.png; sourceTree = "<group>"; };
 		D7633A2A195812020009D084 /* LTDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDemoViewController.swift; sourceTree = "<group>"; };
 		D7633A2C195965A00009D084 /* LTStringDiffResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTStringDiffResult.swift; sourceTree = "<group>"; };
+		D764373D2467A01A0037C36B /* MorphingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphingText.swift; sourceTree = "<group>"; };
 		D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LTMorphingLabelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7934DC91A63AF1100AE04CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7934DCA1A63AF1100AE04CE /* LTMorphingLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTMorphingLabelTests.swift; sourceTree = "<group>"; };
@@ -154,7 +156,7 @@
 		D7C98F3619750F6900902C5C /* Smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Smoke.png; sourceTree = "<group>"; };
 		D7C98F381975265C00902C5C /* LTMorphingLabel+Anvil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LTMorphingLabel+Anvil.swift"; sourceTree = "<group>"; };
 		D7C98F3A1975298000902C5C /* Fragment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fragment.png; sourceTree = "<group>"; };
-		D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LTMorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MorphingLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7D4B0221A5E87D50087F83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7D4B0231A5E87D50087F83D /* LTMorphingLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTMorphingLabel.h; sourceTree = "<group>"; };
 		D7E537311B8CADF6008EF6D1 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72A94E11F7CAFA5007E5157 /* LTMorphingLabel.framework in Frameworks */,
+				D72A94E11F7CAFA5007E5157 /* MorphingLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D72A94E01F7CAF8B007E5157 /* LTMorphingLabel.framework in Frameworks */,
+				D72A94E01F7CAF8B007E5157 /* MorphingLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D73C19FA1AC2824100C1A824 /* LTMorphingLabel.framework in Frameworks */,
+				D73C19FA1AC2824100C1A824 /* MorphingLabel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +252,8 @@
 		D74AD96F195171E7009A2ACD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */,
-				D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */,
+				D74AD96E195171E7009A2ACD /* Morphing.app */,
+				D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */,
 				D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */,
 				D73DFD1A1F4DB5CC00F84122 /* LTMorphingLabel.framework */,
 				D73DFD201F5056A700F84122 /* LTMorphingLabelUITests.xctest */,
@@ -297,8 +299,17 @@
 				D757C30C1974243400A34565 /* LTMorphingLabel+Burn.swift */,
 				D7C98F381975265C00902C5C /* LTMorphingLabel+Anvil.swift */,
 				D70FB1FB19685C3300EF9B84 /* Particles */,
+				D7868570246848E100D4C46F /* SwiftUI */,
 			);
 			path = LTMorphingLabel;
+			sourceTree = "<group>";
+		};
+		D7868570246848E100D4C46F /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				D764373D2467A01A0037C36B /* MorphingText.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		D7934DC71A63AF1100AE04CE /* LTMorphingLabelTests */ = {
@@ -412,7 +423,7 @@
 			);
 			name = LTMorphingLabelDemo;
 			productName = LTMorphingLabelDemo;
-			productReference = D74AD96E195171E7009A2ACD /* LTMorphingLabelDemo.app */;
+			productReference = D74AD96E195171E7009A2ACD /* Morphing.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */ = {
@@ -449,7 +460,7 @@
 			);
 			name = LTMorphingLabel;
 			productName = LTMorphingLabel;
-			productReference = D7D4B01F1A5E87D50087F83D /* LTMorphingLabel.framework */;
+			productReference = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -490,7 +501,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -645,6 +655,7 @@
 				D720D06B1A5E91CB00747465 /* LTEasing.swift in Sources */,
 				D720D06C1A5E91CB00747465 /* LTStringDiffResult.swift in Sources */,
 				D7EF4F041AB5608000D46A0E /* LTMorphingEffect.swift in Sources */,
+				D786856F2467A35800D4C46F /* MorphingText.swift in Sources */,
 				D720D06D1A5E91CB00747465 /* LTMorphingLabel.swift in Sources */,
 				D797F6F91D2E992200531960 /* LTCharacterDiffResult.swift in Sources */,
 				D720D06E1A5E91CB00747465 /* LTMorphingLabel+Evaporate.swift in Sources */,
@@ -708,7 +719,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabel;
 				PRODUCT_NAME = LTMorphingLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -736,7 +747,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabel;
 				PRODUCT_NAME = LTMorphingLabel;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -905,8 +916,8 @@
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lextang.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabelDemo;
+				PRODUCT_NAME = Morphing;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -928,8 +939,8 @@
 				INFOPLIST_FILE = LTMorphingLabelDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lextang.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabelDemo;
+				PRODUCT_NAME = Morphing;
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -989,8 +1000,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabel;
+				PRODUCT_NAME = MorphingLabel;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1014,8 +1025,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.LexTang.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = sh.lex.LTMorphingLabel;
+				PRODUCT_NAME = MorphingLabel;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
