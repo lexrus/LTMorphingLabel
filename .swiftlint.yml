@@ -5,6 +5,7 @@ disabled_rules:
   - colon
   - identifier_name
   - type_name
+  - comma
 excluded:
   - Carthage
   - Pods

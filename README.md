@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/lexrus/LTMorphingLabel.svg?style=flat)
 
 A morphing UILabel subclass written in Swift.
-The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) in WWDC 2014. New morphing effects are available as Swift extensions.
+The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) of WWDC 2014. New morphing effects are available as Swift extensions.
 
 ## enum LTMorphingEffect: Int, Printable
 
@@ -34,6 +34,23 @@ The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://
 
 #### [.Anvil](https://github.com/lexrus/LTMorphingLabel/blob/master/LTMorphingLabel/LTMorphingLabel%2BAnvil.swift)
 <img src="https://cloud.githubusercontent.com/assets/219689/3594949/815cd3e8-0caa-11e4-9738-278a9c959478.gif" width="300" height="70" alt="LTMorphingLabel-Anvil"/>
+
+## SwiftUI
+
+![LTMorphingLabelSwiftUI](https://user-images.githubusercontent.com/219689/81505494-2c528c80-9322-11ea-9bdb-b208dd38a5e6.png)
+
+```swift
+public var body: some View {
+    VStack {
+        MorphingText(
+            "Awesome Morphing Text",
+            effect: .evaporate,
+            font: UIFont.systemFont(ofSize: 20),
+            textColor: .black,
+            textAlignment: .center
+        ).frame(maxWidth: 200, maxHeight: 100)
+        ...
+```
 
 ## Requirements
 

@@ -92,8 +92,8 @@ struct MorphingText_Previews: PreviewProvider {
                 MorphingText(
                     textArray[Int(round(textIndex))],
                     effect: LTMorphingEffect.allCases[Int(round(effectIndex))],
-                    font: UIFont.systemFont(ofSize: 30),
-                    textColor: .red
+                    font: UIFont.systemFont(ofSize: 20),
+                    textColor: .white
                 )
                     .frame(maxWidth: 200, maxHeight: 100)
                 
