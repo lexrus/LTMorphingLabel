@@ -101,6 +101,10 @@ public var body: some View {
 
 Open the project with Xcode then press command + u.
 
+## Sponsership
+
+![https://images.gitads.io/LTMorphingLabel](https://tracking.gitads.io/?repo=LTMorphingLabel)
+
 ## Alternative
 
 Even though this lib was used in
