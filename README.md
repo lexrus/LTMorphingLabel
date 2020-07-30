@@ -10,7 +10,7 @@
 A morphing UILabel subclass written in Swift.
 The ```.Scale``` effect mimicked [Apple's QuickType animation of iOS 8](https://youtu.be/w87fOAG8fjk?t=3451) of WWDC 2014. New morphing effects are available as Swift extensions.
 
-## Sponsership
+## Sponsorship
 
 <a href="https://tracking.gitads.io/?repo=LTMorphingLabel"><img src="https://images.gitads.io/LTMorphingLabel" alt="GitAds"/></a>
 
