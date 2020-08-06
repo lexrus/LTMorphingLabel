@@ -54,7 +54,7 @@ public var body: some View {
 
 ## Requirements
 
-1. Xcode 10.3+
+1. Xcode 11.6+
 2. iOS 8.0+
 
 ## Installation
