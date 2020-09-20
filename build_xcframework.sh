@@ -1,12 +1,12 @@
 #!/bin/bash
 
 PROJECT_FILE="LTMorphingLabelDemo.xcodeproj"
-SCHEME="LTMorphingLabel"
+SCHEME="MorphingLabel"
 BUILD_FOLDER="Build/MorphingLabel"
 
 mkdir -p Build
 
-iOS Simulator
+# iOS Simulator
 xcodebuild archive -project "$PROJECT_FILE" -scheme "$SCHEME" -configuration Release \
 	-archivePath "$BUILD_FOLDER/Simulator" \
 	-sdk iphonesimulator \

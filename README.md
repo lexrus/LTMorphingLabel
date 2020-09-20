@@ -85,7 +85,7 @@ You can manually download the pre-compiled LTMorphingLabel.xcframework.zip from 
 1. Add the following to your Package.swift:
 
   ```swift
-  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.1")),
+  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.2")),
   ```
 
 2. Next, add `LTMorphingLabel` to your App targets dependencies like so:
