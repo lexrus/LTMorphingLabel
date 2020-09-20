@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D7D4B01E1A5E87D50087F83D"
-               BuildableName = "LTMorphingLabel.framework"
+               BuildableName = "MorphingLabel.framework"
                BlueprintName = "LTMorphingLabel"
                ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7D4B01E1A5E87D50087F83D"
-            BuildableName = "LTMorphingLabel.framework"
+            BuildableName = "MorphingLabel.framework"
             BlueprintName = "LTMorphingLabel"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>
@@ -73,7 +73,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7D4B01E1A5E87D50087F83D"
-            BuildableName = "LTMorphingLabel.framework"
+            BuildableName = "MorphingLabel.framework"
             BlueprintName = "LTMorphingLabel"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>
@@ -89,7 +89,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D7D4B01E1A5E87D50087F83D"
-            BuildableName = "LTMorphingLabel.framework"
+            BuildableName = "MorphingLabel.framework"
             BlueprintName = "LTMorphingLabel"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>

@@ -31,14 +31,21 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         i = i >= textArray.count - 1 ? 0 : i + 1
         return textArray[i]
     }
+    
+    @IBOutlet weak var effectSegmentControl: UISegmentedControl!
+    @IBOutlet weak var themeSegmentControl: UISegmentedControl!
+    @IBOutlet fileprivate var label: LTMorphingLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         label.delegate = self
+        
+        [effectSegmentControl, themeSegmentControl].forEach {
+            $0?.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
+            $0?.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+        }
     }
-
-    @IBOutlet fileprivate var label: LTMorphingLabel!
     
     @IBAction func changeText(_ sender: AnyObject) {
         label.text = text

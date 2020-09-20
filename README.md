@@ -54,8 +54,8 @@ public var body: some View {
 
 ## Requirements
 
-1. Xcode 11.6+
-2. iOS 8.0+
+1. Xcode 12
+2. iOS 9.0+
 
 ## Installation
 
@@ -69,7 +69,7 @@ public var body: some View {
 1. Add the following to your Package.swift:
 
   ```swift
-  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.7.0")),
+  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.0")),
   ```
 
 2. Next, add `LTMorphingLabel` to your App targets dependencies like so:

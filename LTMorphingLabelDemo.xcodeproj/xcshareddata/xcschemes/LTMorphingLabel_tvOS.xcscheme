@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D73DFD001F4DB5CC00F84122"
-               BuildableName = "LTMorphingLabel_tvOS.framework"
+               BuildableName = "LTMorphingLabel.framework"
                BlueprintName = "LTMorphingLabel_tvOS"
                ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
             </BuildableReference>
@@ -29,8 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -46,13 +44,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D73DFD001F4DB5CC00F84122"
-            BuildableName = "LTMorphingLabel_tvOS.framework"
+            BuildableName = "LTMorphingLabel.framework"
             BlueprintName = "LTMorphingLabel_tvOS"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -64,7 +60,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D73DFD001F4DB5CC00F84122"
-            BuildableName = "LTMorphingLabel_tvOS.framework"
+            BuildableName = "LTMorphingLabel.framework"
             BlueprintName = "LTMorphingLabel_tvOS"
             ReferencedContainer = "container:LTMorphingLabelDemo.xcodeproj">
          </BuildableReference>
