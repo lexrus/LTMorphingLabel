@@ -2,21 +2,24 @@
 import PackageDescription
 
 let package = Package(
-    name: "LTMorphingLabel",
+    name: "MorphingLabel",
     products: [
-        .library(name: "LTMorphingLabel", targets: ["LTMorphingLabel"]),
-        .library(name: "LTMorphingLabelXCFramework", targets: ["LTMorphingLabelXCFramework"])
+        .library(name: "MorphingLabel", targets: ["MorphingLabel"]),
+        .library(name: "MorphingLabel.xcframework", targets: ["MorphingLabel.xcframework"])
     ],
     targets: [
         .target(
-            name: "LTMorphingLabel",
+            name: "MorphingLabel",
             path: "LTMorphingLabel",
-            exclude: ["LTMorphingLabel/SwiftUI/MorphingText.swift"]
+            exclude: ["SwiftUI/MorphingText.swift"],
+            resources: [
+                .process("Particles/*.png")
+            ]
         ),
-        .target(
-            name: "LTMorphingLabelXCFramework",
-            url: "https://github.com/lexrus/LTMorphingLabel/releases/download/0.9.1/LTMorphingLabel.framework.zip",
-            checksum: "c40d71025beb8be5855cf78c0a4ab8d16762d183adce2b5196cff3d3a3c65c2e"
+        .binaryTarget(
+            name: "MorphingLabel.xcframework",
+            url: "https://github.com/lexrus/LTMorphingLabel/releases/download/0.9.1/MorphingLabel.xcframework.zip",
+            checksum: "04cdc84ff3245c4c5fe3c6abf2b3ad9ec27e5b3a992650716b924c819620c472"
         )
     ]
 )

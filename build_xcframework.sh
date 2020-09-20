@@ -2,7 +2,7 @@
 
 PROJECT_FILE="LTMorphingLabelDemo.xcodeproj"
 SCHEME="LTMorphingLabel"
-BUILD_FOLDER="Build/LTMorphingLabel"
+BUILD_FOLDER="Build/MorphingLabel"
 
 mkdir -p Build
 
@@ -32,19 +32,19 @@ xcodebuild archive -project "$PROJECT_FILE" -scheme "$SCHEME" -configuration Rel
 
 # XCFramework
 xcodebuild -create-xcframework \
-	-framework Build/LTMorphingLabel/iOS.xcarchive/Products/Library/Frameworks/MorphingLabel.framework \
-	-framework Build/LTMorphingLabel/tvOS.xcarchive/Products/Library/Frameworks/MorphingLabel.framework \
-	-framework Build/LTMorphingLabel/Simulator.xcarchive/Products/Library/Frameworks/MorphingLabel.framework \
-	-framework Build/LTMorphingLabel/tvOSSimulator.xcarchive/Products/Library/Frameworks/MorphingLabel.framework \
-	-output Build/LTMorphinLabel.xcframework
+	-framework "$BUILD_FOLDER/iOS.xcarchive/Products/Library/Frameworks/MorphingLabel.framework" \
+	-framework "$BUILD_FOLDER/tvOS.xcarchive/Products/Library/Frameworks/MorphingLabel.framework" \
+	-framework "$BUILD_FOLDER/Simulator.xcarchive/Products/Library/Frameworks/MorphingLabel.framework" \
+	-framework "$BUILD_FOLDER/tvOSSimulator.xcarchive/Products/Library/Frameworks/MorphingLabel.framework" \
+	-output Build/MorphingLabel.xcframework
 
 cd Build
 
 # Compress
-zip -vry LTMorphingLabel.xcframework.zip LTMorphinLabel.xcframework/ -x "*.DS_Store"
+zip -vry MorphingLabel.xcframework.zip MorphingLabel.xcframework/ -x "*.DS_Store"
 
 # Checksum for Package.swift
-swift package compute-checksum LTMorphingLabel.xcframework.zip | pbcopy
+swift package compute-checksum MorphingLabel.xcframework.zip | pbcopy
 
 # Open in Finder
 open ./
