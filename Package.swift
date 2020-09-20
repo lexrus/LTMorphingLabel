@@ -10,7 +10,7 @@ let package = Package(
         .target(
             name: "LTMorphingLabel",
             path: "LTMorphingLabel",
-            exclude: "LTMorphingLabel/SwiftUI/MorphingText.swift"
-        )
+            exclude: ["LTMorphingLabel/SwiftUI/MorphingText.swift"]
+        ) 
     ]
 )
