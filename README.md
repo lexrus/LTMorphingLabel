@@ -59,17 +59,35 @@ public var body: some View {
 
 ## Installation
 
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+1. File > Swift Packages > Add Package Dependency
+2. Copy & paste `https://github.com/lexrus/LTMorphingLabel` then follow the instruction
+3. Select the source framework or the xcframework
+
+### [XCFramework](https://developer.apple.com/videos/play/wwdc2019/416/)
+
+XCFramework is a new option intruduced in Xcode 11.
+Download the pre-compiled LTMorphingLabel.xcframework.zip from the [Releases](https://github.com/lexrus/LTMorphingLabel/releases) page.
+You may also use the binaryTarget of Swift Package Manager with Xcode 12.
+
 ### [Carthage](https://github.com/Carthage/Carthage)
 
 1. Add this line to your Cartfile: `github "lexrus/LTMorphingLabel"`
 2. Read the [official instruction](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
+
+### [CocoaPods](http://cocoapods.org)
+
+1. Install the latest release of CocoaPods: `gem install cocoapods`
+2. Add this line to your Podfile: `pod 'LTMorphingLabel'`
+3. Install the pod: `pod install`
 
 ### [Accio](https://github.com/JamitLabs/Accio)
 
 1. Add the following to your Package.swift:
 
   ```swift
-  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.0")),
+  .package(url: "https://github.com/lexrus/LTMorphingLabel.git", .upToNextMajor(from: "0.9.1")),
   ```
 
 2. Next, add `LTMorphingLabel` to your App targets dependencies like so:
@@ -84,12 +102,6 @@ public var body: some View {
   ```
 
 3. Then run `accio update`.
-
-### [CocoaPods](http://cocoapods.org)
-
-1. Install the latest release of CocoaPods: `gem install cocoapods`
-2. Add this line to your Podfile: `pod 'LTMorphingLabel'`
-3. Install the pod: `pod install`
 
 ## Usage
 
@@ -116,6 +128,7 @@ And finally, [an Android port](https://github.com/hanks-zyh/HTextView).
 ## Third Party Bindings
 
 ### React Native
+
 You may now use this library with [React Native](https://github.com/facebook/react-native) via the module [here](https://github.com/prscX/react-native-morphing-text)
 
 ## License
