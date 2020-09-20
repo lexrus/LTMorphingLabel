@@ -371,9 +371,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D73DFD001F4DB5CC00F84122 /* LTMorphingLabel_tvOS */ = {
+		D73DFD001F4DB5CC00F84122 /* MorphingLabel_tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabel_tvOS" */;
+			buildConfigurationList = D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "MorphingLabel_tvOS" */;
 			buildPhases = (
 				D73DFD011F4DB5CC00F84122 /* Sources */,
 				D73DFD0F1F4DB5CC00F84122 /* Frameworks */,
@@ -384,7 +384,7 @@
 			);
 			dependencies = (
 			);
-			name = LTMorphingLabel_tvOS;
+			name = MorphingLabel_tvOS;
 			productName = LTMorphingLabel;
 			productReference = D73DFD1A1F4DB5CC00F84122 /* MorphingLabel.framework */;
 			productType = "com.apple.product-type.framework";
@@ -447,9 +447,9 @@
 			productReference = D7934DC61A63AF1100AE04CE /* LTMorphingLabelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */ = {
+		D7D4B01E1A5E87D50087F83D /* MorphingLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D7D4B03D1A5E87D50087F83D /* Build configuration list for PBXNativeTarget "LTMorphingLabel" */;
+			buildConfigurationList = D7D4B03D1A5E87D50087F83D /* Build configuration list for PBXNativeTarget "MorphingLabel" */;
 			buildPhases = (
 				D7D4B01A1A5E87D50087F83D /* Sources */,
 				D7D4B01B1A5E87D50087F83D /* Frameworks */,
@@ -460,7 +460,7 @@
 			);
 			dependencies = (
 			);
-			name = LTMorphingLabel;
+			name = MorphingLabel;
 			productName = LTMorphingLabel;
 			productReference = D7D4B01F1A5E87D50087F83D /* MorphingLabel.framework */;
 			productType = "com.apple.product-type.framework";
@@ -512,9 +512,9 @@
 			projectRoot = "";
 			targets = (
 				D74AD96D195171E7009A2ACD /* LTMorphingLabelDemo */,
-				D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */,
+				D7D4B01E1A5E87D50087F83D /* MorphingLabel */,
 				D7934DC51A63AF1100AE04CE /* LTMorphingLabelTests */,
-				D73DFD001F4DB5CC00F84122 /* LTMorphingLabel_tvOS */,
+				D73DFD001F4DB5CC00F84122 /* MorphingLabel_tvOS */,
 				D73DFD1F1F5056A700F84122 /* LTMorphingLabelUITests */,
 			);
 		};
@@ -586,7 +586,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -675,17 +675,17 @@
 /* Begin PBXTargetDependency section */
 		D72A94DE1F7CAF6D007E5157 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */;
+			target = D7D4B01E1A5E87D50087F83D /* MorphingLabel */;
 			targetProxy = D72A94DD1F7CAF6D007E5157 /* PBXContainerItemProxy */;
 		};
 		D72A94E31F7CAFAA007E5157 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */;
+			target = D7D4B01E1A5E87D50087F83D /* MorphingLabel */;
 			targetProxy = D72A94E21F7CAFAA007E5157 /* PBXContainerItemProxy */;
 		};
 		D73C19F91AC2823900C1A824 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D7D4B01E1A5E87D50087F83D /* LTMorphingLabel */;
+			target = D7D4B01E1A5E87D50087F83D /* MorphingLabel */;
 			targetProxy = D73C19F81AC2823900C1A824 /* PBXContainerItemProxy */;
 		};
 		D73C19FC1AC28DAA00C1A824 /* PBXTargetDependency */ = {
@@ -1065,7 +1065,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "LTMorphingLabel_tvOS" */ = {
+		D73DFD171F4DB5CC00F84122 /* Build configuration list for PBXNativeTarget "MorphingLabel_tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D73DFD181F4DB5CC00F84122 /* Debug */,
@@ -1110,7 +1110,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D7D4B03D1A5E87D50087F83D /* Build configuration list for PBXNativeTarget "LTMorphingLabel" */ = {
+		D7D4B03D1A5E87D50087F83D /* Build configuration list for PBXNativeTarget "MorphingLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D7D4B0391A5E87D50087F83D /* Debug */,

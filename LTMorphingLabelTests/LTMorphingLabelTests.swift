@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import LTMorphingLabel
+import MorphingLabel
 
 class LTMorphingLabelTests : XCTestCase {
     

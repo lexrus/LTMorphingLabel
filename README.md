@@ -63,13 +63,11 @@ public var body: some View {
 
 1. File > Swift Packages > Add Package Dependency
 2. Copy & paste `https://github.com/lexrus/LTMorphingLabel` then follow the instruction
-3. Select the source framework or the xcframework
 
 ### [XCFramework](https://developer.apple.com/videos/play/wwdc2019/416/)
 
-XCFramework is a new option intruduced in Xcode 11.
-Download the pre-compiled LTMorphingLabel.xcframework.zip from the [Releases](https://github.com/lexrus/LTMorphingLabel/releases) page.
-You may also use the binaryTarget of Swift Package Manager with Xcode 12.
+XCFramework is a new option introduced in Xcode 11.
+You can manually download the pre-compiled LTMorphingLabel.xcframework.zip from the [Releases](https://github.com/lexrus/LTMorphingLabel/releases) page. Then drag and drop it into your project.
 
 ### [Carthage](https://github.com/Carthage/Carthage)
 
