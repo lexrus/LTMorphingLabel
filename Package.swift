@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -9,7 +9,8 @@ let package = Package(
     targets: [
         .target(
             name: "LTMorphingLabel",
-            path: "LTMorphingLabel"
+            path: "LTMorphingLabel",
+            exclude: "LTMorphingLabel/SwiftUI/MorphingText.swift"
         )
     ]
 )
