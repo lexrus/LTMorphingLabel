@@ -91,9 +91,12 @@ extension LTMorphingLabel {
                 .font: self.font as Any,
                 .foregroundColor: self.textColor.withAlphaComponent(fadeOutAlpha)
             ])
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            guard let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            else {
+                return UIImage()
+            }
             UIGraphicsEndImageContext()
-            return newImage!
+            return newImage
     }
     
 }
