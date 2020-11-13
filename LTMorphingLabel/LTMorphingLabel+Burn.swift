@@ -53,7 +53,10 @@ extension LTMorphingLabel {
                 .font: self.font as Any,
                 .foregroundColor: self.textColor as Any
                 ])
-            let newImage = UIGraphicsGetImageFromCurrentImageContext()
+            guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
+                    return (UIImage() , .zero)
+                }
+        
             UIGraphicsEndImageContext()
             let newRect = CGRect(
                 x: charLimbo.rect.origin.x,
@@ -61,7 +64,7 @@ extension LTMorphingLabel {
                 width: charLimbo.rect.size.width,
                 height: maskedHeight
             )
-        return (newImage!, newRect)
+        return (newImage, newRect)
     }
 
     @objc
