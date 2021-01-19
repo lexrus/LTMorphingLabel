@@ -19,8 +19,8 @@ let package = Package(
         ),
         .binaryTarget(
             name: "LTMorphingLabel",
-            url: "https://github.com/lexrus/LTMorphingLabel/releases/download/0.9.2/LTMorphingLabel.xcframework.zip",
-            checksum: "352b9e31aa455969c676eb2a546142e7040655d9a26d5277ba2dda00ce534446"
+            url: "https://github.com/lexrus/LTMorphingLabel/releases/download/0.9.3/LTMorphingLabel.xcframework.zip",
+            checksum: "28a0ed8b7df12c763d45b7dde2aa41fd843984b79e6fbd3750f2fc1a6c247a13"
         )
     ]
 )
