@@ -163,14 +163,14 @@ typealias LTMorphingSkipFramesClosure =
     open func start() {
         guard displayLink == nil else { return }
         displayLink = CADisplayLink(target: self, selector: #selector(displayFrameTick))
-        displayLink?.add(to: .current, forMode: RunLoop.Mode.common)
+        displayLink?.add(to: .current, forMode: .common)
     }
 
     open func pause() {
         displayLink?.isPaused = true
     }
     
-    open func unpause() {
+    open func resume() {
         displayLink?.isPaused = false
     }
     
@@ -179,7 +179,7 @@ typealias LTMorphingSkipFramesClosure =
     }
     
     open func stop() {
-        displayLink?.remove(from: .current, forMode: RunLoop.Mode.common)
+        displayLink?.remove(from: .current, forMode: .common)
         displayLink?.invalidate()
         displayLink = nil
     }
@@ -232,6 +232,7 @@ extension LTMorphingLabel {
 
     public func updateProgress(progress: Float) {
         guard let displayLink = displayLink else { return }
+
         if displayLink.duration > 0.0 && totalFrames == 0 {
             var frameRate = Float(0)
             if #available(iOS 10.0, tvOS 10.0, *) {

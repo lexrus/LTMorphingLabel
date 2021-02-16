@@ -64,7 +64,7 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     @IBAction func updateAutoStart(_ sender: Any) {
         progressSlider.isHidden = autoStart.isOn
         if autoStart.isOn {
-            label.unpause()
+            label.resume()
         } else {
             changeText(NSObject())
         }
@@ -73,7 +73,8 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
     @IBOutlet weak var progressSlider: UISlider!
     
     @IBAction func updateProgress(_ sender: Any) {
-        label.updateProgress(progress: progressSlider.value / 100)
+        label.morphingProgress = progressSlider.value / 100
+        label.setNeedsDisplay()
     }
     
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

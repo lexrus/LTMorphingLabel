@@ -6,6 +6,7 @@ disabled_rules:
   - identifier_name
   - type_name
   - comma
+  - closure_parameter_position
 excluded:
   - Carthage
   - Pods

@@ -33,7 +33,7 @@ extension LTMorphingLabel {
     func EvaporateLoad() {
         
         progressClosures["Evaporate\(LTMorphingPhases.progress)"] = {
-            (index: Int, progress: Float, isNewChar: Bool) in
+            (index: Int, _, isNewChar: Bool) in
             let j: Int = Int(round(cos(Double(index)) * 1.2))
             let delay = isNewChar ? self.morphingCharacterDelay * -1.0 : self.morphingCharacterDelay
             return min(1.0, max(0.0, self.morphingProgress + delay * Float(j)))
