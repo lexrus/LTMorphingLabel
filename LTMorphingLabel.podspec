@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
                     :git => "https://github.com/lexrus/LTMorphingLabel.git",
                     :tag => s.version
                    }
-  s.source_files = "LTMorphingLabel/*.{h,swift}"
+  s.source_files = "LTMorphingLabel/*.{h,swift}", "LTMorphingLabel/**/*.{swift}"
   s.resources    = "LTMorphingLabel/Particles/*.png"
   s.frameworks   = "UIKit", "Foundation", "QuartzCore"
   s.requires_arc = true
