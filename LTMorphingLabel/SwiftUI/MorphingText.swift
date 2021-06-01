@@ -35,10 +35,7 @@ public struct MorphingText: UIViewRepresentable {
     }
 
     public func makeUIView(context: Context) -> UIViewType {
-        let label = LTMorphingLabel(frame: CGRect(origin: .zero, size: CGSize(width: 200, height: 50)))
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        return label
+        LTMorphingLabel()
     }
 
     public func updateUIView(_ uiView: UIViewType, context: Context) {
