@@ -11,10 +11,12 @@ let package = Package(
     targets: [
         .target(
             name: "MorphingLabel",
-            path: "LTMorphingLabel",
-            exclude: ["SwiftUI"],
+            exclude: [
+                "Info.plist",
+                "tvOS-Info.plist"
+            ],
             resources: [
-                .process("Particles/*.png")
+                .process("Particles")
             ]
         ),
         .binaryTarget(
