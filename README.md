@@ -116,7 +116,7 @@ public var body: some View {
     VStack {
         MorphingText(
             "This is a test",
-            effect: .burn,
+            effect: .burn, // Specify an alternative morphing effect with this line
             font: UIFont.systemFont(ofSize: 20),
             textColor: .black,
             textAlignment: .center
