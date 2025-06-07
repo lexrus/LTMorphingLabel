@@ -202,6 +202,11 @@ The Android port of this library is available [here](https://github.com/hanks-zy
 
 The React Native port of this library is available [here](https://github.com/prscX/react-native-morphing-text).
 
+
+### Sponsor
+
+[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
+
 ## License
 
 This code is distributed under the terms and conditions of the MIT license.
