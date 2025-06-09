@@ -209,7 +209,4 @@ This code is distributed under the terms and conditions of the MIT license.
 ## Sponsers
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg)](https://www.digitalocean.com/?refcode=3eb5cf371fc9&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
-
-[![RackNerd Large Mobile Banner](https://racknerd.com/banners/320x100.gif)](https://my.racknerd.com/aff.php?aff=14112)
-
-[![Powered by DartNode](https://dartnode.com/branding/DN-Open-Source-sm.png)](https://dartnode.com "Powered by DartNode - Free VPS for Open Source")
+[![RackNerd Large Mobile Banner](https://racknerd.com/banners/320x50.gif)](https://my.racknerd.com/aff.php?aff=14112)
